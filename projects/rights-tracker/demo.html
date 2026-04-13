@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Music — Rights Management Tool</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0e1117; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useMemo, useCallback } = React;
+ 
+ 
+/* ═══════════════════════════════════════════════════════════════
+   MERIDIAN MUSIC — Rights Management Tool (Portfolio Prototype)
+   ═══════════════════════════════════════════════════════════════ */
+ 
+const DB = [
+  {
+    id: "VIR-ALB-001", albumTitle: "Siamese Dream", artist: "The Smashing Pumpkins", upc: "077778618621",
+    label: "Virgin Records", distributor: "Virgin Records America", genre: "Rock", subgenre: "Alternative Rock",
+    releaseDate: "1993-07-27", copyrightP: "1993 Virgin Records America, Inc.", copyrightC: "1993 Virgin Records America, Inc.",
+    territory: "US", availableMarkets: "Worldwide", licenseType: "Streaming",
+    licenseStart: "2025-01-01", licenseEnd: "2027-12-31", explicit: false, language: "en",
+    rightsValidated: "Validated", submissionStatus: "Accepted",
+    asperaPath: "root/Virgin_Records/The_Smashing_Pumpkins/Siamese_Dream",
+    notifications: [],
+    tracks: [
+      { num: 1, title: "Cherub Rock", isrc: "USVI29300001", duration: "4:58", bpm: 138, key: "D", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 2, title: "Quiet", isrc: "USVI29300002", duration: "5:22", bpm: 132, key: "E", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 3, title: "Today", isrc: "USVI29300003", duration: "3:22", bpm: 128, key: "Eb", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 4, title: "Hummer", isrc: "USVI29300004", duration: "6:54", bpm: 96, key: "E", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 5, title: "Rocket", isrc: "USVI29300005", duration: "6:38", bpm: 120, key: "A", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 6, title: "Disarm", isrc: "USVI29300006", duration: "3:18", bpm: 132, key: "Eb", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 7, title: "Soma", isrc: "USVI29300007", duration: "6:40", bpm: 72, key: "B", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 8, title: "Geek U.S.A.", isrc: "USVI29300008", duration: "5:13", bpm: 168, key: "A", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 9, title: "Mayonaise", isrc: "USVI29300009", duration: "5:51", bpm: 104, key: "Eb", songwriters: "Billy Corgan, James Iha", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 10, title: "Spaceboy", isrc: "USVI29300010", duration: "4:24", bpm: 80, key: "G", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 11, title: "Silverfuck", isrc: "USVI29300011", duration: "8:43", bpm: 116, key: "D", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 12, title: "Sweet Sweet", isrc: "USVI29300012", duration: "1:37", bpm: 120, key: "C", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+      { num: 13, title: "Luna", isrc: "USVI29300013", duration: "4:39", bpm: 108, key: "C", songwriters: "Billy Corgan", producers: "Butch Vig, Billy Corgan", explicit: false },
+    ],
+  },
+  {
+    id: "LAF-ALB-002", albumTitle: "ATLiens", artist: "OutKast", upc: "078636637020",
+    label: "LaFace Records", distributor: "Arista Records", genre: "Hip-Hop/Rap", subgenre: "Southern Hip Hop",
+    releaseDate: "1996-08-27", copyrightP: "1996 LaFace Records LLC", copyrightC: "1996 LaFace Records LLC",
+    territory: "", availableMarkets: "Worldwide", licenseType: "Streaming",
+    licenseStart: "2025-03-01", licenseEnd: "", explicit: true, language: "en",
+    rightsValidated: "Errors", submissionStatus: "Not Submitted",
+    asperaPath: "root/LaFace_Records/OutKast/ATLiens",
+    notifications: [
+      { id: "RV-001", severity: "Error", field: "Territory", message: "Territory is required. Provide a valid ISO 3166-1 territory code.", source: "ValidateRightsRecord", timestamp: "2026-04-10T09:00:00Z" },
+      { id: "RV-002", severity: "Error", field: "LicenseEnd", message: "License end date is required for Streaming license type.", source: "ValidateRightsRecord", timestamp: "2026-04-10T09:00:00Z" },
+    ],
+    tracks: [
+      { num: 1, title: "You May Die (Intro)", isrc: "USLA49600001", duration: "5:39", bpm: 88, key: "Cm", songwriters: "A. Benjamin, A. Patton, Organized Noize", producers: "Organized Noize", explicit: true },
+      { num: 2, title: "Two Dope Boyz", isrc: "USLA49600002", duration: "4:10", bpm: 96, key: "Fm", songwriters: "A. Benjamin, A. Patton, Organized Noize", producers: "Organized Noize", explicit: true },
+      { num: 3, title: "ATLiens", isrc: "USLA49600003", duration: "4:44", bpm: 90, key: "Gm", songwriters: "A. Benjamin, A. Patton, Organized Noize", producers: "Organized Noize", explicit: true },
+      { num: 4, title: "Wheelz of Steel", isrc: "USLA49600004", duration: "4:55", bpm: 100, key: "Am", songwriters: "A. Benjamin, A. Patton, Organized Noize", producers: "Organized Noize", explicit: true },
+      { num: 5, title: "Jazzy Belle", isrc: "USLA49600005", duration: "4:38", bpm: 84, key: "Eb", songwriters: "A. Benjamin, A. Patton, Organized Noize", producers: "Organized Noize", explicit: true },
+      { num: 6, title: "Elevators (Me & You)", isrc: "USLA49600006", duration: "4:41", bpm: 78, key: "Cm", songwriters: "A. Benjamin, A. Patton, Organized Noize", producers: "Organized Noize", explicit: true },
+      { num: 7, title: "Babylon", isrc: "USLA49600007", duration: "3:33", bpm: 86, key: "Fm", songwriters: "A. Benjamin, A. Patton, Organized Noize", producers: "Organized Noize", explicit: true },
+      { num: 8, title: "13th Floor / Growing Old", isrc: "USLA49600008", duration: "6:06", bpm: 72, key: "Dm", songwriters: "A. Benjamin, A. Patton, Organized Noize", producers: "Organized Noize", explicit: true },
+    ],
+  },
+  {
+    id: "MAV-ALB-003", albumTitle: "Everything in Transit", artist: "Jack's Mannequin", upc: "093624934820",
+    label: "Maverick Records", distributor: "Warner Bros. Records", genre: "Rock", subgenre: "Piano Rock",
+    releaseDate: "2005-08-23", copyrightP: "2005 Maverick Recording Company", copyrightC: "2005 Maverick Recording Company",
+    territory: "US", availableMarkets: "Worldwide", licenseType: "Streaming",
+    licenseStart: "2025-06-01", licenseEnd: "2027-05-31", explicit: false, language: "en",
+    rightsValidated: "Not Validated", submissionStatus: "Not Submitted",
+    asperaPath: "root/Maverick_Records/Jacks_Mannequin/Everything_in_Transit",
+    notifications: [],
+    tracks: [
+      { num: 1, title: "Holiday from Real", isrc: "", duration: "4:27", bpm: 132, key: "C", songwriters: "Andrew McMahon", producers: "John Fields", explicit: false },
+      { num: 2, title: "The Mixed Tape", isrc: "", duration: "3:41", bpm: 140, key: "Bb", songwriters: "Andrew McMahon", producers: "John Fields", explicit: false },
+      { num: 3, title: "Bruised", isrc: "", duration: "4:13", bpm: 128, key: "Eb", songwriters: "Andrew McMahon", producers: "John Fields", explicit: false },
+      { num: 4, title: "La La Lie", isrc: "", duration: "3:03", bpm: 152, key: "A", songwriters: "Andrew McMahon", producers: "John Fields", explicit: false },
+      { num: 5, title: "Dark Blue", isrc: "", duration: "4:36", bpm: 126, key: "F", songwriters: "Andrew McMahon", producers: "John Fields", explicit: false },
+      { num: 6, title: "Rescued", isrc: "", duration: "3:24", bpm: 144, key: "C", songwriters: "Andrew McMahon", producers: "John Fields", explicit: false },
+      { num: 7, title: "Into the Airwaves", isrc: "", duration: "4:59", bpm: 124, key: "C", songwriters: "Andrew McMahon", producers: "John Fields", explicit: false },
+    ],
+  },
+  {
+    id: "WBR-ALB-004", albumTitle: "Automatic for the People", artist: "R.E.M.", upc: "093624505228",
+    label: "Warner Bros. Records", distributor: "Warner Bros. Records", genre: "Rock", subgenre: "Alternative Rock",
+    releaseDate: "1992-10-05", copyrightP: "1992 Warner Bros. Records Inc.", copyrightC: "1992 Warner Bros. Records Inc.",
+    territory: "US", availableMarkets: "Worldwide", licenseType: "Streaming",
+    licenseStart: "2024-01-01", licenseEnd: "2025-12-31", explicit: false, language: "en",
+    rightsValidated: "Validated", submissionStatus: "Accepted",
+    asperaPath: "root/Warner_Bros_Records/REM/Automatic_for_the_People",
+    notifications: [{ id: "RW-001", severity: "Warning", field: "LicenseEnd", message: "License expired on 2025-12-31. Contact distributor to initiate renewal.", source: "LicenseMonitor", timestamp: "2026-04-01T08:00:00Z" }],
+    tracks: [
+      { num: 1, title: "Drive", isrc: "USWA19200001", duration: "4:31", bpm: 84, key: "Dm", songwriters: "Berry, Buck, Mills, Stipe", producers: "Scott Litt, R.E.M.", explicit: false },
+      { num: 2, title: "Try Not to Breathe", isrc: "USWA19200002", duration: "3:50", bpm: 126, key: "Am", songwriters: "Berry, Buck, Mills, Stipe", producers: "Scott Litt, R.E.M.", explicit: false },
+      { num: 3, title: "Everybody Hurts", isrc: "USWA19200003", duration: "5:17", bpm: 68, key: "D", songwriters: "Berry, Buck, Mills, Stipe", producers: "Scott Litt, R.E.M.", explicit: false },
+      { num: 4, title: "Man on the Moon", isrc: "USWA19200004", duration: "5:13", bpm: 124, key: "C", songwriters: "Berry, Buck, Mills, Stipe", producers: "Scott Litt, R.E.M.", explicit: false },
+      { num: 5, title: "Nightswimming", isrc: "USWA19200005", duration: "4:17", bpm: 108, key: "G", songwriters: "Berry, Buck, Mills, Stipe", producers: "Scott Litt, R.E.M.", explicit: false },
+      { num: 6, title: "Find the River", isrc: "USWA19200006", duration: "3:50", bpm: 96, key: "C", songwriters: "Berry, Buck, Mills, Stipe", producers: "Scott Litt, R.E.M.", explicit: false },
+    ],
+  },
+  {
+    id: "COL-ALB-005", albumTitle: "Illmatic", artist: "Nas", upc: "074645380629",
+    label: "Columbia Records", distributor: "Sony Music", genre: "Hip-Hop/Rap", subgenre: "East Coast Hip Hop",
+    releaseDate: "1994-04-19", copyrightP: "1994 Columbia Records", copyrightC: "1994 Sony Music Entertainment Inc.",
+    territory: "US", availableMarkets: "Worldwide", licenseType: "Streaming",
+    licenseStart: "2025-06-01", licenseEnd: "2028-05-31", explicit: true, language: "en",
+    rightsValidated: "Not Validated", submissionStatus: "Not Submitted",
+    asperaPath: "root/Columbia_Records/Nas/Illmatic",
+    notifications: [],
+    tracks: [
+      { num: 1, title: "The Genesis", isrc: "USSM19400001", duration: "1:44", bpm: 90, key: "Cm", songwriters: "Nasir Jones", producers: "No I.D.", explicit: true },
+      { num: 2, title: "N.Y. State of Mind", isrc: "USSM19400002", duration: "4:54", bpm: 92, key: "Dm", songwriters: "Nasir Jones, DJ Premier", producers: "DJ Premier", explicit: true },
+      { num: 3, title: "Life's a Bitch", isrc: "USSM19400003", duration: "3:30", bpm: 84, key: "Fm", songwriters: "N. Jones, A. Cruz, R. Wilson", producers: "L.E.S.", explicit: true },
+      { num: 4, title: "The World Is Yours", isrc: "USSM19400004", duration: "4:50", bpm: 86, key: "Am", songwriters: "Nasir Jones, Pete Rock", producers: "Pete Rock", explicit: true },
+      { num: 5, title: "Halftime", isrc: "USSM19400005", duration: "4:20", bpm: 96, key: "Gm", songwriters: "Nasir Jones, Large Professor", producers: "Large Professor", explicit: true },
+      { num: 6, title: "Memory Lane", isrc: "USSM19400006", duration: "4:09", bpm: 88, key: "Em", songwriters: "Nasir Jones, DJ Premier", producers: "DJ Premier", explicit: true },
+      { num: 7, title: "One Love", isrc: "USSM19400007", duration: "5:24", bpm: 82, key: "Am", songwriters: "Nasir Jones, Q-Tip", producers: "Q-Tip", explicit: true },
+      { num: 8, title: "Represent", isrc: "USSM19400008", duration: "4:12", bpm: 94, key: "Dm", songwriters: "Nasir Jones, DJ Premier", producers: "DJ Premier", explicit: true },
+      { num: 9, title: "It Ain't Hard to Tell", isrc: "USSM19400009", duration: "3:22", bpm: 98, key: "Bb", songwriters: "Nasir Jones, Large Professor", producers: "Large Professor", explicit: true },
+    ],
+  },
+  {
+    id: "FAN-ALB-006", albumTitle: "Cosmo's Factory", artist: "Creedence Clearwater Revival", upc: "025218845120",
+    label: "Fantasy Records", distributor: "Concord Music", genre: "Rock", subgenre: "Roots Rock",
+    releaseDate: "1970-07-16", copyrightP: "1970 Fantasy Records", copyrightC: "1970 Fantasy Records",
+    territory: "US", availableMarkets: "Worldwide", licenseType: "Streaming",
+    licenseStart: "2025-02-01", licenseEnd: "2028-01-31", explicit: false, language: "en",
+    rightsValidated: "Validated", submissionStatus: "Accepted",
+    asperaPath: "root/Fantasy_Records/CCR/Cosmos_Factory",
+    notifications: [],
+    tracks: [
+      { num: 1, title: "Ramble Tamble", isrc: "USFA17000001", duration: "7:09", bpm: 130, key: "E", songwriters: "John Fogerty", producers: "John Fogerty", explicit: false },
+      { num: 2, title: "Travelin' Band", isrc: "USFA17000002", duration: "2:08", bpm: 170, key: "E", songwriters: "John Fogerty", producers: "John Fogerty", explicit: false },
+      { num: 3, title: "Lookin' Out My Back Door", isrc: "USFA17000003", duration: "2:31", bpm: 136, key: "G", songwriters: "John Fogerty", producers: "John Fogerty", explicit: false },
+      { num: 4, title: "Run Through the Jungle", isrc: "USFA17000004", duration: "3:05", bpm: 120, key: "Dm", songwriters: "John Fogerty", producers: "John Fogerty", explicit: false },
+      { num: 5, title: "Up Around the Bend", isrc: "USFA17000005", duration: "2:41", bpm: 144, key: "D", songwriters: "John Fogerty", producers: "John Fogerty", explicit: false },
+      { num: 6, title: "Who'll Stop the Rain", isrc: "USFA17000006", duration: "2:29", bpm: 118, key: "G", songwriters: "John Fogerty", producers: "John Fogerty", explicit: false },
+      { num: 7, title: "I Heard It Through the Grapevine", isrc: "USFA17000007", duration: "11:04", bpm: 104, key: "Em", songwriters: "N. Whitfield, B. Strong", producers: "John Fogerty", explicit: false },
+      { num: 8, title: "Long as I Can See the Light", isrc: "USFA17000008", duration: "3:33", bpm: 72, key: "Bb", songwriters: "John Fogerty", producers: "John Fogerty", explicit: false },
+    ],
+  },
+  {
+    id: "ELK-ALB-007", albumTitle: "Tracy Chapman", artist: "Tracy Chapman", upc: "075596088626",
+    label: "Elektra Records", distributor: "Warner Music Group", genre: "Folk", subgenre: "Singer-Songwriter",
+    releaseDate: "1988-04-05", copyrightP: "1988 Elektra Records", copyrightC: "1988 Elektra Records",
+    territory: "US", availableMarkets: "Worldwide", licenseType: "Streaming",
+    licenseStart: "2025-01-15", licenseEnd: "2026-06-14", explicit: false, language: "en",
+    rightsValidated: "Validated", submissionStatus: "Accepted",
+    asperaPath: "root/Elektra_Records/Tracy_Chapman/Tracy_Chapman",
+    notifications: [{ id: "RW-010", severity: "Warning", field: "LicenseEnd", message: "License expires within 90 days (2026-06-14). Contact distributor to initiate renewal.", source: "LicenseMonitor", timestamp: "2026-04-01T08:00:00Z" }],
+    tracks: [
+      { num: 1, title: "Talkin' Bout a Revolution", isrc: "USEL18800001", duration: "2:38", bpm: 104, key: "G", songwriters: "Tracy Chapman", producers: "David Kershenbaum", explicit: false },
+      { num: 2, title: "Fast Car", isrc: "USEL18800002", duration: "4:57", bpm: 104, key: "C", songwriters: "Tracy Chapman", producers: "David Kershenbaum", explicit: false },
+      { num: 3, title: "Across the Lines", isrc: "USEL18800003", duration: "3:24", bpm: 118, key: "Am", songwriters: "Tracy Chapman", producers: "David Kershenbaum", explicit: false },
+      { num: 4, title: "Baby Can I Hold You", isrc: "USEL18800004", duration: "3:13", bpm: 96, key: "D", songwriters: "Tracy Chapman", producers: "David Kershenbaum", explicit: false },
+      { num: 5, title: "Mountains o' Things", isrc: "USEL18800005", duration: "4:39", bpm: 108, key: "Am", songwriters: "Tracy Chapman", producers: "David Kershenbaum", explicit: false },
+      { num: 6, title: "For My Lover", isrc: "USEL18800006", duration: "3:17", bpm: 120, key: "Am", songwriters: "Tracy Chapman", producers: "David Kershenbaum", explicit: false },
+    ],
+  },
+  {
+    id: "SCR-ALB-008", albumTitle: "Welcome Interstate Managers", artist: "Fountains of Wayne", upc: "724358260021",
+    label: "S-Curve Records", distributor: "Virgin Records", genre: "Rock", subgenre: "Power Pop",
+    releaseDate: "2003-06-03", copyrightP: "2003 S-Curve Records", copyrightC: "2003 S-Curve Records",
+    territory: "", availableMarkets: "Worldwide", licenseType: "Streaming",
+    licenseStart: "2025-09-01", licenseEnd: "2027-08-31", explicit: false, language: "en",
+    rightsValidated: "Not Validated", submissionStatus: "Not Submitted",
+    asperaPath: "root/S-Curve_Records/Fountains_of_Wayne/Welcome_Interstate_Managers",
+    notifications: [],
+    tracks: [
+      { num: 1, title: "Mexican Wine", isrc: "GBBKS0300001", duration: "3:20", bpm: 144, key: "A", songwriters: "C. Collingwood, A. Schlesinger", producers: "Adam Schlesinger", explicit: false },
+      { num: 2, title: "Stacy's Mom", isrc: "GBBKS0300002", duration: "3:17", bpm: 120, key: "E", songwriters: "C. Collingwood, A. Schlesinger", producers: "Adam Schlesinger", explicit: false },
+      { num: 3, title: "Hackensack", isrc: "GBBKS0300003", duration: "3:28", bpm: 108, key: "C", songwriters: "C. Collingwood, A. Schlesinger", producers: "Adam Schlesinger", explicit: false },
+      { num: 4, title: "Valley Winter Song", isrc: "GBBKS0300004", duration: "3:52", bpm: 76, key: "Bb", songwriters: "C. Collingwood, A. Schlesinger", producers: "Adam Schlesinger", explicit: false },
+      { num: 5, title: "Hey Julie", isrc: "GBBKS0300005", duration: "3:31", bpm: 132, key: "D", songwriters: "C. Collingwood, A. Schlesinger", producers: "Adam Schlesinger", explicit: false },
+      { num: 6, title: "All Kinds of Time", isrc: "GBBKS0300006", duration: "3:39", bpm: 100, key: "G", songwriters: "C. Collingwood, A. Schlesinger", producers: "Adam Schlesinger", explicit: false },
+    ],
+  },
+  {
+    id: "ZEL-ALB-009", albumTitle: "Cheap Queen", artist: "King Princess", upc: "886448080428",
+    label: "Zelig Records", distributor: "Columbia Records", genre: "Pop", subgenre: "Indie Pop",
+    releaseDate: "2019-10-25", copyrightP: "2019 Zelig Records/Columbia", copyrightC: "2019 Zelig Records/Columbia",
+    territory: "US", availableMarkets: "Worldwide", licenseType: "Streaming",
+    licenseStart: "2025-04-01", licenseEnd: "2027-03-31", explicit: true, language: "en",
+    rightsValidated: "Validated", submissionStatus: "Processing",
+    asperaPath: "root/Zelig_Records/King_Princess/Cheap_Queen",
+    notifications: [],
+    tracks: [
+      { num: 1, title: "Tough on Myself", isrc: "USSM11900001", duration: "3:22", bpm: 95, key: "Eb", songwriters: "Mikaela Straus, Mark Ronson", producers: "Mark Ronson", explicit: false },
+      { num: 2, title: "Cheap Queen", isrc: "USSM11900002", duration: "3:41", bpm: 110, key: "A", songwriters: "Mikaela Straus", producers: "King Princess", explicit: false },
+      { num: 3, title: "Prophet", isrc: "USSM11900003", duration: "3:39", bpm: 120, key: "Dm", songwriters: "Mikaela Straus", producers: "King Princess", explicit: false },
+      { num: 4, title: "Hit the Back", isrc: "USSM11900004", duration: "2:50", bpm: 102, key: "G", songwriters: "Mikaela Straus", producers: "King Princess", explicit: true },
+      { num: 5, title: "Ain't Together", isrc: "USSM11900005", duration: "3:45", bpm: 76, key: "C", songwriters: "Mikaela Straus", producers: "King Princess, Mark Ronson", explicit: false },
+      { num: 6, title: "Useless Phrases", isrc: "USSM11900006", duration: "4:11", bpm: 88, key: "Am", songwriters: "Mikaela Straus", producers: "King Princess", explicit: false },
+      { num: 7, title: "Watching My Phone", isrc: "USSM11900007", duration: "3:12", bpm: 130, key: "F", songwriters: "Mikaela Straus", producers: "King Princess", explicit: false },
+    ],
+  },
+  {
+    id: "CAP-ALB-010", albumTitle: "Heard It in a Past Life", artist: "Maggie Rogers", upc: "602577150425",
+    label: "Capitol Records", distributor: "Universal Music Group", genre: "Pop", subgenre: "Indie Pop",
+    releaseDate: "2019-01-18", copyrightP: "2019 Capitol Records", copyrightC: "2019 Capitol Records",
+    territory: "US", availableMarkets: "Worldwide", licenseType: "Streaming",
+    licenseStart: "2025-03-15", licenseEnd: "2027-03-14", explicit: false, language: "en",
+    rightsValidated: "Not Validated", submissionStatus: "Not Submitted",
+    asperaPath: "root/Capitol_Records/Maggie_Rogers/Heard_It_in_a_Past_Life",
+    notifications: [],
+    tracks: [
+      { num: 1, title: "Give a Little", isrc: "USCA11900001", duration: "3:30", bpm: 112, key: "A", songwriters: "Maggie Rogers, Rostam", producers: "Maggie Rogers, Rostam", explicit: false },
+      { num: 2, title: "Overnight", isrc: "USCA11900002", duration: "3:11", bpm: 120, key: "Em", songwriters: "Maggie Rogers", producers: "Maggie Rogers", explicit: false },
+      { num: 3, title: "The Knife", isrc: "USCA11900003", duration: "3:24", bpm: 132, key: "D", songwriters: "Maggie Rogers", producers: "Maggie Rogers", explicit: false },
+      { num: 4, title: "Alaska", isrc: "USCA11900004", duration: "3:40", bpm: 96, key: "G", songwriters: "Maggie Rogers", producers: "Maggie Rogers", explicit: false },
+      { num: 5, title: "Light On", isrc: "USCA11900005", duration: "3:42", bpm: 126, key: "C", songwriters: "Maggie Rogers", producers: "Maggie Rogers, Rostam", explicit: false },
+      { num: 6, title: "Past Life", isrc: "USCA11900006", duration: "4:38", bpm: 88, key: "Am", songwriters: "Maggie Rogers, Kid Harpoon", producers: "Maggie Rogers", explicit: false },
+      { num: 7, title: "Back in My Body", isrc: "USCA11900007", duration: "4:05", bpm: 116, key: "D", songwriters: "Maggie Rogers", producers: "Maggie Rogers", explicit: false },
+      { num: 8, title: "Burning", isrc: "USCA11900008", duration: "3:55", bpm: 84, key: "Em", songwriters: "Maggie Rogers", producers: "Maggie Rogers", explicit: false },
+      { num: 9, title: "Fallingwater", isrc: "USCA11900009", duration: "4:45", bpm: 100, key: "G", songwriters: "Maggie Rogers", producers: "Maggie Rogers, Rostam", explicit: false },
+      { num: 10, title: "Terminal", isrc: "", duration: "1:16", bpm: 0, key: "C", songwriters: "Maggie Rogers", producers: "Maggie Rogers", explicit: false },
+    ],
+  },
+  {
+    id: "NTR-ALB-011", albumTitle: "Moment of Truth", artist: "Gang Starr", upc: "724349543829",
+    label: "Noo Trybe Records", distributor: "Virgin Records America", genre: "Hip-Hop/Rap", subgenre: "East Coast Hip Hop",
+    releaseDate: "1998-03-31", copyrightP: "1998 Noo Trybe Records", copyrightC: "1998 Noo Trybe/Virgin Records",
+    territory: "US", availableMarkets: "Worldwide", licenseType: "Streaming",
+    licenseStart: "", licenseEnd: "2027-12-31", explicit: true, language: "en",
+    rightsValidated: "Not Validated", submissionStatus: "Not Submitted",
+    asperaPath: "root/Noo_Trybe_Records/Gang_Starr/Moment_of_Truth",
+    notifications: [],
+    tracks: [
+      { num: 1, title: "You Know My Steez", isrc: "USNT19800001", duration: "3:50", bpm: 90, key: "Cm", songwriters: "K. Elam, C. Martin", producers: "DJ Premier", explicit: true },
+      { num: 2, title: "Robbin' Hood Theory", isrc: "USNT19800002", duration: "3:39", bpm: 86, key: "Fm", songwriters: "K. Elam, C. Martin", producers: "DJ Premier", explicit: true },
+      { num: 3, title: "Work", isrc: "USNT19800003", duration: "4:05", bpm: 94, key: "Gm", songwriters: "K. Elam, C. Martin", producers: "DJ Premier", explicit: true },
+      { num: 4, title: "Moment of Truth", isrc: "USNT19800004", duration: "4:44", bpm: 84, key: "Am", songwriters: "K. Elam, C. Martin", producers: "DJ Premier", explicit: true },
+      { num: 5, title: "JFK 2 LAX", isrc: "USNT19800005", duration: "4:18", bpm: 92, key: "Dm", songwriters: "K. Elam, C. Martin", producers: "DJ Premier", explicit: true },
+      { num: 6, title: "Above the Clouds", isrc: "USNT19800006", duration: "4:11", bpm: 88, key: "Em", songwriters: "K. Elam, C. Martin", producers: "DJ Premier", explicit: true },
+      { num: 7, title: "The Militia", isrc: "USNT19800007", duration: "4:34", bpm: 96, key: "Cm", songwriters: "K. Elam, C. Martin", producers: "DJ Premier", explicit: true },
+    ],
+  },
+];
+ 
+/* ── Color palette: dark slate + teal accent ── */
+const C = { bg: "#0e1117", srf: "#161b22", srf2: "#1c2129", brd: "#2d333b", brdL: "#373e47", fg: "#e6edf3", fgM: "#8b949e", fgF: "#545d68", acc: "#3fb8af", accDim: "rgba(63,184,175,0.12)", accBrd: "rgba(63,184,175,0.3)", err: "#f47067", errDim: "rgba(244,112,103,0.12)", warn: "#e3b341", warnDim: "rgba(227,179,65,0.12)", ok: "#3fb950", okDim: "rgba(63,185,80,0.12)" };
+ 
+function Badge({ value }) {
+  const m = { "Validated": { bg: C.okDim, c: C.ok, b: "rgba(63,185,80,0.25)" }, "Errors": { bg: C.errDim, c: C.err, b: "rgba(244,112,103,0.25)" }, "Not Validated": { bg: "rgba(139,148,158,0.1)", c: C.fgM, b: "rgba(139,148,158,0.2)" }, "Accepted": { bg: C.accDim, c: C.acc, b: C.accBrd }, "Not Submitted": { bg: "rgba(139,148,158,0.1)", c: C.fgM, b: "rgba(139,148,158,0.2)" }, "Processing": { bg: C.warnDim, c: C.warn, b: "rgba(227,179,65,0.25)" } };
+  const s = m[value] || m["Not Validated"];
+  return <span style={{ display: "inline-block", padding: "3px 10px", borderRadius: "9999px", fontSize: "11px", fontWeight: 600, background: s.bg, color: s.c, border: `1px solid ${s.b}`, whiteSpace: "nowrap" }}>{value}</span>;
+}
+ 
+function validate(a) {
+  const e = []; const p = (s, f, m) => e.push({ severity: s, field: f, message: m });
+  if (!a.territory) p("Error", "Territory", "Territory is required.");
+  if (!a.licenseStart) p("Error", "License Start", "License start date is required.");
+  if (!a.licenseEnd) p("Error", "License End", "License end date is required.");
+  if (a.licenseEnd && new Date(a.licenseEnd) < new Date()) p("Warning", "License End", `Expired on ${a.licenseEnd}.`);
+  else if (a.licenseEnd && new Date(a.licenseEnd) < new Date(Date.now() + 90*86400000)) p("Warning", "License End", `Expires within 90 days (${a.licenseEnd}).`);
+  if (!a.upc) p("Error", "UPC", "UPC barcode is required.");
+  if (!a.copyrightP) p("Error", "Copyright", "Sound recording copyright required.");
+  const mi = a.tracks.filter(t => !t.isrc);
+  if (mi.length > 0) p("Error", "ISRC", `${mi.length}/${a.tracks.length} tracks missing ISRC.`);
+  if (!e.some(x => x.severity === "Error") && !e.some(x => x.severity === "Warning")) p("Pass", "All Fields", "All rights fields validated.");
+  return e;
+}
+ 
+function Detail({ album: a, onClose, onUpdate }) {
+  const [tab, setTab] = useState("rights");
+  const [vr, setVr] = useState(null);
+  const [ld, setLd] = useState(null);
+  const [toast, setToast] = useState(null);
+  const doV = useCallback(() => { setLd("v"); setTimeout(() => { const r = validate(a); setVr(r); const hasErr = r.some(x => x.severity === "Error"); onUpdate(a.id, { rightsValidated: hasErr ? "Errors" : "Validated", notifications: hasErr ? r.filter(x => x.severity !== "Pass").map((x, i) => ({ id: `RV-${i}`, severity: x.severity, field: x.field, message: x.message, source: "ValidateRightsRecord", timestamp: new Date().toISOString() })) : a.notifications.filter(n => n.severity === "Warning") }); setToast({ ok: !hasErr, m: hasErr ? `${r.filter(x => x.severity === "Error").length} error(s).` : "Validated." }); setLd(null); }, 1200); }, [a, onUpdate]);
+  const doS = useCallback(() => { setLd("s"); setTimeout(() => { onUpdate(a.id, { submissionStatus: "Processing" }); setTimeout(() => { onUpdate(a.id, { submissionStatus: "Accepted" }); setToast({ ok: true, m: "Accepted." }); }, 1500); setToast({ ok: true, m: "Processing..." }); setLd(null); }, 1000); }, [a, onUpdate]);
+  const canV = a.rightsValidated !== "Validated", canS = a.rightsValidated === "Validated" && a.submissionStatus !== "Accepted";
+  return (
+    <>
+      <div onClick={onClose} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 90 }} />
+      <div style={{ position: "fixed", top: 0, right: 0, bottom: 0, width: "min(660px,100vw)", background: C.srf, zIndex: 100, display: "flex", flexDirection: "column", boxShadow: "-8px 0 30px rgba(0,0,0,0.5)", animation: "slideIn .25s ease", color: C.fg }}>
+        <div style={{ padding: "20px 24px", borderBottom: `1px solid ${C.brd}`, display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+          <div>
+            <div style={{ fontSize: "17px", fontWeight: 700 }}>{a.albumTitle}</div>
+            <div style={{ fontSize: "13px", color: C.fgM, marginTop: "3px" }}>{a.artist} — {a.label}</div>
+            <div style={{ fontSize: "11px", color: C.fgF, marginTop: "6px", fontFamily: "'SF Mono', Menlo, monospace", background: C.bg, padding: "4px 8px", borderRadius: "4px", display: "inline-block", border: `1px solid ${C.brd}` }}>{a.asperaPath}</div>
+          </div>
+          <div style={{ display: "flex", gap: "8px", alignItems: "center", flexShrink: 0 }}>
+            {canV && <button onClick={doV} disabled={!!ld} style={{ padding: "7px 16px", border: "none", borderRadius: "6px", background: ld === "v" ? C.fgF : C.acc, color: C.bg, fontSize: "12px", fontWeight: 700, cursor: ld ? "not-allowed" : "pointer" }}>{ld === "v" ? "Validating..." : "Validate"}</button>}
+            {canS && <button onClick={doS} disabled={!!ld} style={{ padding: "7px 16px", border: "none", borderRadius: "6px", background: ld === "s" ? C.fgF : C.acc, color: C.bg, fontSize: "12px", fontWeight: 700, cursor: ld ? "not-allowed" : "pointer" }}>{ld === "s" ? "Submitting..." : "Submit"}</button>}
+            {a.submissionStatus === "Accepted" && <span style={{ padding: "7px 14px", borderRadius: "6px", background: C.accDim, color: C.acc, fontSize: "12px", fontWeight: 600 }}>✓ Accepted</span>}
+            <button onClick={onClose} style={{ background: C.srf2, border: `1px solid ${C.brd}`, borderRadius: "6px", width: "32px", height: "32px", cursor: "pointer", fontSize: "16px", color: C.fgM, display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+          </div>
+        </div>
+        {toast && <div style={{ margin: "0 24px", marginTop: "10px", padding: "9px 14px", borderRadius: "6px", fontSize: "12px", fontWeight: 500, background: toast.ok ? C.okDim : C.errDim, color: toast.ok ? C.ok : C.err, display: "flex", justifyContent: "space-between" }}><span>{toast.m}</span><button onClick={() => setToast(null)} style={{ background: "none", border: "none", cursor: "pointer", color: "inherit" }}>✕</button></div>}
+        <div style={{ padding: "0 24px", borderBottom: `1px solid ${C.brd}`, display: "flex", marginTop: toast ? "6px" : 0 }}>
+          {[{ k: "rights", l: "Rights & License", c: a.notifications.length }, { k: "metadata", l: "Track Metadata", c: a.tracks.length }].map(t => (
+            <button key={t.k} onClick={() => setTab(t.k)} style={{ padding: "11px 18px", border: "none", background: "none", cursor: "pointer", fontSize: "13px", fontWeight: 600, color: tab === t.k ? C.fg : C.fgM, borderBottom: tab === t.k ? `2px solid ${C.acc}` : "2px solid transparent" }}>
+              {t.l} <span style={{ background: tab === t.k ? C.accDim : C.srf2, color: tab === t.k ? C.acc : C.fgM, fontSize: "10px", fontWeight: 700, borderRadius: "9999px", padding: "1px 7px", marginLeft: "4px" }}>{t.c}</span>
+            </button>
+          ))}
+        </div>
+        <div style={{ padding: "20px 24px", overflow: "auto", flex: 1 }}>
+          {tab === "rights" && (
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ border: `1px solid ${C.brd}`, borderRadius: "8px", overflow: "hidden" }}>
+                <div style={{ padding: "12px 16px", background: C.bg, borderBottom: `1px solid ${C.brd}`, fontSize: "11px", fontWeight: 700, color: C.fgM, textTransform: "uppercase", letterSpacing: "0.08em" }}>License Information</div>
+                {[["License Type", a.licenseType], ["Territory", a.territory || "—"], ["Markets", a.availableMarkets], ["License Start", a.licenseStart || "—"], ["License End", a.licenseEnd || "—"], ["UPC", a.upc], ["Label", a.label], ["Distributor", a.distributor], ["Copyright (P)", a.copyrightP], ["Copyright (C)", a.copyrightC], ["Explicit", a.explicit ? "Yes" : "No"], ["Language", a.language], ["Released", a.releaseDate], ["Tracks", `${a.tracks.length}`], ["ISRC Coverage", `${a.tracks.filter(t => t.isrc).length}/${a.tracks.length}`], ["Asset Path", a.asperaPath]].map(([l, v], i) => (
+                  <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "10px 16px", borderBottom: `1px solid ${C.bg}`, fontSize: "13px" }}>
+                    <span style={{ color: C.fgM }}>{l}</span>
+                    <span style={{ color: v === "—" ? C.err : C.fg, fontWeight: 500, textAlign: "right", maxWidth: "60%", wordBreak: "break-word", fontFamily: l === "Asset Path" || l === "UPC" ? "'SF Mono', Menlo, monospace" : "inherit", fontSize: l === "Asset Path" ? "11px" : "13px" }}>{v}</span>
+                  </div>
+                ))}
+              </div>
+              {vr && <div><div style={{ fontSize: "11px", fontWeight: 700, color: C.fgM, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "10px" }}>Validation Results</div><div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>{vr.map((r, i) => { const cl = r.severity === "Error" ? { bg: C.errDim, b: "rgba(244,112,103,0.2)", a: C.err } : r.severity === "Warning" ? { bg: C.warnDim, b: "rgba(227,179,65,0.2)", a: C.warn } : { bg: C.okDim, b: "rgba(63,185,80,0.2)", a: C.ok }; return <div key={i} style={{ background: cl.bg, border: `1px solid ${cl.b}`, borderLeft: `3px solid ${cl.a}`, borderRadius: "6px", padding: "9px 12px", fontSize: "12px", color: C.fg }}><span style={{ fontWeight: 700, color: cl.a }}>{r.severity === "Pass" ? "✓" : r.severity === "Error" ? "✗" : "⚠"} {r.field}</span> <span style={{ marginLeft: "6px" }}>{r.message}</span></div>; })}</div></div>}
+              {a.notifications.length > 0 && <div><div style={{ fontSize: "11px", fontWeight: 700, color: C.fgM, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "10px" }}>Notifications</div><div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>{a.notifications.map(n => { const cl = n.severity === "Error" ? { bg: C.errDim, b: "rgba(244,112,103,0.2)", a: C.err } : { bg: C.warnDim, b: "rgba(227,179,65,0.2)", a: C.warn }; return <div key={n.id} style={{ background: cl.bg, border: `1px solid ${cl.b}`, borderLeft: `3px solid ${cl.a}`, borderRadius: "6px", padding: "9px 12px", fontSize: "12px" }}><div style={{ fontWeight: 700, color: cl.a, marginBottom: "3px" }}>{n.severity} — {n.field}</div><div style={{ color: C.fg }}>{n.message}</div><div style={{ color: C.fgF, fontSize: "11px", marginTop: "3px" }}>{n.source}</div></div>; })}</div></div>}
+            </div>
+          )}
+          {tab === "metadata" && (
+            <div style={{ border: `1px solid ${C.brd}`, borderRadius: "8px", overflow: "hidden" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px" }}>
+                <thead><tr>{["#", "Title", "ISRC", "Duration", "BPM", "Key", "Songwriters", "Producers", ""].map(h => <th key={h} style={{ padding: "10px 10px", background: C.bg, color: C.fgM, fontWeight: 600, fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.06em", textAlign: "left", borderBottom: `1px solid ${C.brd}`, whiteSpace: "nowrap" }}>{h}</th>)}</tr></thead>
+                <tbody>{a.tracks.map((t, i) => (
+                  <tr key={i} style={{ background: i % 2 === 0 ? C.srf : C.srf2 }} onMouseEnter={e => { e.currentTarget.style.background = C.brd; }} onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? C.srf : C.srf2; }}>
+                    <td style={{ padding: "9px 10px", borderBottom: `1px solid ${C.bg}`, color: C.fgF, fontWeight: 600 }}>{t.num}</td>
+                    <td style={{ padding: "9px 10px", borderBottom: `1px solid ${C.bg}`, fontWeight: 600, color: C.fg, whiteSpace: "nowrap" }}>{t.title}</td>
+                    <td style={{ padding: "9px 10px", borderBottom: `1px solid ${C.bg}`, fontFamily: "'SF Mono', Menlo, monospace", fontSize: "11px", color: t.isrc ? C.fgM : C.err, fontWeight: t.isrc ? 400 : 600 }}>{t.isrc || "MISSING"}</td>
+                    <td style={{ padding: "9px 10px", borderBottom: `1px solid ${C.bg}`, color: C.fgM }}>{t.duration}</td>
+                    <td style={{ padding: "9px 10px", borderBottom: `1px solid ${C.bg}`, color: C.fgM }}>{t.bpm || "—"}</td>
+                    <td style={{ padding: "9px 10px", borderBottom: `1px solid ${C.bg}`, color: C.fgM }}>{t.key}</td>
+                    <td style={{ padding: "9px 10px", borderBottom: `1px solid ${C.bg}`, color: C.fgM, maxWidth: "140px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={t.songwriters}>{t.songwriters}</td>
+                    <td style={{ padding: "9px 10px", borderBottom: `1px solid ${C.bg}`, color: C.fgM, maxWidth: "110px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} title={t.producers}>{t.producers}</td>
+                    <td style={{ padding: "9px 10px", borderBottom: `1px solid ${C.bg}` }}>{t.explicit ? <span style={{ background: C.errDim, color: C.err, padding: "2px 5px", borderRadius: "3px", fontSize: "9px", fontWeight: 800 }}>E</span> : null}</td>
+                  </tr>
+                ))}</tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      </div>
+      <style>{`@keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}`}</style>
+    </>
+  );
+}
+ 
+function App() {
+  const [albums, setAlbums] = useState(DB);
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState(null);
+  const [sortField, setSortField] = useState(null);
+  const [sortDir, setSortDir] = useState("asc");
+  const [sel, setSel] = useState(new Set());
+  const [detail, setDetail] = useState(null);
+  const [bulk, setBulk] = useState(null);
+ 
+  const up = useCallback((id, u) => { setAlbums(p => p.map(x => x.id === id ? { ...x, ...u } : x)); setDetail(p => p && p.id === id ? { ...p, ...u } : p); }, []);
+ 
+  const list = useMemo(() => {
+    let l = [...albums];
+    if (search) { const q = search.toLowerCase(); l = l.filter(a => a.albumTitle.toLowerCase().includes(q) || a.artist.toLowerCase().includes(q) || a.id.toLowerCase().includes(q) || a.label.toLowerCase().includes(q)); }
+    if (filter) l = l.filter(a => a.rightsValidated === filter || a.submissionStatus === filter);
+    if (sortField) l.sort((a, b) => { const x = a[sortField] || "", y = b[sortField] || ""; return sortDir === "asc" ? x.localeCompare(y) : y.localeCompare(x); });
+    return l;
+  }, [albums, search, filter, sortField, sortDir]);
+ 
+  const srt = f => { if (sortField === f) setSortDir(d => d === "asc" ? "desc" : "asc"); else { setSortField(f); setSortDir("asc"); } };
+  const tog = id => setSel(p => { const n = new Set(p); n.has(id) ? n.delete(id) : n.add(id); return n; });
+  const togAll = () => setSel(p => p.size === list.length ? new Set() : new Set(list.map(a => a.id)));
+ 
+  const bV = () => { setBulk("v"); setTimeout(() => { list.filter(a => sel.has(a.id) && a.rightsValidated !== "Validated").forEach(a => { const r = validate(a); const e = r.some(x => x.severity === "Error"); up(a.id, { rightsValidated: e ? "Errors" : "Validated", notifications: e ? r.filter(x => x.severity !== "Pass").map((x, i) => ({ id: `RV-${i}`, severity: x.severity, field: x.field, message: x.message, source: "ValidateRightsRecord", timestamp: new Date().toISOString() })) : a.notifications.filter(n => n.severity === "Warning") }); }); setBulk(null); }, 1500); };
+  const bS = () => { setBulk("s"); setTimeout(() => { list.filter(a => sel.has(a.id) && a.rightsValidated === "Validated" && a.submissionStatus !== "Accepted").forEach(a => up(a.id, { submissionStatus: "Accepted" })); setBulk(null); }, 1500); };
+ 
+  const st = useMemo(() => ({ tot: albums.length, val: albums.filter(a => a.rightsValidated === "Validated").length, err: albums.filter(a => a.rightsValidated === "Errors").length, acc: albums.filter(a => a.submissionStatus === "Accepted").length, trk: albums.reduce((s, a) => s + a.tracks.length, 0) }), [albums]);
+ 
+  const cols = [{ k: "albumTitle", l: "Album" }, { k: "subgenre", l: "Genre" }, { k: "label", l: "Label" }, { k: "territory", l: "Territory" }, { k: "licenseStart", l: "Start" }, { k: "licenseEnd", l: "End" }, { k: "rightsValidated", l: "Validated" }, { k: "submissionStatus", l: "Status" }];
+ 
+  return (
+    <div style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", background: C.bg, minHeight: "100vh", color: C.fg }}>
+      <div style={{ background: C.srf, borderBottom: `1px solid ${C.brd}`, padding: "14px 28px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <div style={{ fontSize: "15px", fontWeight: 700, display: "flex", alignItems: "center", gap: "10px" }}>
+            <span style={{ background: C.acc, color: C.bg, width: "26px", height: "26px", borderRadius: "6px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 800 }}>M</span>
+            Meridian Music <span style={{ color: C.fgM, fontWeight: 400 }}>— Rights Management</span>
+          </div>
+          <div style={{ fontSize: "11px", color: C.fgF, marginTop: "2px" }}>Portfolio Prototype — Brian Chun</div>
+        </div>
+        <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search albums, artists, labels..." style={{ padding: "9px 16px", borderRadius: "6px", border: `1px solid ${C.brd}`, background: C.srf2, color: C.fg, fontSize: "13px", width: "280px", outline: "none", fontFamily: "inherit" }} />
+      </div>
+      <div style={{ padding: "20px 28px 0", display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: "12px" }}>
+        {[["Albums", st.tot, C.fg, `${st.trk} tracks`], ["Validated", st.val, C.ok, `${Math.round(st.val/st.tot*100)}%`], ["Errors", st.err, C.err, "needs review"], ["Accepted", st.acc, C.acc, "ingested"], ["Pending", st.tot - st.val, C.warn, "awaiting review"]].map(([l, v, c, s], i) => (
+          <div key={i} style={{ background: C.srf, border: `1px solid ${C.brd}`, borderRadius: "8px", padding: "14px 16px" }}>
+            <div style={{ fontSize: "10px", color: C.fgF, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>{l}</div>
+            <div style={{ fontSize: "24px", fontWeight: 700, color: c, marginTop: "4px", fontFamily: "'SF Mono', Menlo, monospace" }}>{v}</div>
+            <div style={{ fontSize: "11px", color: C.fgF, marginTop: "1px" }}>{s}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ padding: "14px 28px 0", display: "flex", gap: "8px", flexWrap: "wrap" }}>
+        {["Validated", "Errors", "Not Validated", "Accepted", "Not Submitted"].map(s => (
+          <button key={s} onClick={() => setFilter(filter === s ? null : s)} style={{ padding: "6px 14px", borderRadius: "6px", fontSize: "12px", fontWeight: 500, cursor: "pointer", border: `1px solid ${filter === s ? C.acc : C.brd}`, background: filter === s ? C.accDim : C.srf, color: filter === s ? C.acc : C.fgM, fontFamily: "inherit" }}>{s}</button>
+        ))}
+        {(filter || search) && <button onClick={() => { setFilter(null); setSearch(""); }} style={{ padding: "6px 14px", borderRadius: "6px", fontSize: "12px", fontWeight: 500, cursor: "pointer", border: `1px solid ${C.brd}`, background: C.srf, color: C.fgF, fontFamily: "inherit" }}>Clear</button>}
+      </div>
+      {sel.size > 0 && (
+        <div style={{ margin: "12px 28px 0", padding: "10px 16px", background: C.accDim, border: `1px solid ${C.accBrd}`, borderRadius: "8px", display: "flex", alignItems: "center", gap: "12px", fontSize: "12px" }}>
+          <span style={{ fontWeight: 600, color: C.acc }}>{sel.size} selected</span>
+          <div style={{ width: "1px", height: "18px", background: C.accBrd }} />
+          <button onClick={bV} disabled={!!bulk} style={{ padding: "5px 14px", border: "none", borderRadius: "6px", background: bulk ? C.fgF : C.acc, color: C.bg, fontSize: "11px", fontWeight: 700, cursor: bulk ? "not-allowed" : "pointer" }}>{bulk === "v" ? "Validating..." : "Validate"}</button>
+          <button onClick={bS} disabled={!!bulk} style={{ padding: "5px 14px", border: "none", borderRadius: "6px", background: bulk ? C.fgF : C.acc, color: C.bg, fontSize: "11px", fontWeight: 700, cursor: bulk ? "not-allowed" : "pointer" }}>{bulk === "s" ? "Submitting..." : "Submit"}</button>
+          <button onClick={() => setSel(new Set())} style={{ marginLeft: "auto", background: "none", border: "none", fontSize: "12px", color: C.acc, cursor: "pointer", fontWeight: 500 }}>Clear</button>
+        </div>
+      )}
+      <div style={{ padding: "14px 28px 28px" }}>
+        <div style={{ background: C.srf, border: `1px solid ${C.brd}`, borderRadius: "8px", overflow: "hidden" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead><tr>
+              <th style={{ padding: "10px 12px", background: C.bg, borderBottom: `1px solid ${C.brd}`, width: "40px", textAlign: "center" }}><input type="checkbox" checked={list.length > 0 && sel.size === list.length} onChange={togAll} style={{ width: "14px", height: "14px", cursor: "pointer", accentColor: C.acc }} /></th>
+              {cols.map(c => <th key={c.k} onClick={() => srt(c.k)} style={{ padding: "10px 12px", background: C.bg, color: C.fgM, fontWeight: 600, fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.06em", textAlign: "left", borderBottom: `1px solid ${C.brd}`, cursor: "pointer", whiteSpace: "nowrap", userSelect: "none" }}>{c.l}{sortField === c.k && <span style={{ marginLeft: "4px", color: C.acc }}>{sortDir === "asc" ? "↑" : "↓"}</span>}</th>)}
+            </tr></thead>
+            <tbody>
+              {list.map((a, i) => {
+                const isSel = sel.has(a.id), bg = isSel ? C.accDim : i % 2 === 0 ? C.srf : C.srf2, exp = a.licenseEnd && new Date(a.licenseEnd) < new Date();
+                return (
+                  <tr key={a.id} style={{ background: bg, cursor: "pointer", transition: "background .1s" }} onMouseEnter={e => { e.currentTarget.style.background = C.brd; }} onMouseLeave={e => { e.currentTarget.style.background = bg; }}>
+                    <td style={{ padding: "11px 12px", borderBottom: `1px solid ${C.bg}`, textAlign: "center" }} onClick={e => { e.stopPropagation(); tog(a.id); }}><input type="checkbox" checked={isSel} onChange={() => tog(a.id)} style={{ width: "14px", height: "14px", cursor: "pointer", accentColor: C.acc }} /></td>
+                    <td style={{ padding: "11px 12px", borderBottom: `1px solid ${C.bg}` }} onClick={() => setDetail(a)}>
+                      <div style={{ fontWeight: 600, color: C.fg, fontSize: "13px" }}>{a.albumTitle}</div>
+                      <div style={{ fontSize: "11px", color: C.fgF, marginTop: "1px", fontFamily: "'SF Mono', Menlo, monospace" }}>{a.asperaPath}</div>
+                    </td>
+                    <td style={{ padding: "11px 12px", borderBottom: `1px solid ${C.bg}`, fontSize: "12px", color: C.fgM }} onClick={() => setDetail(a)}>{a.subgenre}</td>
+                    <td style={{ padding: "11px 12px", borderBottom: `1px solid ${C.bg}`, fontSize: "12px", color: C.fgM }} onClick={() => setDetail(a)}>{a.label}</td>
+                    <td style={{ padding: "11px 12px", borderBottom: `1px solid ${C.bg}`, fontSize: "12px", color: a.territory ? C.fgM : C.err, fontWeight: a.territory ? 400 : 600 }} onClick={() => setDetail(a)}>{a.territory || "MISSING"}</td>
+                    <td style={{ padding: "11px 12px", borderBottom: `1px solid ${C.bg}`, fontSize: "12px", color: a.licenseStart ? C.fgM : C.err, fontWeight: a.licenseStart ? 400 : 600, whiteSpace: "nowrap" }} onClick={() => setDetail(a)}>{a.licenseStart || "—"}</td>
+                    <td style={{ padding: "11px 12px", borderBottom: `1px solid ${C.bg}`, fontSize: "12px", color: exp ? C.err : a.licenseEnd ? C.fgM : C.err, fontWeight: exp || !a.licenseEnd ? 600 : 400, whiteSpace: "nowrap" }} onClick={() => setDetail(a)}>{a.licenseEnd || "—"}{exp ? " ⚠" : ""}</td>
+                    <td style={{ padding: "11px 12px", borderBottom: `1px solid ${C.bg}` }} onClick={() => setDetail(a)}><Badge value={a.rightsValidated} /></td>
+                    <td style={{ padding: "11px 12px", borderBottom: `1px solid ${C.bg}` }} onClick={() => setDetail(a)}><Badge value={a.submissionStatus} /></td>
+                  </tr>
+                );
+              })}
+              {list.length === 0 && <tr><td colSpan={9} style={{ padding: "40px", textAlign: "center", color: C.fgF }}>No albums match.</td></tr>}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {detail && <Detail album={albums.find(x => x.id === detail.id) || detail} onClose={() => setDetail(null)} onUpdate={up} />}
+    </div>
+  );
+}
+ 
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
