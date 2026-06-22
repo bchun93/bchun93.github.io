@@ -4,51 +4,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>0-to-1 Media Supply Chain Architecture — Brian Chun</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/shared.css">
 <link rel="stylesheet" href="../css/case-study.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
   <div class="header-inner">
     <a href="../index.html" class="logo">Brian Chun</a>
-    <nav class="nav-links">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav-links" id="site-nav" aria-label="Primary">
       <a href="../index.html#expertise">Expertise</a>
       <a href="../index.html#work">Case studies</a>
       <a href="../index.html#prototype">Prototype</a>
-      <a href="mailto:bchun93@gmail.com" class="nav-cta">Email</a>
+      <a href="https://www.linkedin.com/in/brianchun" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:bchun93@gmail.com">Email</a>
     </nav>
   </div>
 </header>
 
-<main class="main">
+<main class="main" id="main-content">
 
-  <header class="case-study-hero r">
+  <header class="case-study-hero">
     <a href="../index.html#work" class="back-link">← Back to case studies</a>
-    <span class="case-tag">Media supply chain</span>
+    <p class="case-tag">Media supply chain</p>
     <h1>0-to-1 Media Supply Chain Architecture</h1>
   </header>
 
-  <div class="pmi-grid">
-    <section class="pmi-block r r-d1">
-      <h2 class="pmi-label">Problem</h2>
+  <div class="pmi-grid" role="list">
+    <section class="pmi-block" role="listitem" aria-labelledby="pmi-problem">
+      <h2 class="pmi-label" id="pmi-problem">Problem</h2>
       <p>Needed a scalable ingestion and metadata framework for a new studio handling licensed and original content.</p>
     </section>
-    <section class="pmi-block r r-d1">
-      <h2 class="pmi-label">Methodology</h2>
+    <section class="pmi-block" role="listitem" aria-labelledby="pmi-methodology">
+      <h2 class="pmi-label" id="pmi-methodology">Methodology</h2>
       <p>Defined a comprehensive 80+ parameter delivery spec and led technical onboarding to close A/V and timed text gaps.</p>
     </section>
-    <section class="pmi-block r r-d1">
-      <h2 class="pmi-label">Impact</h2>
+    <section class="pmi-block" role="listitem" aria-labelledby="pmi-impact">
+      <h2 class="pmi-label" id="pmi-impact">Impact</h2>
       <p>Processed 3000+ hours of content and successfully met SLAs for an Amazon Prime Video Channel launch.</p>
     </section>
   </div>
 
-  <div class="case-study-footer r">
+  <nav class="case-study-footer" aria-label="Case study navigation">
     <p>Next case study</p>
     <a href="privacy-compliance.html" class="btn btn-secondary">Custom Privacy &amp; Compliance Build →</a>
-  </div>
+  </nav>
 
 </main>
 
@@ -56,16 +61,6 @@
   <div class="footer-inner">&copy; 2026 Brian Chun</div>
 </footer>
 
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('v');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.r').forEach(el => io.observe(el));
-</script>
+<script src="../js/nav.js"></script>
 </body>
 </html>
