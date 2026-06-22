@@ -1,0 +1,93 @@
+.case-study-hero {
+  padding: 56px 0 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fg3);
+  margin-bottom: 32px;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--fg); }
+
+.case-study-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 38px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  max-width: 22ch;
+  margin-bottom: 12px;
+}
+
+.case-study-hero .case-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.pmi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 56px 0 72px;
+}
+
+.pmi-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px 28px 32px;
+}
+
+.pmi-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.pmi-block p {
+  font-size: 16px;
+  color: var(--fg2);
+  line-height: 1.65;
+}
+
+.case-study-footer {
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.case-study-footer p {
+  font-size: 14px;
+  color: var(--fg3);
+}
+
+@media (max-width: 900px) {
+  .pmi-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 40px 0 56px;
+  }
+
+  .pmi-block { padding: 24px; }
+
+  .case-study-hero h1 { max-width: none; }
+}

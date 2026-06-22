@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brian Chun — Product Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --fg: #111111;
+    --fg2: #4a4a4a;
+    --fg3: #767676;
+    --border: #e4e4e4;
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --accent: #157a3a;
+    --accent-soft: #eef6f0;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Outfit', -apple-system, system-ui, sans-serif;
+    --max: 1040px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  ::selection { background: var(--accent-soft); color: var(--fg); }
+  a { color: inherit; text-decoration: none; }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 250, 249, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-inner,
+  .main {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fg3);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--fg); }
+
+  .nav-cta {
+    color: var(--accent) !important;
+  }
+
+  .main { padding-bottom: 80px; }
+
+  /* Hero */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 132px;
+    gap: 56px;
+    align-items: start;
+    padding: 64px 0 72px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-content {
+    min-width: 0;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(30px, 3.6vw, 42px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    max-width: 46ch;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--fg2);
+    max-width: 54ch;
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .hero-photo-wrap {
+    flex-shrink: 0;
+    padding-top: 6px;
+  }
+
+  .hero-photo {
+    width: 132px;
+    height: 164px;
+    object-fit: cover;
+    object-position: center 12%;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  /* Domain expertise */
+  .expertise {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .domain-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .domain-index {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .domain-card h3 {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .domain-card p {
+    font-size: 15px;
+    color: var(--fg2);
+    line-height: 1.65;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 48px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-head h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .section-head p {
+    font-size: 14px;
+    color: var(--fg3);
+    max-width: 36ch;
+    text-align: right;
+  }
+
+  /* Case studies */
+  .case-studies {
+    padding: 72px 0;
+  }
+
+  .study-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .study-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 32px 32px 28px;
+    min-height: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .study-card:hover {
+    border-color: var(--fg3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  }
+
+  .study-card:hover .study-title {
+    color: var(--accent);
+  }
+
+  .study-card:hover .study-link {
+    gap: 10px;
+  }
+
+  .study-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .study-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    transition: color 0.2s;
+  }
+
+  .study-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+    flex: 1;
+  }
+
+  .study-preview-item {
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+  }
+
+  .study-preview-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg3);
+    margin-bottom: 8px;
+  }
+
+  .study-preview-item p {
+    font-size: 13px;
+    color: var(--fg2);
+    line-height: 1.55;
+  }
+
+  .study-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    transition: gap 0.2s;
+    margin-top: auto;
+  }
+
+  /* Prototype */
+  .prototype {
+    padding: 72px 0 0;
+  }
+
+  .prototype-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 48px;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 40px 40px 40px 48px;
+  }
+
+  .prototype-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .prototype-copy h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+
+  .prototype-copy p {
+    font-size: 16px;
+    color: var(--fg2);
+    line-height: 1.65;
+    max-width: 42ch;
+    margin-bottom: 28px;
+  }
+
+  .prototype-frame {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--bg);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  }
+
+  .prototype-frame-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 14px;
+    background: #f0f0ef;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .prototype-frame-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d4d4d4;
+  }
+
+  .prototype-frame-url {
+    flex: 1;
+    margin-left: 8px;
+    font-size: 11px;
+    color: var(--fg3);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 4px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .prototype-frame-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .prototype-ui-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  .prototype-ui-row strong {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .prototype-ui-badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 3px;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  .prototype-ui-badge.review {
+    background: #f3f0e8;
+    color: #7a6f5a;
+  }
+
+  .prototype-ui-badge.blocked {
+    background: #fdecec;
+    color: #b33;
+  }
+
+  .prototype-ui-meta {
+    font-size: 12px;
+    color: var(--fg3);
+  }
+
+  /* Contact */
+  .contact {
+    margin-top: 72px;
+    padding: 48px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .contact h2 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .contact p {
+    font-size: 15px;
+    color: var(--fg2);
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 12px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--fg);
+    color: #fff;
+    border: 1px solid var(--fg);
+  }
+
+  .btn-primary:hover {
+    background: #2a2a2a;
+    border-color: #2a2a2a;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--fg3);
+  }
+
+  button.btn {
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  /* Resume modal */
+  .resume-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s var(--ease), visibility 0.25s;
+  }
+
+  .resume-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .resume-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(17, 17, 17, 0.6);
+    border: none;
+    cursor: pointer;
+  }
+
+  .resume-modal-panel {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .resume-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .resume-modal-header h2 {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .resume-modal-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .resume-modal-header-actions .btn {
+    height: 36px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
+
+  .resume-modal-close {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: transparent;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--fg3);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .resume-modal-close:hover {
+    border-color: var(--fg3);
+    color: var(--fg);
+  }
+
+  .resume-modal-body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: var(--surface);
+    padding: 8px 8px 12px;
+  }
+
+  .resume-modal-body canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .resume-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 8px 12px;
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .resume-modal-footer button {
+    height: 36px;
+    padding: 0 14px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--fg);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .resume-modal-footer button:hover:not(:disabled) {
+    border-color: var(--fg3);
+  }
+
+  .resume-modal-footer button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .resume-page-info {
+    font-size: 13px;
+    color: var(--fg3);
+    min-width: 88px;
+    text-align: center;
+  }
+
+  body.modal-open {
+    overflow: hidden;
+  }
+
+  footer {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 32px 40px 48px;
+    font-size: 13px;
+    color: var(--fg3);
+    border-top: 1px solid var(--border);
+  }
+
+  /* Subtle reveal */
+  .r {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  }
+
+  .r.v {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .r-d1 { transition-delay: 0.08s; }
+  .r-d2 { transition-delay: 0.16s; }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding-top: 48px;
+    }
+
+    .hero h1 { max-width: none; }
+
+    .hero-photo-wrap {
+      order: -1;
+    }
+
+    .hero-photo {
+      width: 104px;
+      height: 128px;
+    }
+
+    .expertise-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .domain-card {
+      padding: 24px;
+    }
+
+    .study-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .study-preview {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .prototype-showcase {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 32px 24px;
+    }
+
+    .section-head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .section-head p { text-align: left; }
+
+    .contact {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 32px 24px;
+    }
+
+    .contact-actions {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .btn { width: 100%; }
+  }
+
+  @media (max-width: 600px) {
+    .header-inner,
+    .main,
+    footer {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .nav-links { gap: 20px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+
+    .hero-sub { font-size: 16px; }
+    .study-title { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">Brian Chun</a>
+    <nav class="nav-links">
+      <a href="#expertise">Expertise</a>
+      <a href="#work">Case studies</a>
+      <a href="#prototype">Prototype</a>
+      <a href="https://www.linkedin.com/in/brianchun">LinkedIn</a>
+      <a href="mailto:bchun93@gmail.com" class="nav-cta">Email</a>
+    </nav>
+  </div>
+</header>
+
+<main class="main">
+
+  <section class="hero r">
+    <div class="hero-content">
+      <h1>Product Manager specializing in 0-to-1 media supply chains, content operations, and platform ecosystems.</h1>
+      <p class="hero-sub">5 years of experience architecting SaaS products and delivery pipelines for studios and content partners.</p>
+      <div class="hero-actions">
+        <button type="button" class="btn btn-secondary" id="open-resume">View resume</button>
+        <a href="#contact" class="btn btn-primary">Contact</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap r r-d1">
+      <img src="assets/brian.jpg" alt="Brian Chun" class="hero-photo">
+    </div>
+  </section>
+
+  <section class="expertise" id="expertise">
+    <div class="section-head r">
+      <h2>Domains of expertise</h2>
+      <p>Experience grouped by technical domain — where the work actually lives, not a generic skills list.</p>
+    </div>
+    <div class="expertise-grid">
+      <article class="domain-card r r-d1">
+        <span class="domain-index">01</span>
+        <h3>Media Supply Chain &amp; Content Ops</h3>
+        <p>Architecting delivery, ingestion, and metadata schemas for large-scale SVOD platforms.</p>
+      </article>
+      <article class="domain-card r r-d1">
+        <span class="domain-index">02</span>
+        <h3>Platform Ecosystems &amp; Integration</h3>
+        <p>Driving cross-functional technical onboarding and closing specification gaps for major partners like Amazon.</p>
+      </article>
+      <article class="domain-card r r-d1">
+        <span class="domain-index">03</span>
+        <h3>Global Compliance Architecture</h3>
+        <p>Designing custom consent management and DSAR workflows to meet strict CCPA, GDPR, and VPPA legal standards.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="case-studies" id="work">
+    <div class="section-head r">
+      <h2>Case studies</h2>
+      <p>Two recent builds — problem, methodology, and impact for each.</p>
+    </div>
+
+    <div class="study-grid">
+      <a href="case-studies/media-supply-chain.html" class="study-card r r-d1">
+        <span class="study-tag">Media supply chain</span>
+        <h3 class="study-title">0-to-1 Media Supply Chain Architecture</h3>
+        <div class="study-preview">
+          <div class="study-preview-item">
+            <span class="study-preview-label">Problem</span>
+            <p>Scalable ingestion and metadata framework for licensed and original content.</p>
+          </div>
+          <div class="study-preview-item">
+            <span class="study-preview-label">Methodology</span>
+            <p>80+ parameter delivery spec and technical onboarding for A/V and timed text.</p>
+          </div>
+          <div class="study-preview-item">
+            <span class="study-preview-label">Impact</span>
+            <p>3000+ hours processed; SLAs met for Amazon Prime Video Channel launch.</p>
+          </div>
+        </div>
+        <span class="study-link">Read case study <span aria-hidden="true">→</span></span>
+      </a>
+
+      <a href="case-studies/privacy-compliance.html" class="study-card r r-d1">
+        <span class="study-tag">Privacy &amp; compliance</span>
+        <h3 class="study-title">Custom Privacy &amp; Compliance Build</h3>
+        <div class="study-preview">
+          <div class="study-preview-item">
+            <span class="study-preview-label">Problem</span>
+            <p>CCPA, GDPR, and VPPA compliance without full enterprise software reliance.</p>
+          </div>
+          <div class="study-preview-item">
+            <span class="study-preview-label">Methodology</span>
+            <p>Custom build extending a lightweight vendor tool into consent management.</p>
+          </div>
+          <div class="study-preview-item">
+            <span class="study-preview-label">Impact</span>
+            <p>Full privacy preference controls and DSAR workflows; drove legal product strategy.</p>
+          </div>
+        </div>
+        <span class="study-link">Read case study <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="prototype" id="prototype">
+    <div class="section-head r">
+      <h2>Interactive prototype</h2>
+      <p>Hi-fidelity build — title management for catalog and content operations.</p>
+    </div>
+
+    <div class="prototype-showcase r r-d1">
+      <div class="prototype-copy">
+        <span class="prototype-tag">Hi-fidelity prototype</span>
+        <h3>Title management</h3>
+        <p>A working prototype for tracking titles through delivery, metadata validation, and catalog readiness — built to demonstrate product thinking for content ops teams.</p>
+        <!-- Replace # with your AWS Amplify URL when ready -->
+        <a href="#" id="prototype-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View live prototype →</a>
+      </div>
+      <div class="prototype-frame" aria-hidden="true">
+        <div class="prototype-frame-bar">
+          <span class="prototype-frame-dot"></span>
+          <span class="prototype-frame-dot"></span>
+          <span class="prototype-frame-dot"></span>
+          <span class="prototype-frame-url">your-app.amplifyapp.com</span>
+        </div>
+        <div class="prototype-frame-body">
+          <div class="prototype-ui-row">
+            <div>
+              <strong>Midnight Harbor</strong>
+              <div class="prototype-ui-meta">Studio North · Feature film</div>
+            </div>
+            <span class="prototype-ui-badge">Live</span>
+          </div>
+          <div class="prototype-ui-row">
+            <div>
+              <strong>City Limits S2</strong>
+              <div class="prototype-ui-meta">Atlantic Media · Series</div>
+            </div>
+            <span class="prototype-ui-badge review">In review</span>
+          </div>
+          <div class="prototype-ui-row">
+            <div>
+              <strong>The Long Weekend</strong>
+              <div class="prototype-ui-meta">Blue Frame · Licensed</div>
+            </div>
+            <span class="prototype-ui-badge blocked">Blocked</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact r" id="contact">
+    <div>
+      <h2>Get in touch</h2>
+      <p>Open to conversations about product, streaming, and ops tooling.</p>
+    </div>
+    <div class="contact-actions">
+      <a href="mailto:bchun93@gmail.com" class="btn btn-primary">Email me</a>
+      <a href="https://www.linkedin.com/in/brianchun" class="btn btn-secondary">LinkedIn</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>&copy; 2026 Brian Chun</footer>
+
+<div class="resume-modal" id="resume-modal" aria-hidden="true" role="dialog" aria-labelledby="resume-modal-title">
+  <button type="button" class="resume-modal-backdrop" data-close-resume aria-label="Close resume"></button>
+  <div class="resume-modal-panel">
+    <header class="resume-modal-header">
+      <h2 id="resume-modal-title">Brian Chun — Resume</h2>
+      <div class="resume-modal-header-actions">
+        <a href="assets/Brian-Chun-Resume.pdf" class="btn btn-secondary" download="Brian-Chun-Resume.pdf">Download</a>
+        <button type="button" class="resume-modal-close" data-close-resume aria-label="Close">&times;</button>
+      </div>
+    </header>
+    <div class="resume-modal-body">
+      <canvas id="resume-canvas"></canvas>
+    </div>
+    <footer class="resume-modal-footer" id="resume-pager" hidden>
+      <button type="button" id="resume-prev">Previous</button>
+      <span class="resume-page-info" id="resume-page-info">Page 1 of 1</span>
+      <button type="button" id="resume-next">Next</button>
+    </footer>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  const RESUME_URL = 'assets/Brian-Chun-Resume.pdf';
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('v');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.r').forEach(el => io.observe(el));
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  const modal = document.getElementById('resume-modal');
+  const canvas = document.getElementById('resume-canvas');
+  const ctx = canvas.getContext('2d');
+  const pager = document.getElementById('resume-pager');
+  const pageInfo = document.getElementById('resume-page-info');
+  const prevBtn = document.getElementById('resume-prev');
+  const nextBtn = document.getElementById('resume-next');
+  const openBtn = document.getElementById('open-resume');
+
+  let pdfDoc = null;
+  let currentPage = 1;
+  let renderTask = null;
+
+  async function loadPdf() {
+    if (pdfDoc) return pdfDoc;
+    pdfDoc = await pdfjsLib.getDocument(RESUME_URL).promise;
+    return pdfDoc;
+  }
+
+  async function renderPage(pageNum) {
+    const pdf = await loadPdf();
+    const page = await pdf.getPage(pageNum);
+    const body = canvas.parentElement;
+    const availW = body.clientWidth - 16;
+    const base = page.getViewport({ scale: 1 });
+    const scale = availW / base.width;
+    const dpr = window.devicePixelRatio || 1;
+    const viewport = page.getViewport({ scale: scale * dpr });
+
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    canvas.style.width = `${availW}px`;
+    canvas.style.height = `${(base.height * scale)}px`;
+
+    if (renderTask) renderTask.cancel();
+    renderTask = page.render({ canvasContext: ctx, viewport });
+    await renderTask.promise;
+
+    body.scrollTop = 0;
+    currentPage = pageNum;
+    pageInfo.textContent = `Page ${pageNum} of ${pdf.numPages}`;
+    prevBtn.disabled = pageNum <= 1;
+    nextBtn.disabled = pageNum >= pdf.numPages;
+    pager.hidden = pdf.numPages <= 1;
+  }
+
+  async function openModal() {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    await renderPage(1);
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  openBtn.addEventListener('click', openModal);
+  document.querySelectorAll('[data-close-resume]').forEach(el => {
+    el.addEventListener('click', closeModal);
+  });
+
+  prevBtn.addEventListener('click', () => renderPage(currentPage - 1));
+  nextBtn.addEventListener('click', () => renderPage(currentPage + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft' && !prevBtn.disabled) renderPage(currentPage - 1);
+    if (e.key === 'ArrowRight' && !nextBtn.disabled) renderPage(currentPage + 1);
+  });
+
+  window.addEventListener('resize', () => {
+    if (modal.classList.contains('is-open')) renderPage(currentPage);
+  });
+</script>
+</body>
+</html>

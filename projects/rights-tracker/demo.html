@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalog Tracker — Prototype</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fg: #111111;
+      --fg2: #4a4a4a;
+      --fg3: #767676;
+      --border: #e4e4e4;
+      --bg: #fafaf9;
+      --card: #fff;
+      --accent: #157a3a;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--fg); padding: 32px 24px 64px; }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    .back { font-size: 13px; color: var(--fg3); margin-bottom: 32px; display: inline-block; }
+    .back:hover { color: var(--fg); }
+    h1 { font-family: var(--serif); font-weight: 500; font-size: 32px; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .sub { color: var(--fg2); margin-bottom: 32px; max-width: 560px; line-height: 1.7; }
+    .card { background: var(--card); border-radius: 16px; padding: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.04); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg3); padding: 0 12px 12px; }
+    td { padding: 14px 12px; border-top: 1px solid #eee; }
+    .status { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; }
+    .status.live { background: #eef6f0; color: #157a3a; }
+    .status.review { background: #f3f0e8; color: #7a6f5a; }
+    .status.blocked { background: #fdecec; color: #b33; }
+    .note { margin-top: 24px; font-size: 13px; color: var(--fg3); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="../../index.html">&larr; Back to portfolio</a>
+    <h1>Catalog &amp; title tracker</h1>
+    <p class="sub">Interactive prototype placeholder. Replace this page with your full rights-tracker demo when ready.</p>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Partner</th>
+            <th>Stage</th>
+            <th>Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Midnight Harbor</strong></td>
+            <td>Studio North</td>
+            <td><span class="status live">Live</span></td>
+            <td>Ops</td>
+          </tr>
+          <tr>
+            <td><strong>City Limits S2</strong></td>
+            <td>Atlantic Media</td>
+            <td><span class="status review">In review</span></td>
+            <td>Brian</td>
+          </tr>
+          <tr>
+            <td><strong>The Long Weekend</strong></td>
+            <td>Blue Frame</td>
+            <td><span class="status blocked">Blocked</span></td>
+            <td>Legal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">Tip: your <code>stream-catalog</code> project can be linked here once you have a deploy or local build.</p>
+  </div>
+</body>
+</html>
