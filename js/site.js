@@ -70,6 +70,19 @@
       key.classList.toggle('is-active', active);
       key.setAttribute('aria-current', active ? 'true' : 'false');
     });
+
+    if (siteNav) {
+      siteNav.querySelectorAll('a[href^="#"]').forEach((link) => {
+        const href = link.getAttribute('href');
+        const active = href === `#${id}`;
+        link.classList.toggle('is-active', active);
+        if (active) {
+          link.setAttribute('aria-current', 'true');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
   }
 
   railKeys.forEach((key) => {

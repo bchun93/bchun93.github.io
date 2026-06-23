@@ -7,7 +7,7 @@
 <title>Brian Chun — Product Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
@@ -48,17 +48,35 @@
   <main class="main" id="main-content">
 
     <section class="hero" id="hero" data-spec-section="hero" aria-labelledby="hero-heading">
-      <div class="hero-content">
-        <h1 id="hero-heading">Product Manager specializing in 0-to-1 media supply chains, content operations, and platform ecosystems.</h1>
-        <p class="hero-sub">5 years of experience architecting SaaS products and delivery pipelines for studios and content partners.</p>
-        <div class="hero-actions">
-          <button type="button" class="btn btn-secondary" id="open-resume">View resume</button>
-          <a href="#contact" class="btn btn-primary">Contact</a>
+      <!-- DECISION (Brian): the site reads as a streaming/ops PM. If targeting AI-PM roles, consider a bridge subhead framing supply-chain/metadata rigor as the foundation for AI/ML product work. Not changed automatically — your call. -->
+      <div class="hero-main">
+        <div class="hero-content">
+          <p class="hero-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Product Manager — 5 years</p>
+          <h1 id="hero-heading">
+            <!-- TODO (Brian): confirm this headline wording, or swap for: "Product Manager building 0-to-1 streaming systems." The structure (one dominant line) matters more than the exact words. -->
+            <span class="hero-title-primary">The systems behind streaming.</span>
+            <span class="hero-title-secondary">0-to-1 media supply chains, content operations, and platform ecosystems.</span>
+          </h1>
+          <p class="hero-sub">5 years of experience architecting SaaS products and delivery pipelines for studios and content partners.</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-secondary" id="open-resume">View resume</button>
+            <a href="#contact" class="btn btn-primary">Contact</a>
+          </div>
+        </div>
+        <div class="hero-photo-wrap">
+          <!-- TODO (Brian): consider replacing with a higher-resolution headshot; current render looks soft. -->
+          <img src="assets/brian.jpg" alt="Brian Chun" class="hero-photo">
         </div>
       </div>
-      <div class="hero-photo-wrap">
-        <img src="assets/brian.jpg" alt="Brian Chun" class="hero-photo">
-      </div>
+      <p class="hero-proof" aria-label="Selected work highlights">
+        <span>3,000+ hrs processed</span>
+        <span class="hero-proof-sep" aria-hidden="true">·</span>
+        <span>7 platforms</span>
+        <span class="hero-proof-sep" aria-hidden="true">·</span>
+        <span>Prime Video Channel</span>
+        <span class="hero-proof-sep" aria-hidden="true">·</span>
+        <span>372 titles via live API</span>
+      </p>
     </section>
 
     <section class="expertise" id="expertise" data-spec-section="expertise" aria-labelledby="expertise-heading">
@@ -69,13 +87,13 @@
       <div class="pipeline" role="list">
         <article class="pipeline-lane pipeline-lane--supply" role="listitem">
           <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id">SUPPLY</span>
+            <span class="lane-id mono-dot-label">SUPPLY</span>
             <span class="lane-node"></span>
             <span class="lane-line"></span>
           </div>
           <div class="pipeline-content">
             <h3>Media supply chain &amp; content ops</h3>
-            <p>Architected a 70+ parameter metadata schema and end-to-end ingestion pipeline — Aspera FASP transfers into S3, Brightcove OVP for transcoding, DRM, and CDN delivery — processing 3,000+ hours of HD content from zero.</p>
+            <p><span class="text-lead">Architected a 70+ parameter metadata schema and end-to-end ingestion pipeline</span> — Aspera FASP transfers into S3, Brightcove OVP for transcoding, DRM, and CDN delivery — processing 3,000+ hours of HD content from zero.</p>
             <div class="stack-block">
               <h4 class="stack-label">Technical stack</h4>
               <dl class="stack-list">
@@ -105,7 +123,7 @@
         </article>
         <article class="pipeline-lane pipeline-lane--platform" role="listitem">
           <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id">PLATFORM</span>
+            <span class="lane-id mono-dot-label">PLATFORM</span>
             <span class="lane-node"></span>
             <span class="lane-line"></span>
           </div>
@@ -114,7 +132,7 @@
 
             <div class="domain-subblock">
               <h4 class="stack-label">Multi-platform SVOD build</h4>
-              <p>Took a streaming app to internal beta across 7 device ecosystems — fully testable end to end, capable of payment and playback across thousands of titles.</p>
+              <p><span class="text-lead">Took a streaming app to internal beta across 7 device ecosystems</span> — fully testable end to end, capable of payment and playback across thousands of titles. <a href="case-studies/multi-platform-svod.html" class="text-link">Read case study →</a></p>
               <ul class="platform-logos" aria-label="Device ecosystems">
                 <li><img src="assets/platforms/roku.svg" alt="" class="platform-logo platform-logo--wordmark platform-logo--roku" loading="lazy" decoding="async"></li>
                 <li><img src="assets/platforms/appletv.svg" alt="" class="platform-logo platform-logo--wordmark platform-logo--appletv" loading="lazy" decoding="async"></li>
@@ -126,40 +144,17 @@
               </ul>
               <p class="sr-only">Roku, Apple TV (tvOS), Fire TV, Google TV, iOS, Android, and Web.</p>
             </div>
-
-            <div class="domain-subblock">
-              <h4 class="stack-label">Amazon Prime Video Channel certification</h4>
-              <p>Led technical certification through Amazon's partner onboarding program, closing spec gaps to launch a live Prime Video Channel.</p>
-              <dl class="stack-list">
-                <div class="stack-row">
-                  <dt>Spec alignment</dt>
-                  <dd>Closed gaps against Amazon's certification spec across artwork, timed text, and A/V requirements</dd>
-                </div>
-                <div class="stack-row">
-                  <dt>XML generation</dt>
-                  <dd>Built MovieLabs-spec XML generation for automated metadata delivery</dd>
-                </div>
-                <div class="stack-row">
-                  <dt>Normalization</dt>
-                  <dd>Process to normalize internal assets and metadata to partner spec</dd>
-                </div>
-                <div class="stack-row">
-                  <dt>SLA validation</dt>
-                  <dd>Proved delivery pipeline could meet Amazon's required partner SLAs</dd>
-                </div>
-              </dl>
-            </div>
           </div>
         </article>
         <article class="pipeline-lane pipeline-lane--compliance" role="listitem">
           <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id">COMPLIANCE</span>
+            <span class="lane-id mono-dot-label">COMPLIANCE</span>
             <span class="lane-node"></span>
             <span class="lane-line"></span>
           </div>
           <div class="pipeline-content">
             <h3>Global compliance architecture</h3>
-            <p>Evaluated enterprise compliance vendors against startup budget constraints, then architected a CCPA, GDPR, and VPPA-compliant consent and data-rights system on a $20/month tool.</p>
+            <p><span class="text-lead">Evaluated enterprise compliance vendors against startup budget constraints, then architected a CCPA, GDPR, and VPPA-compliant consent and data-rights system on a $20/month tool.</span></p>
 
             <div class="domain-subblock">
               <h4 class="stack-label">Vendor evaluation</h4>
@@ -204,25 +199,46 @@
     <section class="case-studies is-hidden" id="work" data-spec-section="work" aria-labelledby="work-heading">
       <div class="section-head">
         <h2 id="work-heading">Case studies</h2>
-        <p>Two recent builds — problem, methodology, and impact for each.</p>
+        <p>Problem, methodology, and impact for recent builds.</p>
       </div>
 
       <div class="study-grid" role="list">
+        <!-- TODO (Brian): name the employer on each case study (e.g. "Wonder Project") — recruiters anchor on company names; the site is currently anonymous about where this work happened. Insert the real employer; do not guess. -->
+        <a href="case-studies/multi-platform-svod.html" class="study-card" role="listitem" aria-labelledby="study-0-title">
+          <span class="study-tag">Platform ecosystems</span>
+          <h3 class="study-title" id="study-0-title">Multi-Platform SVOD &amp; Prime Video Channel Launch</h3>
+          <div class="study-preview">
+            <div class="study-preview-item">
+              <h4 class="study-preview-label">Problem</h4>
+              <p><span class="text-lead">Launching a streaming product across many device ecosystems and onto a partner platform with a strict certification spec.</span></p>
+            </div>
+            <div class="study-preview-item">
+              <h4 class="study-preview-label">Methodology</h4>
+              <p><span class="text-lead">Took the app to internal beta across 7 device ecosystems;</span> built MovieLabs-spec XML generation; normalized internal assets and metadata to partner spec; closed certification gaps across artwork, timed text, and A/V; proved the pipeline could meet partner SLAs.</p>
+            </div>
+            <div class="study-preview-item">
+              <h4 class="study-preview-label">Impact</h4>
+              <p><span class="text-lead">Launched a live Prime Video Channel.</span> <!-- TODO (Brian): insert a real business OUTCOME here, not an activity metric — e.g. time-to-launch, number of titles made available, partner go-live date, or audience/distribution reached. Do not fabricate. --></p>
+            </div>
+          </div>
+          <span class="study-link">Read case study <span aria-hidden="true">→</span></span>
+        </a>
+
         <a href="case-studies/media-supply-chain.html" class="study-card" role="listitem" aria-labelledby="study-1-title">
           <span class="study-tag">Media supply chain</span>
           <h3 class="study-title" id="study-1-title">0-to-1 Media Supply Chain Architecture</h3>
           <div class="study-preview">
             <div class="study-preview-item">
               <h4 class="study-preview-label">Problem</h4>
-              <p>Scalable ingestion and metadata framework for licensed and original content.</p>
+              <p><span class="text-lead">Scalable ingestion and metadata framework for licensed and original content.</span></p>
             </div>
             <div class="study-preview-item">
               <h4 class="study-preview-label">Methodology</h4>
-              <p>80+ parameter delivery spec and technical onboarding for A/V and timed text.</p>
+              <p><span class="text-lead">80+ parameter delivery spec and technical onboarding for A/V and timed text.</span></p>
             </div>
             <div class="study-preview-item">
               <h4 class="study-preview-label">Impact</h4>
-              <p>3000+ hours processed; SLAs met for Amazon Prime Video Channel launch.</p>
+              <p><span class="text-lead">3,000+ hours processed; SLAs met for Amazon Prime Video Channel launch.</span></p>
             </div>
           </div>
           <span class="study-link">Read case study <span aria-hidden="true">→</span></span>
@@ -234,15 +250,15 @@
           <div class="study-preview">
             <div class="study-preview-item">
               <h4 class="study-preview-label">Problem</h4>
-              <p>CCPA, GDPR, and VPPA compliance without full enterprise software reliance.</p>
+              <p><span class="text-lead">CCPA, GDPR, and VPPA compliance without full enterprise software reliance.</span></p>
             </div>
             <div class="study-preview-item">
               <h4 class="study-preview-label">Methodology</h4>
-              <p>Custom build extending a lightweight vendor tool into consent management.</p>
+              <p><span class="text-lead">Custom build extending a lightweight vendor tool into consent management.</span></p>
             </div>
             <div class="study-preview-item">
               <h4 class="study-preview-label">Impact</h4>
-              <p>Full privacy preference controls and DSAR workflows; drove legal product strategy.</p>
+              <p><span class="text-lead">Full privacy preference controls and DSAR workflows; drove legal product strategy.</span></p>
             </div>
           </div>
           <span class="study-link">Read case study <span aria-hidden="true">→</span></span>
@@ -259,16 +275,16 @@
       <div class="prototype-showcase">
         <div class="prototype-copy">
           <div class="prototype-tags">
-            <span class="prototype-tag">Interactive prototype</span>
-            <!-- TODO: confirm build timeframe -->
-            <span class="prototype-tag prototype-tag--velocity">Weekend build</span>
+            <span class="prototype-tag mono-dot-label">Interactive prototype</span>
+            <!-- TODO (Brian): confirm the "Weekend build" / "Idea → deployed in a weekend" claim is literally true and you can walk an interviewer through the timeline. If not, soften to an honest timeframe. -->
+            <span class="prototype-tag prototype-tag--velocity mono-dot-label">Weekend build</span>
           </div>
           <h3>Type a title. Watch the catalog fill itself in.</h3>
           <p>Content ops teams hand-key metadata and source artwork for thousands of titles — slow, repetitive, error-prone. Relay's auto-enrichment feature collapses that into one step: enter a known title and genre, year, studio, synopsis, and key art populate automatically — validated and catalog-ready. I designed, built, and deployed it as a working app to pressure-test the idea before it would ever reach an engineering backlog.</p>
           <a href="https://main.dc104a0h6vkd6.amplifyapp.com/" id="prototype-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-describedby="prototype-status">View live prototype <span aria-hidden="true">→</span></a>
           <p id="prototype-status" class="sr-only">Opens the live Relay prototype in a new tab.</p>
           <p class="prototype-facts" aria-label="Build details">
-            <span><!-- TODO: confirm build time -->Idea → deployed in a weekend</span>
+            <span><!-- TODO (Brian): confirm build time -->Idea → deployed in a weekend</span>
             <span class="prototype-facts-sep" aria-hidden="true">·</span>
             <span>372 titles via live API</span>
             <span class="prototype-facts-sep" aria-hidden="true">·</span>
@@ -317,7 +333,7 @@
                   </div>
                   <div class="relay-field relay-field--shimmer">
                     <dt>Synopsis</dt>
-                    <dd><span class="relay-field-skeleton" aria-hidden="true"></span><span class="sr-only">Populating synopsis</span></dd>
+                    <dd><span class="relay-field-skeleton" aria-hidden="true"></span></dd>
                   </div>
                 </dl>
               </div>

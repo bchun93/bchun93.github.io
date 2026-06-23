@@ -17,7 +17,11 @@
 }
 
 .back-link:hover,
-.back-link:focus-visible { color: var(--ink); }
+.back-link:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 .case-study-hero h1 {
   font-family: var(--display);
