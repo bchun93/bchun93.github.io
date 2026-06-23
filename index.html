@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=20260623">
+<link rel="stylesheet" href="css/site.css?v=20260623b">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -60,7 +60,7 @@
           <p class="hero-sub">5 years of experience architecting SaaS products and delivery pipelines for studios and content partners.</p>
           <div class="hero-actions">
             <button type="button" class="btn btn-secondary" id="open-resume">View resume</button>
-            <a href="#contact" class="btn btn-primary">Contact</a>
+            <a href="mailto:bchun93@gmail.com" class="btn btn-primary">Email me</a>
           </div>
         </div>
         <div class="hero-photo-wrap">
@@ -69,20 +69,18 @@
         </div>
       </div>
       <p class="hero-proof" aria-label="Selected work highlights">
-        <span>3,000+ hrs processed</span>
+        <span>3,000+ hrs of video processed</span>
         <span class="hero-proof-sep" aria-hidden="true">·</span>
-        <span>7 platforms</span>
+        <span>7 platform SVOD app</span>
         <span class="hero-proof-sep" aria-hidden="true">·</span>
-        <span>Prime Video Channel</span>
-        <span class="hero-proof-sep" aria-hidden="true">·</span>
-        <span>372 titles via live API</span>
+        <span>Prime Video channel launch</span>
       </p>
     </section>
 
     <section class="expertise" id="expertise" data-spec-section="expertise" aria-labelledby="expertise-heading">
       <div class="section-head">
         <h2 id="expertise-heading">Domains of expertise</h2>
-        <p>Experience grouped by technical domain — where the work actually lives, not a generic skills list.</p>
+        <p>Product domains that I specialize in.</p>
       </div>
       <div class="pipeline" role="list">
         <article class="pipeline-lane pipeline-lane--supply" role="listitem">
@@ -93,7 +91,7 @@
           </div>
           <div class="pipeline-content">
             <h3>Media supply chain &amp; content ops</h3>
-            <p><span class="text-lead">Architected a 70+ parameter metadata schema and end-to-end ingestion pipeline</span> — Aspera FASP transfers into S3, Brightcove OVP for transcoding, DRM, and CDN delivery — processing 3,000+ hours of HD content from zero.</p>
+            <p><span class="text-lead">Architected an 80+ parameter metadata schema and end-to-end ingestion pipeline</span> — Aspera FASP transfers into S3, Brightcove OVP for transcoding, DRM, and CDN delivery — processing 3,000+ hours of HD content from zero.</p>
             <div class="stack-block">
               <h4 class="stack-label">Technical stack</h4>
               <dl class="stack-list">
@@ -268,77 +266,32 @@
 
     <section class="prototype" id="prototype" data-spec-section="prototype" aria-labelledby="prototype-heading">
       <div class="section-head">
-        <h2 id="prototype-heading">Interactive prototype</h2>
-        <p>Relay — a deployed title-management app built to pressure-test product bets before they hit an engineering backlog.</p>
+        <h2 id="prototype-heading">Prototyping with AI</h2>
+        <p>Relay — a prototype I built in a day to solve the problem of manual metadata entry.</p>
       </div>
 
       <div class="prototype-showcase">
         <div class="prototype-copy">
           <div class="prototype-tags">
             <span class="prototype-tag mono-dot-label">Interactive prototype</span>
-            <!-- TODO (Brian): confirm the "Weekend build" / "Idea → deployed in a weekend" claim is literally true and you can walk an interviewer through the timeline. If not, soften to an honest timeframe. -->
-            <span class="prototype-tag prototype-tag--velocity mono-dot-label">Weekend build</span>
           </div>
-          <h3>Type a title. Watch the catalog fill itself in.</h3>
-          <p>Content ops teams hand-key metadata and source artwork for thousands of titles — slow, repetitive, error-prone. Relay's auto-enrichment feature collapses that into one step: enter a known title and genre, year, studio, synopsis, and key art populate automatically — validated and catalog-ready. I designed, built, and deployed it as a working app to pressure-test the idea before it would ever reach an engineering backlog.</p>
-          <a href="https://main.dc104a0h6vkd6.amplifyapp.com/" id="prototype-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-describedby="prototype-status">View live prototype <span aria-hidden="true">→</span></a>
-          <p id="prototype-status" class="sr-only">Opens the live Relay prototype in a new tab.</p>
+          <h3>Search a title. Fetch metadata and artwork in one click.</h3>
+          <p>Manual metadata entry and sourcing artwork was a major bottleneck for content operations. Relay is a prototype that shows how this can be done programmatically.</p>
+          <a href="https://main.dc104a0h6vkd6.amplifyapp.com/" id="prototype-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-describedby="prototype-status">Try Relay <span aria-hidden="true">→</span></a>
+          <p id="prototype-status" class="sr-only">Opens Relay in a new tab.</p>
           <p class="prototype-facts" aria-label="Build details">
-            <span><!-- TODO (Brian): confirm build time -->Idea → deployed in a weekend</span>
-            <span class="prototype-facts-sep" aria-hidden="true">·</span>
-            <span>372 titles via live API</span>
-            <span class="prototype-facts-sep" aria-hidden="true">·</span>
-            <span>Built in Cursor · deployed on AWS Amplify</span>
+            <span>Built in Cursor</span>
+            <span class="prototype-facts-deploy">Deployed using GitHub, Amplify, Render, and Neon</span>
           </p>
         </div>
         <figure class="prototype-frame">
-          <div class="prototype-frame-bar">
-            <span class="prototype-frame-dot"></span>
-            <span class="prototype-frame-dot"></span>
-            <span class="prototype-frame-dot"></span>
-            <span class="prototype-frame-url">main.dc104a0h6vkd6.amplifyapp.com</span>
-          </div>
-          <figcaption class="sr-only">Relay auto-enrichment: searching for Breaking Bad returns a populated catalog card with metadata and artwork.</figcaption>
-          <div class="prototype-frame-body prototype-frame-body--relay">
-            <div class="relay-search">
-              <span class="relay-search-label">Search titles</span>
-              <div class="relay-search-input" role="search">
-                <span class="relay-search-icon" aria-hidden="true">⌕</span>
-                <span class="relay-search-query">Breaking Bad</span>
-              </div>
-            </div>
-            <article class="relay-result" aria-label="Auto-enriched title result for Breaking Bad">
-              <div class="relay-result-top">
-                <span class="relay-result-name">Breaking Bad</span>
-                <span class="relay-enriched-pill">Auto-enriched ✓</span>
-              </div>
-              <div class="relay-result-body">
-                <div class="relay-poster" role="img" aria-label="Placeholder key art"></div>
-                <dl class="relay-fields">
-                  <div class="relay-field">
-                    <dt>Type</dt>
-                    <dd>Series</dd>
-                  </div>
-                  <div class="relay-field">
-                    <dt>Genre</dt>
-                    <dd>Drama, Crime</dd>
-                  </div>
-                  <div class="relay-field">
-                    <dt>Year</dt>
-                    <dd>2008</dd>
-                  </div>
-                  <div class="relay-field">
-                    <dt>Studio</dt>
-                    <dd>Sony Pictures Television</dd>
-                  </div>
-                  <div class="relay-field relay-field--shimmer">
-                    <dt>Synopsis</dt>
-                    <dd><span class="relay-field-skeleton" aria-hidden="true"></span></dd>
-                  </div>
-                </dl>
-              </div>
-            </article>
-          </div>
+          <img
+            src="assets/relay-create-title.jpg"
+            alt="Relay create title modal with TMDB artwork fetch for The Martian, including posters, backdrops, and AI classify controls"
+            class="prototype-screenshot"
+            loading="lazy"
+            decoding="async">
+          <figcaption class="sr-only">Relay prototype: create title flow with TMDB artwork import and metadata entry.</figcaption>
         </figure>
       </div>
     </section>
@@ -366,7 +319,7 @@
     <header class="resume-modal-header">
       <h2 id="resume-modal-title">Brian Chun — Resume</h2>
       <div class="resume-modal-header-actions">
-        <a href="assets/Brian-Chun-Resume.pdf" class="btn btn-secondary" download="Brian-Chun-Resume.pdf">Download</a>
+        <a href="assets/Brian-Chun-Resume.pdf?v=v14" class="btn btn-secondary" download="Brian-Chun-Resume.pdf">Download</a>
         <button type="button" class="resume-modal-close" data-close-resume aria-label="Close resume dialog">&times;</button>
       </div>
     </header>
@@ -383,6 +336,6 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="js/site.js?v=20260623"></script>
+<script src="js/site.js?v=20260623c"></script>
 </body>
 </html>

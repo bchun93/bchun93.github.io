@@ -40,7 +40,7 @@
     hero: 'Hero',
     expertise: 'Domains of expertise',
     work: 'Case studies',
-    prototype: 'Interactive prototype',
+    prototype: 'Prototyping with AI',
     contact: 'Contact',
   };
 
@@ -126,7 +126,7 @@
   let pdfDoc = null;
   let currentPage = 1;
   let renderTask = null;
-  const RESUME_URL = 'assets/Brian-Chun-Resume.pdf';
+  const RESUME_URL = 'assets/Brian-Chun-Resume.pdf?v=v14';
 
   const focusableSelector =
     'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
