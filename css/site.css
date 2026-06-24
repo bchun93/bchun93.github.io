@@ -230,7 +230,7 @@ a { color: inherit; text-decoration: none; }
 
 .logo {
   font-family: var(--display);
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 500;
   letter-spacing: -0.02em;
 }
@@ -353,34 +353,20 @@ a { color: inherit; text-decoration: none; }
 
 .hero h1 {
   font-family: var(--display);
-  margin-bottom: 20px;
-}
-
-.hero-title-primary {
-  display: block;
-  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-size: clamp(2rem, 4.25vw, 2.875rem);
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.08;
   color: var(--ink);
-  margin-bottom: 12px;
-}
-
-.hero-title-secondary {
-  display: block;
-  font-size: clamp(1.125rem, 2.2vw, 1.4rem);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-  color: var(--ink-muted);
+  margin-bottom: 16px;
 }
 
 .hero-sub {
   font-family: var(--body);
-  font-size: 16px;
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
   color: var(--ink-muted);
-  line-height: 1.65;
-  max-width: 30em;
+  line-height: 1.55;
+  max-width: 36em;
   margin-bottom: 24px;
 }
 
@@ -473,7 +459,7 @@ a { color: inherit; text-decoration: none; }
 
 .pipeline-lane {
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 168px 1fr;
   gap: 0 24px;
   padding: 28px 0;
   border-bottom: 1px solid var(--wire);
@@ -493,8 +479,10 @@ a { color: inherit; text-decoration: none; }
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--ink-muted);
-  width: 88px;
+  width: 112px;
+  line-height: 1.35;
   flex-shrink: 0;
 }
 
@@ -878,7 +866,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .prototype-facts-deploy {
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
@@ -1214,7 +1202,7 @@ body.modal-open { overflow: hidden; }
   }
 
   .hero h1 {
-    font-size: clamp(26px, 7vw, 34px);
+    font-size: clamp(24px, 6.5vw, 32px);
   }
 
   .prototype-copy p {
@@ -1227,7 +1215,6 @@ body.modal-open { overflow: hidden; }
 
   .prototype-facts-deploy {
     white-space: normal;
-    font-size: 9px;
   }
 
   .pipeline-content p,

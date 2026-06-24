@@ -28,9 +28,9 @@
       <a href="#hero" class="logo">Brian Chun</a>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav-links" id="site-nav" aria-label="Primary">
-        <a href="#expertise">Expertise</a>
+        <a href="#expertise" class="is-hidden">Expertise</a>
         <a href="#work" class="is-hidden">Case studies</a>
-        <a href="#prototype">Prototype</a>
+        <a href="#prototype" class="is-hidden">Prototype</a>
         <a href="https://www.linkedin.com/in/brianchun" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:bchun93@gmail.com">Email</a>
       </nav>
@@ -51,12 +51,10 @@
       <!-- DECISION (Brian): the site reads as a streaming/ops PM. If targeting AI-PM roles, consider a bridge subhead framing supply-chain/metadata rigor as the foundation for AI/ML product work. Not changed automatically — your call. -->
       <div class="hero-main">
         <div class="hero-content">
-          <p class="hero-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Product Manager — 5 years</p>
-          <h1 id="hero-heading">
-            <span class="hero-title-primary">Building the systems behind streaming services.</span>
-            <span class="hero-title-secondary">0 to 1 media supply chain products, SVOD apps, data privacy systems.</span>
-          </h1>
-          <p class="hero-sub">3 years building the technology running Wonder Project. 2 years building product methodology at bio and energy startups.</p>
+          <p class="hero-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Product Manager — 5 years of experience</p>
+          <h1 id="hero-heading">Building the systems behind streaming services.</h1>
+          <!-- REVERT: remove is-hidden to restore hero subhead -->
+          <p class="hero-sub is-hidden">0 to 1 media supply chain, SVOD apps, and data privacy systems — three years building the technology behind Wonder Project.</p>
           <div class="hero-actions">
             <button type="button" class="btn btn-secondary" id="open-resume">View resume</button>
             <a href="mailto:bchun93@gmail.com" class="btn btn-primary">Email me</a>
@@ -67,7 +65,8 @@
           <img src="assets/brian.jpg" alt="Brian Chun" class="hero-photo">
         </div>
       </div>
-      <p class="hero-proof" aria-label="Selected work highlights">
+      <!-- REVERT: remove is-hidden to restore proof strip -->
+      <p class="hero-proof is-hidden" aria-label="Selected work highlights">
         <span>3,000+ hrs of video processed</span>
         <span class="hero-proof-sep" aria-hidden="true">·</span>
         <span>7 platform SVOD app</span>
@@ -84,12 +83,12 @@
       <div class="pipeline" role="list">
         <article class="pipeline-lane pipeline-lane--supply" role="listitem">
           <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id mono-dot-label">SUPPLY</span>
+            <span class="lane-id mono-dot-label">Media supply chain</span>
             <span class="lane-node"></span>
             <span class="lane-line"></span>
           </div>
           <div class="pipeline-content">
-            <h3>Media supply chain &amp; content ops</h3>
+            <h3>0 to 1 Media Supply Chain</h3>
             <p><span class="text-lead">Architected an 80+ parameter metadata schema and end-to-end ingestion pipeline</span> — Aspera FASP transfers into S3, Brightcove OVP for transcoding, DRM, and CDN delivery — processing 3,000+ hours of HD content from zero.</p>
             <div class="stack-block">
               <h4 class="stack-label">Technical stack</h4>
@@ -120,16 +119,16 @@
         </article>
         <article class="pipeline-lane pipeline-lane--platform" role="listitem">
           <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id mono-dot-label">PLATFORM</span>
+            <span class="lane-id mono-dot-label">DTC</span>
             <span class="lane-node"></span>
             <span class="lane-line"></span>
           </div>
           <div class="pipeline-content">
-            <h3>Platform ecosystems &amp; integration</h3>
+            <h3>SVOD Streaming Apps for CTV, Mobile, Web</h3>
 
             <div class="domain-subblock">
               <h4 class="stack-label">Multi-platform SVOD build</h4>
-              <p><span class="text-lead">Took a streaming app to internal beta across 7 device ecosystems</span> — fully testable end to end, capable of payment and playback across thousands of titles. <a href="case-studies/multi-platform-svod.html" class="text-link">Read case study →</a></p>
+              <p><span class="text-lead">Took a streaming app to internal beta across 7 device ecosystems</span> — fully testable end to end, capable of payment and playback across thousands of titles.</p>
               <ul class="platform-logos" aria-label="Device ecosystems">
                 <li><img src="assets/platforms/roku.svg" alt="" class="platform-logo platform-logo--wordmark platform-logo--roku" loading="lazy" decoding="async"></li>
                 <li><img src="assets/platforms/appletv.svg" alt="" class="platform-logo platform-logo--wordmark platform-logo--appletv" loading="lazy" decoding="async"></li>
@@ -145,13 +144,13 @@
         </article>
         <article class="pipeline-lane pipeline-lane--compliance" role="listitem">
           <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id mono-dot-label">COMPLIANCE</span>
+            <span class="lane-id mono-dot-label">Data privacy compliance</span>
             <span class="lane-node"></span>
             <span class="lane-line"></span>
           </div>
           <div class="pipeline-content">
-            <h3>Global compliance architecture</h3>
-            <p><span class="text-lead">Evaluated enterprise compliance vendors against startup budget constraints, then architected a CCPA, GDPR, and VPPA-compliant consent and data-rights system on a $20/month tool.</span></p>
+            <h3>Data Privacy System</h3>
+            <p><span class="text-lead">Evaluated enterprise compliance vendors against startup budget constraints, then architected a CCPA, GDPR, and VPPA-compliant consent and data-rights system on a low cost vendor tool.</span></p>
 
             <div class="domain-subblock">
               <h4 class="stack-label">Vendor evaluation</h4>
@@ -166,7 +165,7 @@
                 </div>
                 <div class="stack-row">
                   <dt>Selected</dt>
-                  <dd>Standardized on Termly ($20/month) after confirming full coverage of legal requirements.</dd>
+                  <dd>Standardized on Termly, a low cost vendor tool, after confirming full coverage of legal requirements.</dd>
                 </div>
               </dl>
             </div>
@@ -201,26 +200,6 @@
 
       <div class="study-grid" role="list">
         <!-- TODO (Brian): name the employer on each case study (e.g. "Wonder Project") — recruiters anchor on company names; the site is currently anonymous about where this work happened. Insert the real employer; do not guess. -->
-        <a href="case-studies/multi-platform-svod.html" class="study-card" role="listitem" aria-labelledby="study-0-title">
-          <span class="study-tag">Platform ecosystems</span>
-          <h3 class="study-title" id="study-0-title">Multi-Platform SVOD &amp; Prime Video Channel Launch</h3>
-          <div class="study-preview">
-            <div class="study-preview-item">
-              <h4 class="study-preview-label">Problem</h4>
-              <p><span class="text-lead">Launching a streaming product across many device ecosystems and onto a partner platform with a strict certification spec.</span></p>
-            </div>
-            <div class="study-preview-item">
-              <h4 class="study-preview-label">Methodology</h4>
-              <p><span class="text-lead">Took the app to internal beta across 7 device ecosystems;</span> built MovieLabs-spec XML generation; normalized internal assets and metadata to partner spec; closed certification gaps across artwork, timed text, and A/V; proved the pipeline could meet partner SLAs.</p>
-            </div>
-            <div class="study-preview-item">
-              <h4 class="study-preview-label">Impact</h4>
-              <p><span class="text-lead">Launched a live Prime Video Channel.</span> <!-- TODO (Brian): insert a real business OUTCOME here, not an activity metric — e.g. time-to-launch, number of titles made available, partner go-live date, or audience/distribution reached. Do not fabricate. --></p>
-            </div>
-          </div>
-          <span class="study-link">Read case study <span aria-hidden="true">→</span></span>
-        </a>
-
         <a href="case-studies/media-supply-chain.html" class="study-card" role="listitem" aria-labelledby="study-1-title">
           <span class="study-tag">Media supply chain</span>
           <h3 class="study-title" id="study-1-title">0-to-1 Media Supply Chain Architecture</h3>
@@ -318,7 +297,7 @@
     <header class="resume-modal-header">
       <h2 id="resume-modal-title">Brian Chun — Resume</h2>
       <div class="resume-modal-header-actions">
-        <a href="assets/Brian-Chun-Resume.pdf?v=v15" class="btn btn-secondary" download="Brian-Chun-Resume.pdf">Download</a>
+        <a href="assets/Brian-Chun-Resume.pdf?v=v16" class="btn btn-secondary" download="Brian-Chun-Resume.pdf">Download</a>
         <button type="button" class="resume-modal-close" data-close-resume aria-label="Close resume dialog">&times;</button>
       </div>
     </header>
