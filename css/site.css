@@ -971,6 +971,10 @@ a { color: inherit; text-decoration: none; }
 
 button.btn { font-family: inherit; }
 
+.btn-arrow {
+  margin-left: 0.35em;
+}
+
 /* ── Footer ── */
 .site-footer {
   max-width: calc(var(--wide) + 80px);
