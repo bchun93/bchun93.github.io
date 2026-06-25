@@ -38,7 +38,7 @@
   /* ── Spec Rail ── */
   const sectionLabels = {
     hero: 'Hero',
-    expertise: "Product domains I've owned",
+    expertise: 'Product domains',
     work: 'Case studies',
     prototype: 'Prototyping with AI',
     contact: 'Contact',
@@ -126,7 +126,7 @@
   let pdfDoc = null;
   let currentPage = 1;
   let renderTask = null;
-  const RESUME_URL = 'assets/Brian-Chun-Resume.pdf?v=v16';
+  const RESUME_URL = 'assets/Brian-Chun-Resume.pdf?v=v17';
 
   const focusableSelector =
     'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
