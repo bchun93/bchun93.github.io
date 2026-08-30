@@ -368,13 +368,28 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero h1 {
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  display: block;
   font-family: var(--display);
   font-size: clamp(2rem, 4.25vw, 2.875rem);
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.08;
   color: var(--ink);
-  margin-bottom: 16px;
+}
+
+.hero-focus {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  color: var(--ink-muted);
 }
 
 .hero-sub {
@@ -451,8 +466,8 @@ a { color: inherit; text-decoration: none; }
 .mono-dot-label::before {
   content: '';
   display: inline-block;
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--accent-bright);
   margin-right: 8px;
@@ -475,7 +490,7 @@ a { color: inherit; text-decoration: none; }
 
 .pipeline-lane {
   display: grid;
-  grid-template-columns: 168px 1fr;
+  grid-template-columns: 200px 1fr;
   gap: 0 24px;
   padding: 28px 0;
   border-bottom: 1px solid var(--wire);
@@ -492,12 +507,12 @@ a { color: inherit; text-decoration: none; }
 
 .lane-id {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--ink-muted);
-  width: 112px;
+  width: 148px;
   line-height: 1.35;
   flex-shrink: 0;
 }
@@ -534,6 +549,36 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-muted);
   line-height: 1.65;
   max-width: 58ch;
+}
+
+.domain-bullets {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  max-width: 72ch;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.domain-bullets li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 15px;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.domain-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  transform: translateY(-50%);
 }
 
 .stack-block {
@@ -578,8 +623,14 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.55;
 }
 
+.stack-row--block {
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
 .pipeline-lane--supply .pipeline-content p,
 .pipeline-lane--platform .pipeline-content > p,
+.pipeline-lane--workflow .pipeline-content > p,
 .pipeline-lane--compliance .pipeline-content > p {
   max-width: 72ch;
 }
@@ -1287,8 +1338,13 @@ body.modal-open { overflow: hidden; }
     gap: 16px;
   }
 
-  .hero h1 {
+  .hero-title {
     font-size: clamp(24px, 6.5vw, 32px);
+  }
+
+  .hero-focus {
+    font-size: clamp(17px, 4.5vw, 22px);
+    letter-spacing: 0.01em;
   }
 
   .prototype-copy p {
@@ -1307,6 +1363,7 @@ body.modal-open { overflow: hidden; }
   .domain-subblock > p,
   .pipeline-lane--supply .pipeline-content p,
   .pipeline-lane--platform .pipeline-content > p,
+  .pipeline-lane--workflow .pipeline-content > p,
   .pipeline-lane--compliance .pipeline-content > p {
     max-width: none;
   }

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=20260625b">
+<link rel="stylesheet" href="css/site.css?v=20260830g">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -52,8 +52,10 @@
       <!-- DECISION (Brian): the site reads as a streaming/ops PM. If targeting AI-PM roles, consider a bridge subhead framing supply-chain/metadata rigor as the foundation for AI/ML product work. Not changed automatically — your call. -->
       <div class="hero-main">
         <div class="hero-content">
-          <p class="hero-eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Product Manager — 5 years of experience</p>
-          <h1 id="hero-heading">Building the systems behind streaming services</h1>
+          <h1 id="hero-heading">
+            <span class="hero-title">Product Manager</span>
+            <span class="hero-focus">Media Supply Chain, Workflow Automation, DTC Streaming</span>
+          </h1>
           <!-- REVERT: remove is-hidden to restore hero subhead -->
           <p class="hero-sub is-hidden">0 to 1 media supply chain, SVOD apps, and data privacy systems — three years building the technology behind Wonder Project.</p>
           <div class="hero-actions">
@@ -79,40 +81,87 @@
 
     <section class="expertise" id="expertise" data-spec-section="expertise" aria-labelledby="expertise-heading">
       <div class="section-head">
-        <h2 id="expertise-heading">Product domains</h2>
+        <h2 id="expertise-heading">Media Supply Chain, Workflow Automation, DTC Streaming</h2>
       </div>
       <div class="pipeline" role="list">
         <article class="pipeline-lane pipeline-lane--supply" role="listitem">
           <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id mono-dot-label">Media supply chain</span>
+            <span class="lane-id mono-dot-label">Media Supply Chain</span>
             <span class="lane-node"></span>
             <span class="lane-line"></span>
           </div>
           <div class="pipeline-content">
-            <h3>0 to 1 Media Supply Chain</h3>
-            <p><span class="text-lead">Architected an 80+ parameter metadata schema and end-to-end ingestion pipeline</span> — Aspera P2P transfers into S3, Brightcove OVP for transcoding, DRM, and CDN delivery — processing 3,000+ hours of HD content from zero.</p>
+            <h3>Ingestion, QC, and Delivery Pipeline</h3>
+            <p><span class="text-lead">Architected a manifest-driven ingestion, QC, and delivery pipeline from 0 to 1.</span></p>
+            <ul class="domain-bullets">
+              <li>Enabled content operations to deliver 1500 titles for Prime Video Channels launch</li>
+              <li>5,000 hours of content delivered as of May 2026 with 99% against Amazon SLA</li>
+            </ul>
             <div class="stack-block">
-              <h4 class="stack-label">Technical stack</h4>
+              <h4 class="stack-label">Building 0 to 1, scaling to meet demand</h4>
+              <dl class="stack-list">
+                <div class="stack-row stack-row--block">
+                  <dt>Discovery</dt>
+                  <dd>Assessed the core needs of a content delivery system for lean team planning for niche library catalog launch of 1500 titles — delivery spec, metadata schema, supply architecture.</dd>
+                </div>
+                <div class="stack-row stack-row--block">
+                  <dt>Build vs Buy</dt>
+                  <dd>Evaluated the tradeoffs of buying vendor tooling vs building custom. Decided on a hybrid solution leveraging Brightcove's transcoding, storage, and content management capabilities while keeping orchestration in-house.</dd>
+                </div>
+                <div class="stack-row stack-row--block">
+                  <dt>MVP Launch</dt>
+                  <dd>Shipped MVP, tested with internal teams and studio partners, fixed validation and ingestion bugs, re-wrote delivery spec, adopted by Content Operations.</dd>
+                </div>
+                <div class="stack-row stack-row--block">
+                  <dt>Iteration</dt>
+                  <dd>Extended supply chain from owned-endpoint to third-party distribution by conforming to Amazon's spec, automating MEC/MMC generation, integrating MediaInfo spec QC.</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </article>
+        <article class="pipeline-lane pipeline-lane--workflow is-hidden" role="listitem">
+          <div class="pipeline-track" aria-hidden="true">
+            <span class="lane-id mono-dot-label">Workflow Automation</span>
+            <span class="lane-node"></span>
+            <span class="lane-line"></span>
+          </div>
+          <div class="pipeline-content">
+            <h3>Data Privacy System</h3>
+            <p><span class="text-lead">Evaluated enterprise compliance vendors against startup budget constraints, then architected a CCPA, GDPR, and VPPA-compliant consent and data-rights system on a low cost vendor tool.</span></p>
+
+            <div class="domain-subblock">
+              <h4 class="stack-label">Vendor evaluation</h4>
               <dl class="stack-list">
                 <div class="stack-row">
-                  <dt>Video</dt>
-                  <dd>Codec, resolution, frame rate, scan, chroma &amp; bit depth, color, aspect ratio, head &amp; tail layout</dd>
+                  <dt>Benchmarked</dt>
+                  <dd>Assessed OneTrust's enterprise offering against actual coverage needs and cost.</dd>
                 </div>
                 <div class="stack-row">
-                  <dt>Audio</dt>
-                  <dd>Sample rate &amp; depth, configurations, track layout</dd>
+                  <dt>Risk calibration</dt>
+                  <dd>Aligned with legal counsel on which compliance areas required strict coverage versus acceptable exposure, given company size.</dd>
                 </div>
                 <div class="stack-row">
-                  <dt>Text &amp; captioning</dt>
-                  <dd>Closed caption vs. subtitle format specification</dd>
+                  <dt>Selected</dt>
+                  <dd>Standardized on Termly, a low cost vendor tool, after confirming full coverage of legal requirements.</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="domain-subblock">
+              <h4 class="stack-label">Outcomes</h4>
+              <dl class="stack-list">
+                <div class="stack-row">
+                  <dt>Legal documentation</dt>
+                  <dd>Terms of Service and Privacy Policy across every product.</dd>
                 </div>
                 <div class="stack-row">
-                  <dt>Artwork &amp; metadata</dt>
-                  <dd>Asset types, safe zones, aspect ratios, metadata schema design</dd>
+                  <dt>Consent management</dt>
+                  <dd>Cookie consent and data privacy preference controls.</dd>
                 </div>
                 <div class="stack-row">
-                  <dt>Delivery &amp; processing</dt>
-                  <dd>MovieLabs XML spec generation, Aspera (P2P) secure transfer, Brightcove OVP — ABR transcoding, DRM, CDN delivery</dd>
+                  <dt>Data rights workflows</dt>
+                  <dd>Internal process for DSAR and deletion request handling.</dd>
                 </div>
               </dl>
             </div>
@@ -120,7 +169,7 @@
         </article>
         <article class="pipeline-lane pipeline-lane--platform" role="listitem">
           <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id mono-dot-label">DTC</span>
+            <span class="lane-id mono-dot-label">DTC Streaming</span>
             <span class="lane-node"></span>
             <span class="lane-line"></span>
           </div>
@@ -191,53 +240,6 @@
                   <p class="feature-owned-desc">Account management, cellular data usage, playback quality, device management, download managements.</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </article>
-        <article class="pipeline-lane pipeline-lane--compliance" role="listitem">
-          <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id mono-dot-label">Data privacy compliance</span>
-            <span class="lane-node"></span>
-            <span class="lane-line"></span>
-          </div>
-          <div class="pipeline-content">
-            <h3>Data Privacy System</h3>
-            <p><span class="text-lead">Evaluated enterprise compliance vendors against startup budget constraints, then architected a CCPA, GDPR, and VPPA-compliant consent and data-rights system on a low cost vendor tool.</span></p>
-
-            <div class="domain-subblock">
-              <h4 class="stack-label">Vendor evaluation</h4>
-              <dl class="stack-list">
-                <div class="stack-row">
-                  <dt>Benchmarked</dt>
-                  <dd>Assessed OneTrust's enterprise offering against actual coverage needs and cost.</dd>
-                </div>
-                <div class="stack-row">
-                  <dt>Risk calibration</dt>
-                  <dd>Aligned with legal counsel on which compliance areas required strict coverage versus acceptable exposure, given company size.</dd>
-                </div>
-                <div class="stack-row">
-                  <dt>Selected</dt>
-                  <dd>Standardized on Termly, a low cost vendor tool, after confirming full coverage of legal requirements.</dd>
-                </div>
-              </dl>
-            </div>
-
-            <div class="domain-subblock">
-              <h4 class="stack-label">Outcomes</h4>
-              <dl class="stack-list">
-                <div class="stack-row">
-                  <dt>Legal documentation</dt>
-                  <dd>Terms of Service and Privacy Policy across every product.</dd>
-                </div>
-                <div class="stack-row">
-                  <dt>Consent management</dt>
-                  <dd>Cookie consent and data privacy preference controls.</dd>
-                </div>
-                <div class="stack-row">
-                  <dt>Data rights workflows</dt>
-                  <dd>Internal process for DSAR and deletion request handling.</dd>
-                </div>
-              </dl>
             </div>
           </div>
         </article>
@@ -366,6 +368,6 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="js/site.js?v=20260623c"></script>
+<script src="js/site.js?v=20260830e"></script>
 </body>
 </html>

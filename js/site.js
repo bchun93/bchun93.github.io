@@ -38,7 +38,7 @@
   /* ── Spec Rail ── */
   const sectionLabels = {
     hero: 'Hero',
-    expertise: 'Product domains',
+    expertise: 'Media Supply Chain, Workflow Automation, DTC Streaming',
     work: 'Case studies',
     prototype: 'Prototyping with AI',
     contact: 'Contact',
@@ -107,6 +107,7 @@
     sections.forEach((s) => observer.observe(s));
     setActiveSection(sections[0].id);
   }
+
 
   /* ── Resume modal ── */
   const modal = document.getElementById('resume-modal');
