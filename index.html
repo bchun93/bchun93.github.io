@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=20260831r16">
+<link rel="stylesheet" href="css/site.css?v=20260831r23">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -19,7 +19,7 @@
     <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav-links" id="site-nav" aria-label="Primary">
       <a href="#work">Work</a>
-      <a href="#about">About</a>
+        <a href="about.html">About</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -31,7 +31,7 @@
     <div class="hero-inner">
       <div class="hero-copy">
         <h1 id="hero-heading"><span class="hero-role">Product Manager</span> <span class="hero-title-rest">building systems for streaming media</span></h1>
-        <p class="hero-lede">My work spans the streaming stack, from content metadata and supply chain to the DTC apps customers use, giving me an end-to-end perspective on building products in streaming.</p>
+        <p class="hero-lede">My work spans the streaming stack, from content metadata and supply chain to the DTC apps customers use.</p>
         <a href="#work" class="btn btn-primary hero-cta">View selected work <span aria-hidden="true">↓</span></a>
       </div>
       <div class="hero-photo-wrap">
@@ -45,7 +45,7 @@
     <div class="section-inner">
       <header class="section-head">
         <p class="section-eyebrow">Selected work</p>
-        <h2 id="work-heading">Here are some of the problems I’ve solved</h2>
+        <h2 id="work-heading">Here are some of the problems I’ve&nbsp;solved</h2>
         <p class="section-sub">Three product areas: Media Supply Chain, Workflow Automation, DTC Streaming Apps.</p>
       </header>
 
@@ -58,11 +58,11 @@
           </div>
           <div class="project-body">
             <h3 id="project-01-title">Building a content delivery system from 0 → 1</h3>
-            <p>Architected a manifest-driven ingestion, QC, and delivery pipeline for a lean ops team launching a niche catalog—then extended it for third-party distribution.</p>
+            <p>As a new studio &amp; streamer, we needed a way to ingest, process, and distribute a niche catalog. I led a lean team of Solutions Architects and Full-Stack Engineers to create a purpose built content delivery pipeline from 0 to 1, then extended it for third-party distribution.</p>
             <dl class="metric-row">
               <div class="metric">
-                <dt class="metric-value">1,500</dt>
-                <dd class="metric-label">titles for Prime Video Channels launch</dd>
+                <dt class="metric-value">1,500 titles <span class="metric-note">(movies and episodes)</span></dt>
+                <dd class="metric-label">for Prime Video Channels launch</dd>
               </div>
               <div class="metric">
                 <dt class="metric-value">5,000 hrs</dt>
@@ -83,7 +83,7 @@
             <span class="project-cat mono-label">Workflow Automation</span>
           </div>
           <div class="project-body">
-            <h3 id="project-02-title">Turning manual delivery work into software</h3>
+            <h3 id="project-02-title">Automating manual, high-touch steps of the content delivery workflow</h3>
             <p>Mapped the end-to-end delivery workflow, found the high-touch bottlenecks, and shipped automation that returned time to Content Operations without breaking SLA guardrails.</p>
             <dl class="metric-row">
               <div class="metric">
@@ -132,16 +132,15 @@
     <div class="section-inner">
       <header class="section-head">
         <p class="section-eyebrow">Personal projects</p>
-        <h2 id="experiments-heading">Building to learn.</h2>
-        <p class="section-sub">I use AI-assisted development to prototype product ideas quickly, test workflows, and explore what’s possible before committing engineering resources.</p>
+        <h2 id="experiments-heading">Rapid prototyping with AI</h2>
+        <p class="section-sub">Relay is a personal project and an example of how I use AI to create PoCs, test feasibility, and drive stakeholder alignment in half the time it used to take.</p>
       </header>
 
       <article class="relay-panel" aria-labelledby="relay-heading">
         <div class="relay-copy">
-          <p class="mono-label">Prototype</p>
           <h3 id="relay-heading">Relay</h3>
-          <p class="relay-tagline">A media supply-chain workspace</p>
-          <p>Search a title. Fetch metadata and artwork in one click. Built to validate title management, metadata enrichment, and TMDB-backed artwork acquisition before a full engineering commitment.</p>
+          <p class="relay-tagline">Exploring what the modern media supply chain could look like.</p>
+          <p>I built Relay to explore how much of the different pillars of media supply can be handled in one place instead of across disconnected tools.</p>
           <p class="relay-note">Coming soon: Programmatic video QC via Amazon Rekognition</p>
           <a href="https://main.dc104a0h6vkd6.amplifyapp.com/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Try Relay <span aria-hidden="true">→</span></a>
           <p class="relay-facts mono-label">Built in Cursor · Deployed with GitHub, Amplify, Render, and Neon</p>
@@ -155,77 +154,6 @@
             decoding="async">
         </figure>
       </article>
-    </div>
-  </section>
-
-  <section class="section about" id="about" aria-labelledby="about-heading">
-    <div class="section-inner">
-      <div class="about-inner">
-        <header class="section-head">
-          <p class="section-eyebrow">About</p>
-          <h2 id="about-heading">I’m a PM who likes understanding how complex systems work—and making them simpler.</h2>
-        </header>
-        <div class="about-prose">
-          <p>I came to product management through the sciences and customer-facing work. Experimentation taught me to form hypotheses, test them, and let evidence change the plan. Working with customers taught me to apply that discipline to products.</p>
-          <p>At Wonder Project I worked on the systems behind streaming—content delivery, metadata, content management, privacy, and the DTC product. I get into the details, learn how the pieces connect, and turn that understanding into software operations teams can actually run.</p>
-        </div>
-      </div>
-
-      <h3 class="experience-heading">Relevant experience</h3>
-      <ol class="experience-track" aria-label="Career progression">
-        <li>
-          <figure class="experience-step">
-            <div class="experience-logo-frame">
-              <img src="assets/logos/chownow.png" alt="ChowNow" loading="lazy" decoding="async">
-            </div>
-            <span class="experience-node" aria-hidden="true"></span>
-            <figcaption>
-              <span class="experience-company">ChowNow</span>
-              <span class="experience-role">Sales Development Rep</span>
-              <span class="experience-dates">2017 – 2018</span>
-            </figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure class="experience-step">
-            <div class="experience-logo-frame">
-              <img src="assets/logos/griddy.png" alt="Griddy" loading="lazy" decoding="async">
-            </div>
-            <span class="experience-node" aria-hidden="true"></span>
-            <figcaption>
-              <span class="experience-company">Griddy</span>
-              <span class="experience-role">Associate Product Manager</span>
-              <span class="experience-dates">2019 – 2020</span>
-            </figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure class="experience-step">
-            <div class="experience-logo-frame">
-              <img src="assets/logos/sensorbio.png" alt="SensorBio" loading="lazy" decoding="async">
-            </div>
-            <span class="experience-node" aria-hidden="true"></span>
-            <figcaption>
-              <span class="experience-company">Sensor Bio</span>
-              <span class="experience-role">Project Manager and Customer Success</span>
-              <span class="experience-dates">2021 – 2022</span>
-            </figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure class="experience-step">
-            <div class="experience-logo-frame">
-              <img src="assets/logos/wonder-project.png" alt="Wonder Project" loading="lazy" decoding="async">
-            </div>
-            <span class="experience-node" aria-hidden="true"></span>
-            <figcaption>
-              <span class="experience-company">Wonder Project</span>
-              <span class="experience-role">Product Manager</span>
-              <span class="experience-dates">2023 – 2026</span>
-            </figcaption>
-          </figure>
-        </li>
-      </ol>
     </div>
   </section>
 
