@@ -35,68 +35,119 @@
     });
   }
 
-  /* ── Spec Rail ── */
-  const sectionLabels = {
-    hero: 'Hero',
-    expertise: 'Media Supply Chain, Workflow Automation, DTC Streaming',
-    work: 'Case studies',
-    prototype: 'Prototyping with AI',
-    contact: 'Contact',
+  /* ── View switching (Work / About) ── */
+  const viewPanels = {
+    work: document.getElementById('view-work'),
+    about: document.getElementById('view-about'),
   };
-
+  const viewLinks = document.querySelectorAll('[data-view-link]');
+  const viewRails = document.querySelectorAll('[data-view-rail]');
+  const identityEl = document.getElementById('identity');
   const sections = document.querySelectorAll('[data-spec-section]');
   const desktopRail = document.querySelector('.spec-rail');
   const mobileRail = document.querySelector('.spec-rail-mobile');
   const railKeys = document.querySelectorAll('.spec-rail-key');
 
-  railKeys.forEach((key) => {
-    const id = key.dataset.target;
-    const label = sectionLabels[id] || id;
-    key.setAttribute('aria-label', `Jump to ${label}`);
-  });
+  const sectionLabels = {
+    expertise: 'Selected work',
+    work: 'Case studies',
+    prototype: 'Prototyping with AI',
+    contact: 'Contact',
+  };
+
+  function syncIdentityOffset() {
+    if (!identityEl) return;
+    const h = Math.ceil(identityEl.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--identity-h', h + 'px');
+  }
 
   function syncRailVisibility() {
     const mobile = window.matchMedia('(max-width: 960px)').matches;
-    if (desktopRail) desktopRail.setAttribute('aria-hidden', mobile ? 'true' : 'false');
-    if (mobileRail) mobileRail.setAttribute('aria-hidden', mobile ? 'false' : 'true');
+    const onWork = document.body.dataset.activeView !== 'about';
+    if (desktopRail) desktopRail.setAttribute('aria-hidden', mobile || !onWork ? 'true' : 'false');
+    if (mobileRail) mobileRail.setAttribute('aria-hidden', !mobile || !onWork ? 'true' : 'false');
   }
 
-  syncRailVisibility();
-  window.addEventListener('resize', syncRailVisibility);
-
   function setActiveSection(id) {
+    if (document.body.dataset.activeView === 'about') return;
     railKeys.forEach((key) => {
       const active = key.dataset.target === id;
       key.classList.toggle('is-active', active);
       key.setAttribute('aria-current', active ? 'true' : 'false');
     });
+  }
 
-    if (siteNav) {
-      siteNav.querySelectorAll('a[href^="#"]').forEach((link) => {
-        const href = link.getAttribute('href');
-        const active = href === `#${id}`;
-        link.classList.toggle('is-active', active);
-        if (active) {
-          link.setAttribute('aria-current', 'true');
-        } else {
-          link.removeAttribute('aria-current');
-        }
-      });
+  function setView(view, opts) {
+    const push = opts && opts.push;
+    const next = view === 'about' ? 'about' : 'work';
+
+    Object.keys(viewPanels).forEach((name) => {
+      const panel = viewPanels[name];
+      if (!panel) return;
+      const active = name === next;
+      panel.hidden = !active;
+      panel.classList.toggle('is-active', active);
+    });
+
+    document.body.dataset.activeView = next;
+
+    viewLinks.forEach((link) => {
+      const active = link.getAttribute('data-view-link') === next;
+      link.classList.toggle('is-active', active);
+      if (active) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+
+    viewRails.forEach((rail) => {
+      rail.hidden = next !== 'work';
+    });
+
+    document.title =
+      next === 'about' ? 'About — Brian Chun' : 'Brian Chun — Product Manager';
+
+    if (push) {
+      const hash = next === 'about' ? '#about' : '#work';
+      if (location.hash !== hash) history.pushState({ view: next }, document.title, hash);
     }
+
+    syncRailVisibility();
+    syncIdentityOffset();
+  }
+
+  function viewFromHash() {
+    const hash = (location.hash || '#work').replace('#', '');
+    return hash === 'about' ? 'about' : 'work';
   }
 
   railKeys.forEach((key) => {
+    const id = key.dataset.target;
+    const label = sectionLabels[id] || id;
+    key.setAttribute('aria-label', 'Jump to ' + label);
     key.addEventListener('click', () => {
+      if (document.body.dataset.activeView === 'about') setView('work', { push: true });
       const el = document.getElementById(key.dataset.target);
-      if (el) {
-        el.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+      if (el) el.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+
+  viewLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const view = link.getAttribute('data-view-link');
+      if (!view || !viewPanels[view]) return;
+      e.preventDefault();
+      setView(view, { push: true });
+      if (siteNav) {
+        siteNav.classList.remove('is-open');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
       }
+      window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
     });
   });
 
   if (sections.length) {
     const observer = new IntersectionObserver(
       (entries) => {
+        if (document.body.dataset.activeView === 'about') return;
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -105,9 +156,18 @@
       { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.25, 0.5] }
     );
     sections.forEach((s) => observer.observe(s));
-    setActiveSection(sections[0].id);
   }
 
+  window.addEventListener('popstate', () => setView(viewFromHash()));
+  window.addEventListener('resize', () => {
+    syncIdentityOffset();
+    syncRailVisibility();
+  });
+
+  setView(viewFromHash());
+  if (sections[0] && document.body.dataset.activeView === 'work') {
+    setActiveSection(sections[0].id);
+  }
 
   /* ── Resume modal ── */
   const modal = document.getElementById('resume-modal');

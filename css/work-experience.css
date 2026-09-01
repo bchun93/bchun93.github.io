@@ -135,6 +135,18 @@
 }
 
 @media (max-width: 600px) {
+  .work-hero {
+    padding: 36px 0 28px;
+  }
+
+  .work-hero h1 {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+
+  .work-list {
+    padding: 36px 0 56px;
+  }
+
   .work-role-header {
     grid-template-columns: 1fr;
     gap: 6px;
@@ -142,5 +154,9 @@
 
   .work-role-dates {
     white-space: normal;
+  }
+
+  .work-bullets li {
+    font-size: 14px;
   }
 }

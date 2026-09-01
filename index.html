@@ -8,14 +8,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=20260830g">
+<link rel="stylesheet" href="css/site.css?v=20260831n">
+<link rel="stylesheet" href="css/about.css?v=20260831h">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<nav class="spec-rail" aria-label="On-page section navigation">
-  <button type="button" class="spec-rail-key" data-target="hero">hero</button>
-  <button type="button" class="spec-rail-key" data-target="expertise">domains[]</button>
+<nav class="spec-rail" data-view-rail="work" aria-label="On-page section navigation">
+  <button type="button" class="spec-rail-key" data-target="expertise">work[]</button>
   <button type="button" class="spec-rail-key is-hidden" data-target="work">cases[]</button>
   <button type="button" class="spec-rail-key" data-target="prototype">prototype</button>
   <button type="button" class="spec-rail-key" data-target="contact">contact</button>
@@ -25,22 +25,33 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <a href="#hero" class="logo">Brian Chun</a>
+      <a href="#work" class="logo" data-view-link="work">Brian Chun</a>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav-links" id="site-nav" aria-label="Primary">
-        <a href="#expertise" class="is-hidden">Expertise</a>
-        <a href="#work" class="is-hidden">Case studies</a>
-        <a href="#prototype" class="is-hidden">Prototype</a>
-        <a href="work-experience.html" class="is-hidden">Experience</a>
+        <a href="#work" data-view-link="work">Work</a>
+        <a href="#about" data-view-link="about">About</a>
         <a href="https://www.linkedin.com/in/brianchun" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:bchun93@gmail.com">Email</a>
       </nav>
     </div>
   </header>
 
-  <nav class="spec-rail-mobile" aria-label="On-page section navigation">
-    <button type="button" class="spec-rail-key" data-target="hero">hero</button>
-    <button type="button" class="spec-rail-key" data-target="expertise">domains[]</button>
+  <div class="identity-sticky" id="identity">
+    <div class="identity-inner">
+      <div class="identity-text">
+        <h1 id="hero-heading" class="identity-heading">
+          <span class="identity-title">Product Manager</span>
+          <span class="identity-focus">Media Supply Chain, Workflow Automation, DTC Streaming</span>
+        </h1>
+      </div>
+      <div class="identity-photo-wrap">
+        <img src="assets/brian.jpg" alt="Brian Chun" class="identity-photo" width="150" height="187">
+      </div>
+    </div>
+  </div>
+
+  <nav class="spec-rail-mobile" data-view-rail="work" aria-label="On-page section navigation">
+    <button type="button" class="spec-rail-key" data-target="expertise">work[]</button>
     <button type="button" class="spec-rail-key is-hidden" data-target="work">cases[]</button>
     <button type="button" class="spec-rail-key" data-target="prototype">prototype</button>
     <button type="button" class="spec-rail-key" data-target="contact">contact</button>
@@ -48,40 +59,13 @@
 
   <main class="main" id="main-content">
 
-    <section class="hero" id="hero" data-spec-section="hero" aria-labelledby="hero-heading">
-      <!-- DECISION (Brian): the site reads as a streaming/ops PM. If targeting AI-PM roles, consider a bridge subhead framing supply-chain/metadata rigor as the foundation for AI/ML product work. Not changed automatically — your call. -->
-      <div class="hero-main">
-        <div class="hero-content">
-          <h1 id="hero-heading">
-            <span class="hero-title">Product Manager</span>
-            <span class="hero-focus">Media Supply Chain, Workflow Automation, DTC Streaming</span>
-          </h1>
-          <!-- REVERT: remove is-hidden to restore hero subhead -->
-          <p class="hero-sub is-hidden">0 to 1 media supply chain, SVOD apps, and data privacy systems — three years building the technology behind Wonder Project.</p>
-          <div class="hero-actions">
-            <!-- REVERT: remove is-hidden to restore View resume -->
-            <button type="button" class="btn btn-secondary is-hidden" id="open-resume">View resume</button>
-            <a href="mailto:bchun93@gmail.com" class="btn btn-primary">Email me</a>
-          </div>
-        </div>
-        <div class="hero-photo-wrap">
-          <!-- TODO (Brian): consider replacing with a higher-resolution headshot; current render looks soft. -->
-          <img src="assets/brian.jpg" alt="Brian Chun" class="hero-photo">
-        </div>
-      </div>
-      <!-- REVERT: remove is-hidden to restore proof strip -->
-      <p class="hero-proof is-hidden" aria-label="Selected work highlights">
-        <span>3,000+ hrs of video processed</span>
-        <span class="hero-proof-sep" aria-hidden="true">·</span>
-        <span>7 platform SVOD app</span>
-        <span class="hero-proof-sep" aria-hidden="true">·</span>
-        <span>Prime Video channel launch</span>
-      </p>
-    </section>
+    <button type="button" class="is-hidden" id="open-resume" tabindex="-1" aria-hidden="true">View resume</button>
+
+    <div class="view is-active" id="view-work" data-view-panel="work">
 
     <section class="expertise" id="expertise" data-spec-section="expertise" aria-labelledby="expertise-heading">
       <div class="section-head">
-        <h2 id="expertise-heading">Media Supply Chain, Workflow Automation, DTC Streaming</h2>
+        <h2 id="expertise-heading">Selected work</h2>
       </div>
       <div class="pipeline" role="list">
         <article class="pipeline-lane pipeline-lane--supply" role="listitem">
@@ -321,6 +305,77 @@
       </div>
     </section>
 
+    </div><!-- /view-work -->
+
+    <div class="view" id="view-about" data-view-panel="about" hidden>
+      <section class="about-panel" aria-labelledby="about-heading">
+        <div class="section-head">
+          <h2 id="about-heading">About Me</h2>
+        </div>
+        <div class="about-prose">
+    <p>Hi, I’m Brian.</p>
+    <p>I took a somewhat unconventional path to product management, starting in the sciences before moving into tech and eventually into streaming.</p>
+    <p>My background in experimentation taught me to approach problems with curiosity and discipline: understand what’s happening, form a hypothesis, test it, and learn from the results. Working directly with customers taught me how to apply that thinking to products.</p>
+    <p>At Wonder Project, I worked on the systems behind streaming—content delivery, metadata, content management, privacy, and the DTC product. I particularly enjoy getting into the details, understanding how all the pieces fit together, and finding ways to make complex workflows simpler and more scalable.</p>
+    <p>That’s the kind of PM I am: <strong>curious about how things work, focused on understanding the real problem, and practical about turning that understanding into something useful.</strong></p>
+  </div>
+
+  <section class="about-experience" aria-labelledby="experience-heading">
+    <h2 id="experience-heading">Relevant experience</h2>
+    <ul class="experience-logos">
+      <li>
+        <figure class="experience-logo-card">
+          <div class="experience-logo-frame">
+            <img src="assets/logos/wonder-project.png" alt="Wonder Project logo" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <span class="experience-company">Wonder Project</span>
+            <span class="experience-role">Product Manager</span>
+            <span class="experience-dates">2023 – 2026</span>
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure class="experience-logo-card">
+          <div class="experience-logo-frame">
+            <img src="assets/logos/sensorbio.png" alt="SensorBio logo" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <span class="experience-company">Sensor Bio</span>
+            <span class="experience-role">Project Manager and Customer Success</span>
+            <span class="experience-dates">2021 – 2022</span>
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure class="experience-logo-card">
+          <div class="experience-logo-frame">
+            <img src="assets/logos/griddy.png" alt="Griddy logo" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <span class="experience-company">Griddy</span>
+            <span class="experience-role">Associate Product Manager</span>
+            <span class="experience-dates">2019 – 2020</span>
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure class="experience-logo-card">
+          <div class="experience-logo-frame">
+            <img src="assets/logos/chownow.png" alt="ChowNow logo" loading="lazy" decoding="async">
+          </div>
+          <figcaption>
+            <span class="experience-company">ChowNow</span>
+            <span class="experience-role">Sales Development Rep</span>
+            <span class="experience-dates">2017 – 2018</span>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </section>
+      </section>
+    </div>
+
   </main>
 
   <footer class="site-footer">&copy; 2026 Brian Chun</footer>
@@ -350,6 +405,6 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="js/site.js?v=20260830e"></script>
+<script src="js/site.js?v=20260831b"></script>
 </body>
 </html>

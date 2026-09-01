@@ -30,6 +30,7 @@ body {
   font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 ::selection { background: var(--steel-soft); color: var(--ink); }
@@ -88,11 +89,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 [id] {
-  scroll-margin-top: 88px;
+  scroll-margin-top: calc(88px + var(--identity-h, 120px));
 }
 
 @media (max-width: 960px) {
-  [id] { scroll-margin-top: 112px; }
+  [id] { scroll-margin-top: calc(112px + var(--identity-h, 100px)); }
 }
 
 /* ── Spec Rail ── */
@@ -201,6 +202,76 @@ a { color: inherit; text-decoration: none; }
 .nav-toggle[aria-expanded="true"] {
   border-color: var(--steel);
   color: var(--steel);
+}
+
+/* ── Sticky identity shell ── */
+.identity-sticky {
+  position: sticky;
+  top: 56px;
+  z-index: 85;
+  background: rgba(242, 243, 245, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--wire);
+}
+
+.identity-inner {
+  max-width: calc(var(--wide) + 80px);
+  margin: 0 auto;
+  padding: 20px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px 32px;
+  align-items: center;
+}
+
+.identity-heading {
+  margin: 0;
+}
+
+.identity-title {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.identity-focus {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  color: var(--ink-muted);
+  overflow-wrap: break-word;
+}
+
+.identity-photo {
+  width: 112px;
+  height: 140px;
+  object-fit: cover;
+  object-position: center 12%;
+  border: 0.5px solid var(--wire);
+  border-radius: 8px;
+  background: var(--panel);
+  display: block;
+}
+
+.view[hidden] {
+  display: none !important;
+}
+
+.about-panel {
+  padding-top: 8px;
+}
+
+body[data-active-view="about"] .spec-rail,
+body[data-active-view="about"] .spec-rail-mobile {
+  display: none !important;
 }
 
 /* ── Shell ── */
@@ -390,6 +461,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.01em;
   line-height: 1.35;
   color: var(--ink-muted);
+  overflow-wrap: break-word;
 }
 
 .hero-sub {
@@ -515,6 +587,7 @@ a { color: inherit; text-decoration: none; }
   width: 148px;
   line-height: 1.35;
   flex-shrink: 0;
+  overflow-wrap: anywhere;
 }
 
 .lane-node {
@@ -1272,6 +1345,20 @@ body.modal-open { overflow: hidden; }
 
   .section-head p { text-align: left; }
 
+  .identity-inner {
+    padding: 16px max(20px, env(safe-area-inset-left)) 16px max(20px, env(safe-area-inset-right));
+    gap: 16px 20px;
+  }
+
+  .identity-photo {
+    width: 88px;
+    height: 110px;
+  }
+
+  .spec-rail-mobile {
+    top: calc(56px + var(--identity-h, 0px));
+  }
+
   .hero-main {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -1300,6 +1387,11 @@ body.modal-open { overflow: hidden; }
   }
 
   .pipeline-track { align-items: center; }
+
+  .lane-id {
+    width: auto;
+    max-width: 100%;
+  }
 
   .lane-line { display: none; }
 
@@ -1336,6 +1428,24 @@ body.modal-open { overflow: hidden; }
   .study-preview {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .identity-title {
+    font-size: clamp(22px, 6vw, 28px);
+  }
+
+  .identity-focus {
+    font-size: clamp(14px, 3.8vw, 18px);
+  }
+
+  .identity-inner {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .identity-photo {
+    width: 72px;
+    height: 90px;
   }
 
   .hero-title {
@@ -1419,6 +1529,24 @@ body.modal-open { overflow: hidden; }
 
   .section-head h2 { font-size: 24px; }
   .expertise .section-head h2 { font-size: 20px; }
+
+  .lane-id {
+    font-size: 12px;
+    letter-spacing: 0.03em;
+  }
+
+  .domain-bullets {
+    max-width: none;
+  }
+
+  .domain-bullets li {
+    font-size: 14px;
+  }
+
+  .platform-logos {
+    gap: 14px 18px;
+    margin-top: 16px;
+  }
 
   .contact-actions .btn,
   .hero-actions .btn {
