@@ -8,6 +8,7 @@
   --wire: #C8CDD6;
   --accent: #0F6E56;
   --accent-bright: #1D9E75;
+  --accent-soft: rgba(15, 110, 86, 0.12);
   --ink-muted: #4A5060;
   --ink-faint: #555B66;
   --display: 'Newsreader', Georgia, serif;
@@ -29,7 +30,7 @@ body {
   overflow-x: clip;
 }
 
-::selection { background: rgba(59, 81, 112, 0.12); color: var(--ink); }
+::selection { background: var(--accent-soft); color: var(--ink); }
 a { color: inherit; text-decoration: none; }
 
 :focus { outline: none; }
@@ -133,8 +134,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .nav-toggle[aria-expanded="true"] {
-  border-color: var(--steel);
-  color: var(--steel);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .nav-links {
@@ -221,7 +222,7 @@ a { color: inherit; text-decoration: none; }
   border-color: var(--wire);
 }
 
-.btn-secondary:hover { border-color: var(--steel); }
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
 .site-footer {
   border-top: 1px solid var(--wire);

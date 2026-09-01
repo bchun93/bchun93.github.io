@@ -3,408 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Brian Chun — Product Manager specializing in media supply chains, content operations, and platform ecosystems.">
+<meta name="description" content="Brian Chun — Product Manager building systems for streaming media: supply chain, workflow automation, and DTC products.">
 <title>Brian Chun — Product Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=20260831n">
-<link rel="stylesheet" href="css/about.css?v=20260831h">
+<link rel="stylesheet" href="css/site.css?v=20260831r16">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<nav class="spec-rail" data-view-rail="work" aria-label="On-page section navigation">
-  <button type="button" class="spec-rail-key" data-target="expertise">work[]</button>
-  <button type="button" class="spec-rail-key is-hidden" data-target="work">cases[]</button>
-  <button type="button" class="spec-rail-key" data-target="prototype">prototype</button>
-  <button type="button" class="spec-rail-key" data-target="contact">contact</button>
-</nav>
-
-<div class="site-shell">
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="#work" class="logo" data-view-link="work">Brian Chun</a>
-      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-      <nav class="nav-links" id="site-nav" aria-label="Primary">
-        <a href="#work" data-view-link="work">Work</a>
-        <a href="#about" data-view-link="about">About</a>
-        <a href="https://www.linkedin.com/in/brianchun" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:bchun93@gmail.com">Email</a>
-      </nav>
-    </div>
-  </header>
-
-  <div class="identity-sticky" id="identity">
-    <div class="identity-inner">
-      <div class="identity-text">
-        <h1 id="hero-heading" class="identity-heading">
-          <span class="identity-title">Product Manager</span>
-          <span class="identity-focus">Media Supply Chain, Workflow Automation, DTC Streaming</span>
-        </h1>
-      </div>
-      <div class="identity-photo-wrap">
-        <img src="assets/brian.jpg" alt="Brian Chun" class="identity-photo" width="150" height="187">
-      </div>
-    </div>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="logo">Brian Chun</a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav-links" id="site-nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
+</header>
 
-  <nav class="spec-rail-mobile" data-view-rail="work" aria-label="On-page section navigation">
-    <button type="button" class="spec-rail-key" data-target="expertise">work[]</button>
-    <button type="button" class="spec-rail-key is-hidden" data-target="work">cases[]</button>
-    <button type="button" class="spec-rail-key" data-target="prototype">prototype</button>
-    <button type="button" class="spec-rail-key" data-target="contact">contact</button>
-  </nav>
+<main class="main" id="main-content">
 
-  <main class="main" id="main-content">
-
-    <button type="button" class="is-hidden" id="open-resume" tabindex="-1" aria-hidden="true">View resume</button>
-
-    <div class="view is-active" id="view-work" data-view-panel="work">
-
-    <section class="expertise" id="expertise" data-spec-section="expertise" aria-labelledby="expertise-heading">
-      <div class="section-head">
-        <h2 id="expertise-heading">Selected work</h2>
+  <section class="hero" id="top" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 id="hero-heading"><span class="hero-role">Product Manager</span> <span class="hero-title-rest">building systems for streaming media</span></h1>
+        <p class="hero-lede">My work spans the streaming stack, from content metadata and supply chain to the DTC apps customers use, giving me an end-to-end perspective on building products in streaming.</p>
+        <a href="#work" class="btn btn-primary hero-cta">View selected work <span aria-hidden="true">↓</span></a>
       </div>
-      <div class="pipeline" role="list">
-        <article class="pipeline-lane pipeline-lane--supply" role="listitem">
-          <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id mono-dot-label">Media Supply Chain</span>
-            <span class="lane-node"></span>
-            <span class="lane-line"></span>
-          </div>
-          <div class="pipeline-content">
-            <h3>Ingestion, QC, and Delivery Pipeline</h3>
-            <p><span class="text-lead">Architected a manifest-driven ingestion, QC, and delivery pipeline from 0 to 1.</span></p>
-            <ul class="domain-bullets">
-              <li>Enabled content operations to deliver 1500 titles for Prime Video Channels launch</li>
-              <li>5,000 hours of content delivered as of May 2026 with 99% against Amazon SLA</li>
-            </ul>
-            <div class="stack-block">
-              <h4 class="stack-label">Building 0 to 1, scaling to meet demand</h4>
-              <dl class="stack-list">
-                <div class="stack-row stack-row--block">
-                  <dt>Discovery</dt>
-                  <dd>Assessed the core needs of a content delivery system for lean team planning for niche library catalog launch of 1500 titles — delivery spec, metadata schema, supply architecture.</dd>
-                </div>
-                <div class="stack-row stack-row--block">
-                  <dt>Build vs Buy</dt>
-                  <dd>Evaluated the tradeoffs of buying vendor tooling vs building custom. Decided on a hybrid solution leveraging Brightcove's transcoding, storage, and content management capabilities while keeping orchestration in-house.</dd>
-                </div>
-                <div class="stack-row stack-row--block">
-                  <dt>MVP Launch</dt>
-                  <dd>Shipped MVP, tested with internal teams and studio partners, fixed validation and ingestion bugs, re-wrote delivery spec, adopted by Content Operations.</dd>
-                </div>
-                <div class="stack-row stack-row--block">
-                  <dt>Iteration</dt>
-                  <dd>Extended supply chain from owned-endpoint to third-party distribution by conforming to Amazon's spec, automating MEC/MMC generation, integrating MediaInfo spec QC.</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </article>
-        <article class="pipeline-lane pipeline-lane--workflow" role="listitem">
-          <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id mono-dot-label">Workflow Automation</span>
-            <span class="lane-node"></span>
-            <span class="lane-line"></span>
-          </div>
-          <div class="pipeline-content">
-            <h3>Automating Content Delivery Systems</h3>
-            <p><span class="text-lead">Mapped the end to end delivery workflow and automated manual, high-touch steps.</span></p>
-            <ul class="domain-bullets">
-              <li>Returned 50 hours per month to Content Operations.</li>
-            </ul>
-            <div class="stack-block">
-              <h4 class="stack-label">Aligning stakeholders on new features under budget constraints</h4>
-              <dl class="stack-list">
-                <div class="stack-row stack-row--block">
-                  <dt>Customer Needs</dt>
-                  <dd>Interviewed content operations stakeholders, mapped end to end workflow, and identified key areas of improvement: manual data entry, manual generation of deliverables, decentralized workflow.</dd>
-                </div>
-                <div class="stack-row stack-row--block">
-                  <dt>Roadmap</dt>
-                  <dd>Created the roadmap and executive memo for a phased automation solution that delivers value incrementally while keeping budget constraints in mind.</dd>
-                </div>
-                <div class="stack-row stack-row--block">
-                  <dt>Buy-In</dt>
-                  <dd>Leveraged AI-assisted coding tools like Cursor to get working prototypes in front of stakeholders to get feedback and buy-in on the solution.</dd>
-                </div>
-                <div class="stack-row stack-row--block">
-                  <dt>Implementation</dt>
-                  <dd>Shipped first feature on roadmap — automated avails generation, validation, and delivery — by connecting to free Amazon Content APIs.</dd>
-                </div>
-                <div class="stack-row stack-row--block">
-                  <dt>Evaluation</dt>
-                  <dd>Feature met and exceeded Success Metric of 10 hours per week saved while staying within Guardrail Metrics of 99% SLA and &lt;5% delta in rejections.</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </article>
-        <article class="pipeline-lane pipeline-lane--platform" role="listitem">
-          <div class="pipeline-track" aria-hidden="true">
-            <span class="lane-id mono-dot-label">DTC Streaming</span>
-            <span class="lane-node"></span>
-            <span class="lane-line"></span>
-          </div>
-          <div class="pipeline-content">
-            <h3>SVOD Streaming Apps for TV, Mobile, Web</h3>
-            <p><span class="text-lead">Led development of streaming app to feature-complete internal alpha across 7 device ecosystems.</span></p>
-            <ul class="domain-bullets">
-              <li>Fully testable end to end, certification ready, capable of payment and playback across thousands of titles.</li>
-            </ul>
-            <ul class="platform-logos" aria-label="Device ecosystems">
-              <li><img src="assets/platforms/roku.svg" alt="" class="platform-logo platform-logo--wordmark platform-logo--roku" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/appletv.svg" alt="" class="platform-logo platform-logo--wordmark platform-logo--appletv" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/firetv.svg" alt="" class="platform-logo platform-logo--wordmark platform-logo--firetv" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/googletv.svg" alt="" class="platform-logo platform-logo--wordmark" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/ios.svg" alt="" class="platform-logo platform-logo--wordmark platform-logo--ios" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/android.svg" alt="" class="platform-logo platform-logo--icon" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/web.svg" alt="" class="platform-logo platform-logo--icon" loading="lazy" decoding="async"></li>
-            </ul>
-            <p class="sr-only">Roku, Apple TV (tvOS), Fire TV, Google TV, iOS, Android, and Web.</p>
+      <div class="hero-photo-wrap">
+        <img src="assets/brian.jpg" alt="Brian Chun" class="hero-photo" width="280" height="350">
+        <p class="hero-photo-caption">Hi, I’m Brian</p>
+      </div>
+    </div>
+  </section>
 
-            <div class="domain-subblock">
-              <h4 class="stack-label">Feature ownership</h4>
-              <div class="feature-owned-list">
-                <div class="feature-owned-item">
-                  <p class="feature-owned-heading">
-                    <span class="feature-owned-icon" aria-hidden="true">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </span>
-                    <span class="feature-owned-title">Profiles</span>
-                  </p>
-                  <p class="feature-owned-desc">Edit profiles, add profiles, profile-switching, per-profile personalization.</p>
-                </div>
-                <div class="feature-owned-item">
-                  <p class="feature-owned-heading">
-                    <span class="feature-owned-icon" aria-hidden="true">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-                    </span>
-                    <span class="feature-owned-title">Downloads</span>
-                  </p>
-                  <p class="feature-owned-desc">Offline download and playback, synced watch progress of downloads to streamed content, storage management, license expiration handling, queueing.</p>
-                </div>
-                <div class="feature-owned-item">
-                  <p class="feature-owned-heading">
-                    <span class="feature-owned-icon" aria-hidden="true">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-                    </span>
-                    <span class="feature-owned-title">Sign Up</span>
-                  </p>
-                  <p class="feature-owned-desc">Plan selection, account creation, checkout, funnel analysis via GA, Evergent identity &amp; access management integration.</p>
-                </div>
-                <div class="feature-owned-item">
-                  <p class="feature-owned-heading">
-                    <span class="feature-owned-icon" aria-hidden="true">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
-                    </span>
-                    <span class="feature-owned-title">Legal &amp; Data Privacy</span>
-                  </p>
-                  <p class="feature-owned-desc">Ensure compliance with all FTC, CCPA, GDPR regulations across website and consumer apps.</p>
-                </div>
+  <section class="section work" id="work" aria-labelledby="work-heading">
+    <div class="section-inner">
+      <header class="section-head">
+        <p class="section-eyebrow">Selected work</p>
+        <h2 id="work-heading">Here are some of the problems I’ve solved</h2>
+        <p class="section-sub">Three product areas: Media Supply Chain, Workflow Automation, DTC Streaming Apps.</p>
+      </header>
+
+      <div class="project-list">
+
+        <article class="project-card" aria-labelledby="project-01-title">
+          <div class="project-meta">
+            <span class="project-num" aria-hidden="true">01</span>
+            <span class="project-cat mono-label">Media Supply Chain</span>
+          </div>
+          <div class="project-body">
+            <h3 id="project-01-title">Building a content delivery system from 0 → 1</h3>
+            <p>Architected a manifest-driven ingestion, QC, and delivery pipeline for a lean ops team launching a niche catalog—then extended it for third-party distribution.</p>
+            <dl class="metric-row">
+              <div class="metric">
+                <dt class="metric-value">1,500</dt>
+                <dd class="metric-label">titles for Prime Video Channels launch</dd>
               </div>
-            </div>
+              <div class="metric">
+                <dt class="metric-value">5,000 hrs</dt>
+                <dd class="metric-label">content delivered as of May 2026</dd>
+              </div>
+              <div class="metric">
+                <dt class="metric-value">99%</dt>
+                <dd class="metric-label">against Amazon SLA</dd>
+              </div>
+            </dl>
+            <a href="case-studies/media-supply-chain.html" class="text-link">Read case study <span aria-hidden="true">→</span></a>
           </div>
         </article>
-      </div>
-    </section>
 
-    <section class="case-studies is-hidden" id="work" data-spec-section="work" aria-labelledby="work-heading">
-      <div class="section-head">
-        <h2 id="work-heading">Case studies</h2>
-        <p>Problem, methodology, and impact for recent builds.</p>
-      </div>
-
-      <div class="study-grid" role="list">
-        <!-- TODO (Brian): name the employer on each case study (e.g. "Wonder Project") — recruiters anchor on company names; the site is currently anonymous about where this work happened. Insert the real employer; do not guess. -->
-        <a href="case-studies/media-supply-chain.html" class="study-card" role="listitem" aria-labelledby="study-1-title">
-          <span class="study-tag">Media supply chain</span>
-          <h3 class="study-title" id="study-1-title">0-to-1 Media Supply Chain Architecture</h3>
-          <div class="study-preview">
-            <div class="study-preview-item">
-              <h4 class="study-preview-label">Problem</h4>
-              <p><span class="text-lead">Scalable ingestion and metadata framework for licensed and original content.</span></p>
-            </div>
-            <div class="study-preview-item">
-              <h4 class="study-preview-label">Methodology</h4>
-              <p><span class="text-lead">80+ parameter delivery spec and technical onboarding for A/V and timed text.</span></p>
-            </div>
-            <div class="study-preview-item">
-              <h4 class="study-preview-label">Impact</h4>
-              <p><span class="text-lead">3,000+ hours processed; SLAs met for Amazon Prime Video Channel launch.</span></p>
-            </div>
+        <article class="project-card" aria-labelledby="project-02-title">
+          <div class="project-meta">
+            <span class="project-num" aria-hidden="true">02</span>
+            <span class="project-cat mono-label">Workflow Automation</span>
           </div>
-          <span class="study-link">Read case study <span aria-hidden="true">→</span></span>
-        </a>
-
-        <a href="case-studies/privacy-compliance.html" class="study-card" role="listitem" aria-labelledby="study-2-title">
-          <span class="study-tag">Privacy &amp; compliance</span>
-          <h3 class="study-title" id="study-2-title">Custom Privacy &amp; Compliance Build</h3>
-          <div class="study-preview">
-            <div class="study-preview-item">
-              <h4 class="study-preview-label">Problem</h4>
-              <p><span class="text-lead">CCPA, GDPR, and VPPA compliance without full enterprise software reliance.</span></p>
-            </div>
-            <div class="study-preview-item">
-              <h4 class="study-preview-label">Methodology</h4>
-              <p><span class="text-lead">Custom build extending a lightweight vendor tool into consent management.</span></p>
-            </div>
-            <div class="study-preview-item">
-              <h4 class="study-preview-label">Impact</h4>
-              <p><span class="text-lead">Full privacy preference controls and DSAR workflows; drove legal product strategy.</span></p>
-            </div>
+          <div class="project-body">
+            <h3 id="project-02-title">Turning manual delivery work into software</h3>
+            <p>Mapped the end-to-end delivery workflow, found the high-touch bottlenecks, and shipped automation that returned time to Content Operations without breaking SLA guardrails.</p>
+            <dl class="metric-row">
+              <div class="metric">
+                <dt class="metric-value">50 hrs</dt>
+                <dd class="metric-label">returned per month to Content Ops</dd>
+              </div>
+              <div class="metric">
+                <dt class="metric-value">10 hrs/wk</dt>
+                <dd class="metric-label">success target met on first feature</dd>
+              </div>
+              <div class="metric">
+                <dt class="metric-value">&lt;5%</dt>
+                <dd class="metric-label">delta in rejections (guardrail)</dd>
+              </div>
+            </dl>
+            <a href="case-studies/workflow-automation.html" class="text-link">Read case study <span aria-hidden="true">→</span></a>
           </div>
-          <span class="study-link">Read case study <span aria-hidden="true">→</span></span>
-        </a>
-      </div>
-    </section>
+        </article>
 
-    <section class="prototype" id="prototype" data-spec-section="prototype" aria-labelledby="prototype-heading">
-      <div class="section-head">
-        <h2 id="prototype-heading">Prototyping with AI</h2>
-        <p>Relay is a working prototype I built to validate a metadata and artwork fetch feature for title management.</p>
-      </div>
-
-      <div class="prototype-showcase">
-        <div class="prototype-copy">
-          <div class="prototype-tags">
-            <span class="prototype-tag mono-dot-label">Interactive prototype</span>
+        <article class="project-card" aria-labelledby="project-03-title">
+          <div class="project-meta">
+            <span class="project-num" aria-hidden="true">03</span>
+            <span class="project-cat mono-label">DTC Streaming</span>
           </div>
-          <h3>Search a title. Fetch metadata and artwork in one click.</h3>
-          <p class="prototype-note">Coming soon: Programmatic video QC via Amazon Rekognition</p>
-          <a href="https://main.dc104a0h6vkd6.amplifyapp.com/" id="prototype-link" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-describedby="prototype-status">Try Relay<span class="btn-arrow" aria-hidden="true">→</span></a>
-          <p id="prototype-status" class="sr-only">Opens Relay in a new tab.</p>
-          <p class="prototype-facts" aria-label="Build details">
-            <span>Built in Cursor</span>
-            <span class="prototype-facts-deploy">Deployed using GitHub, Amplify, Render, and Neon</span>
-          </p>
+          <div class="project-body">
+            <h3 id="project-03-title">One streaming experience across seven ecosystems</h3>
+            <p>Led the streaming app to a feature-complete internal alpha—certification-ready, with payment and playback across thousands of titles—while owning profiles, downloads, sign-up, and privacy.</p>
+            <ul class="platform-row" aria-label="Device ecosystems">
+              <li><img src="assets/platforms/roku.svg" alt="Roku" class="platform-logo" loading="lazy" decoding="async"></li>
+              <li><img src="assets/platforms/appletv.svg" alt="Apple TV" class="platform-logo" loading="lazy" decoding="async"></li>
+              <li><img src="assets/platforms/firetv.svg" alt="Fire TV" class="platform-logo" loading="lazy" decoding="async"></li>
+              <li><img src="assets/platforms/googletv.svg" alt="Google TV" class="platform-logo" loading="lazy" decoding="async"></li>
+              <li><img src="assets/platforms/ios.svg" alt="iOS" class="platform-logo" loading="lazy" decoding="async"></li>
+              <li><img src="assets/platforms/android.svg" alt="Android" class="platform-logo" loading="lazy" decoding="async"></li>
+              <li><img src="assets/platforms/web.svg" alt="Web" class="platform-logo" loading="lazy" decoding="async"></li>
+            </ul>
+            <a href="case-studies/dtc-streaming.html" class="text-link">Read case study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section experiments" id="experiments" aria-labelledby="experiments-heading">
+    <div class="section-inner">
+      <header class="section-head">
+        <p class="section-eyebrow">Personal projects</p>
+        <h2 id="experiments-heading">Building to learn.</h2>
+        <p class="section-sub">I use AI-assisted development to prototype product ideas quickly, test workflows, and explore what’s possible before committing engineering resources.</p>
+      </header>
+
+      <article class="relay-panel" aria-labelledby="relay-heading">
+        <div class="relay-copy">
+          <p class="mono-label">Prototype</p>
+          <h3 id="relay-heading">Relay</h3>
+          <p class="relay-tagline">A media supply-chain workspace</p>
+          <p>Search a title. Fetch metadata and artwork in one click. Built to validate title management, metadata enrichment, and TMDB-backed artwork acquisition before a full engineering commitment.</p>
+          <p class="relay-note">Coming soon: Programmatic video QC via Amazon Rekognition</p>
+          <a href="https://main.dc104a0h6vkd6.amplifyapp.com/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Try Relay <span aria-hidden="true">→</span></a>
+          <p class="relay-facts mono-label">Built in Cursor · Deployed with GitHub, Amplify, Render, and Neon</p>
         </div>
-        <figure class="prototype-frame">
+        <figure class="relay-frame">
           <img
             src="assets/relay-create-title.jpg"
-            alt="Relay create title modal with TMDB artwork fetch for The Martian, including posters, backdrops, and AI classify controls"
-            class="prototype-screenshot"
+            alt="Relay create-title flow showing TMDB artwork fetch for The Martian"
+            class="relay-shot"
             loading="lazy"
             decoding="async">
-          <figcaption class="sr-only">Relay prototype: create title flow with TMDB artwork import and metadata entry.</figcaption>
         </figure>
-      </div>
-    </section>
+      </article>
+    </div>
+  </section>
 
-    <section class="contact" id="contact" data-spec-section="contact" aria-labelledby="contact-heading">
-      <div>
-        <h2 id="contact-heading">Get in touch</h2>
-        <p>Open to conversations about product, streaming, and ops tooling.</p>
+  <section class="section about" id="about" aria-labelledby="about-heading">
+    <div class="section-inner">
+      <div class="about-inner">
+        <header class="section-head">
+          <p class="section-eyebrow">About</p>
+          <h2 id="about-heading">I’m a PM who likes understanding how complex systems work—and making them simpler.</h2>
+        </header>
+        <div class="about-prose">
+          <p>I came to product management through the sciences and customer-facing work. Experimentation taught me to form hypotheses, test them, and let evidence change the plan. Working with customers taught me to apply that discipline to products.</p>
+          <p>At Wonder Project I worked on the systems behind streaming—content delivery, metadata, content management, privacy, and the DTC product. I get into the details, learn how the pieces connect, and turn that understanding into software operations teams can actually run.</p>
+        </div>
       </div>
+
+      <h3 class="experience-heading">Relevant experience</h3>
+      <ol class="experience-track" aria-label="Career progression">
+        <li>
+          <figure class="experience-step">
+            <div class="experience-logo-frame">
+              <img src="assets/logos/chownow.png" alt="ChowNow" loading="lazy" decoding="async">
+            </div>
+            <span class="experience-node" aria-hidden="true"></span>
+            <figcaption>
+              <span class="experience-company">ChowNow</span>
+              <span class="experience-role">Sales Development Rep</span>
+              <span class="experience-dates">2017 – 2018</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="experience-step">
+            <div class="experience-logo-frame">
+              <img src="assets/logos/griddy.png" alt="Griddy" loading="lazy" decoding="async">
+            </div>
+            <span class="experience-node" aria-hidden="true"></span>
+            <figcaption>
+              <span class="experience-company">Griddy</span>
+              <span class="experience-role">Associate Product Manager</span>
+              <span class="experience-dates">2019 – 2020</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="experience-step">
+            <div class="experience-logo-frame">
+              <img src="assets/logos/sensorbio.png" alt="SensorBio" loading="lazy" decoding="async">
+            </div>
+            <span class="experience-node" aria-hidden="true"></span>
+            <figcaption>
+              <span class="experience-company">Sensor Bio</span>
+              <span class="experience-role">Project Manager and Customer Success</span>
+              <span class="experience-dates">2021 – 2022</span>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="experience-step">
+            <div class="experience-logo-frame">
+              <img src="assets/logos/wonder-project.png" alt="Wonder Project" loading="lazy" decoding="async">
+            </div>
+            <span class="experience-node" aria-hidden="true"></span>
+            <figcaption>
+              <span class="experience-company">Wonder Project</span>
+              <span class="experience-role">Product Manager</span>
+              <span class="experience-dates">2023 – 2026</span>
+            </figcaption>
+          </figure>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact" aria-labelledby="contact-heading">
+    <div class="section-inner contact-inner">
+      <h2 id="contact-heading">Get in touch</h2>
+      <p>Open to conversations about product, streaming, and ops tooling.</p>
       <div class="contact-actions">
         <a href="mailto:bchun93@gmail.com" class="btn btn-primary">Email me</a>
-        <a href="https://www.linkedin.com/in/brianchun" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/brianchun" class="btn btn-secondary" rel="noopener noreferrer">LinkedIn</a>
       </div>
-    </section>
-
-    </div><!-- /view-work -->
-
-    <div class="view" id="view-about" data-view-panel="about" hidden>
-      <section class="about-panel" aria-labelledby="about-heading">
-        <div class="section-head">
-          <h2 id="about-heading">About Me</h2>
-        </div>
-        <div class="about-prose">
-    <p>Hi, I’m Brian.</p>
-    <p>I took a somewhat unconventional path to product management, starting in the sciences before moving into tech and eventually into streaming.</p>
-    <p>My background in experimentation taught me to approach problems with curiosity and discipline: understand what’s happening, form a hypothesis, test it, and learn from the results. Working directly with customers taught me how to apply that thinking to products.</p>
-    <p>At Wonder Project, I worked on the systems behind streaming—content delivery, metadata, content management, privacy, and the DTC product. I particularly enjoy getting into the details, understanding how all the pieces fit together, and finding ways to make complex workflows simpler and more scalable.</p>
-    <p>That’s the kind of PM I am: <strong>curious about how things work, focused on understanding the real problem, and practical about turning that understanding into something useful.</strong></p>
-  </div>
-
-  <section class="about-experience" aria-labelledby="experience-heading">
-    <h2 id="experience-heading">Relevant experience</h2>
-    <ul class="experience-logos">
-      <li>
-        <figure class="experience-logo-card">
-          <div class="experience-logo-frame">
-            <img src="assets/logos/wonder-project.png" alt="Wonder Project logo" loading="lazy" decoding="async">
-          </div>
-          <figcaption>
-            <span class="experience-company">Wonder Project</span>
-            <span class="experience-role">Product Manager</span>
-            <span class="experience-dates">2023 – 2026</span>
-          </figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure class="experience-logo-card">
-          <div class="experience-logo-frame">
-            <img src="assets/logos/sensorbio.png" alt="SensorBio logo" loading="lazy" decoding="async">
-          </div>
-          <figcaption>
-            <span class="experience-company">Sensor Bio</span>
-            <span class="experience-role">Project Manager and Customer Success</span>
-            <span class="experience-dates">2021 – 2022</span>
-          </figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure class="experience-logo-card">
-          <div class="experience-logo-frame">
-            <img src="assets/logos/griddy.png" alt="Griddy logo" loading="lazy" decoding="async">
-          </div>
-          <figcaption>
-            <span class="experience-company">Griddy</span>
-            <span class="experience-role">Associate Product Manager</span>
-            <span class="experience-dates">2019 – 2020</span>
-          </figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure class="experience-logo-card">
-          <div class="experience-logo-frame">
-            <img src="assets/logos/chownow.png" alt="ChowNow logo" loading="lazy" decoding="async">
-          </div>
-          <figcaption>
-            <span class="experience-company">ChowNow</span>
-            <span class="experience-role">Sales Development Rep</span>
-            <span class="experience-dates">2017 – 2018</span>
-          </figcaption>
-        </figure>
-      </li>
-    </ul>
+    </div>
   </section>
-      </section>
-    </div>
 
-  </main>
+</main>
 
-  <footer class="site-footer">&copy; 2026 Brian Chun</footer>
+<footer class="site-footer">
+  <div class="footer-inner">&copy; 2026 Brian Chun</div>
+</footer>
 
-</div>
-
-<div class="resume-modal" id="resume-modal" aria-hidden="true" aria-modal="true" role="dialog" aria-labelledby="resume-modal-title" inert>
-  <button type="button" class="resume-modal-backdrop" data-close-resume aria-label="Close resume dialog"></button>
-  <div class="resume-modal-panel" role="document">
-    <header class="resume-modal-header">
-      <h2 id="resume-modal-title">Brian Chun — Resume</h2>
-      <div class="resume-modal-header-actions">
-        <a href="assets/Brian-Chun-Resume.pdf?v=v17" class="btn btn-secondary" download="Brian-Chun-Resume.pdf">Download</a>
-        <button type="button" class="resume-modal-close" data-close-resume aria-label="Close resume dialog">&times;</button>
-      </div>
-    </header>
-    <div class="resume-modal-body">
-      <p class="sr-only" id="resume-live" aria-live="polite" aria-atomic="true"></p>
-      <canvas id="resume-canvas" role="img" aria-label="Resume preview. Use Download for a text-accessible PDF copy."></canvas>
-    </div>
-    <footer class="resume-modal-footer" id="resume-pager" hidden>
-      <button type="button" id="resume-prev">Previous</button>
-      <span class="resume-page-info" id="resume-page-info">Page 1 of 1</span>
-      <button type="button" id="resume-next">Next</button>
-    </footer>
-  </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="js/site.js?v=20260831b"></script>
+<script src="js/site.js?v=20260831r5"></script>
 </body>
 </html>

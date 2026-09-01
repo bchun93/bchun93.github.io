@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>0-to-1 Media Supply Chain Architecture — Brian Chun</title>
+<meta name="description" content="Case study: building a media supply chain from 0 to 1 — ingestion, QC, and delivery for streaming distribution.">
+<title>Media Supply Chain — Brian Chun</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/shared.css?v=20260623">
-<link rel="stylesheet" href="../css/case-study.css?v=20260623">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/shared.css?v=20260831r13">
+<link rel="stylesheet" href="../css/case-study.css?v=20260831r13">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -18,11 +19,9 @@
     <a href="../index.html" class="logo">Brian Chun</a>
     <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav-links" id="site-nav" aria-label="Primary">
-      <a href="../index.html#expertise">Expertise</a>
-      <a href="../index.html#work">Case studies</a>
-      <a href="../index.html#prototype">Prototype</a>
-      <a href="https://www.linkedin.com/in/brianchun" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:bchun93@gmail.com">Email</a>
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -30,25 +29,137 @@
 <main class="main" id="main-content">
 
   <header class="case-study-hero">
-    <a href="../index.html#work" class="back-link">← Back to case studies</a>
-    <p class="case-tag">Media supply chain</p>
-    <h1>0-to-1 Media Supply Chain Architecture</h1>
+    <a href="../index.html#work" class="back-link">← Selected work</a>
+    <p class="case-tag">01 — Media Supply Chain</p>
+    <h1>Building a content delivery system from 0 → 1</h1>
+    <p class="case-lede">A manifest-driven ingestion, QC, and delivery pipeline for a lean team launching a niche catalog—then extended for Amazon distribution.</p>
   </header>
 
-  <div class="pmi-grid" role="list">
-    <section class="pmi-block" role="listitem" aria-labelledby="pmi-problem">
-      <h2 class="pmi-label" id="pmi-problem">Problem</h2>
-      <p>Needed a scalable ingestion and metadata framework for a new studio handling licensed and original content.</p>
-    </section>
-    <section class="pmi-block" role="listitem" aria-labelledby="pmi-methodology">
-      <h2 class="pmi-label" id="pmi-methodology">Methodology</h2>
-      <p>Defined a comprehensive 80+ parameter delivery spec and led technical onboarding to close A/V and timed text gaps.</p>
-    </section>
-    <section class="pmi-block" role="listitem" aria-labelledby="pmi-impact">
-      <h2 class="pmi-label" id="pmi-impact">Impact</h2>
-      <p>Processed 3000+ hours of content and successfully met SLAs for an Amazon Prime Video Channel launch.</p>
-    </section>
-  </div>
+  <dl class="case-metrics">
+    <div>
+      <dt>1,500</dt>
+      <dd>titles for Prime Video Channels launch</dd>
+    </div>
+    <div>
+      <dt>5,000 hrs</dt>
+      <dd>content delivered as of May 2026</dd>
+    </div>
+    <div>
+      <dt>99%</dt>
+      <dd>against Amazon SLA</dd>
+    </div>
+    <div>
+      <dt>80+</dt>
+      <dd>parameter delivery specification</dd>
+    </div>
+  </dl>
+
+  <figure class="case-diagram" aria-label="Pipeline overview">
+    <svg viewBox="0 0 720 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="case-flow">
+      <path d="M40 70 H680" stroke="currentColor" stroke-width="1"/>
+      <g fill="currentColor">
+        <circle cx="40" cy="70" r="6"/>
+        <circle cx="200" cy="70" r="6"/>
+        <circle cx="360" cy="70" r="6"/>
+        <circle cx="520" cy="70" r="6"/>
+        <circle cx="680" cy="70" r="6"/>
+      </g>
+      <g fill="currentColor" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="0.04em">
+        <text x="40" y="40" text-anchor="middle">SPEC</text>
+        <text x="200" y="40" text-anchor="middle">INGEST</text>
+        <text x="360" y="40" text-anchor="middle">QC</text>
+        <text x="520" y="40" text-anchor="middle">ORCHESTRATE</text>
+        <text x="680" y="40" text-anchor="middle">DELIVER</text>
+      </g>
+      <g fill="currentColor" opacity="0.55" font-family="IBM Plex Mono, monospace" font-size="10">
+        <text x="40" y="98" text-anchor="middle">80+ params</text>
+        <text x="200" y="98" text-anchor="middle">manifest</text>
+        <text x="360" y="98" text-anchor="middle">MediaInfo</text>
+        <text x="520" y="98" text-anchor="middle">in-house</text>
+        <text x="680" y="98" text-anchor="middle">owned + Amazon</text>
+      </g>
+    </svg>
+    <figcaption>End-to-end flow: specification → ingestion → validation → orchestration → delivery endpoints.</figcaption>
+  </figure>
+
+  <section class="case-section" aria-labelledby="problem-h">
+    <h2 id="problem-h">The problem</h2>
+    <p>A new studio needed a scalable ingestion and metadata framework for licensed and original content. Content Operations had to stand up delivery for a niche library launch of 1,500 titles—with a lean team and no existing supply-chain product to lean on.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="constraints-h">
+    <h2 id="constraints-h">The constraints</h2>
+    <ul class="case-list">
+      <li>Lean Content Operations team planning a catalog launch at meaningful volume</li>
+      <li>Complex media requirements spanning A/V and timed text</li>
+      <li>Studio-partner delivery that needed a clear inbound specification</li>
+      <li>Later: third-party distribution requiring Amazon MEC/MMC conformance</li>
+      <li>Vendor tooling that covered parts of the stack—but not the full orchestration problem</li>
+    </ul>
+  </section>
+
+  <section class="case-section" aria-labelledby="question-h">
+    <h2 id="question-h">The product question</h2>
+    <blockquote class="case-quote">What should we build ourselves, and what should we buy?</blockquote>
+    <p>That decision shaped the architecture: buy where a vendor already solved commodity media work; keep orchestration, validation logic, and operational control in-house.</p>
+  </section>
+
+  <section class="case-section" aria-labelledby="approach-h">
+    <h2 id="approach-h">My approach</h2>
+    <ol class="case-steps">
+      <li>
+        <h3>Discovery</h3>
+        <p>Assessed the core needs of a content delivery system for a lean team launching 1,500 titles—delivery spec, metadata schema, and supply architecture.</p>
+      </li>
+      <li>
+        <h3>Build vs buy</h3>
+        <p>Evaluated vendor tooling vs custom build. Chose a hybrid: Brightcove for transcoding, storage, and content management; orchestration stayed in-house.</p>
+      </li>
+      <li>
+        <h3>Specification &amp; onboarding</h3>
+        <p>Defined a comprehensive 80+ parameter delivery specification and led technical onboarding to close A/V and timed text gaps with studio partners.</p>
+      </li>
+      <li>
+        <h3>MVP launch</h3>
+        <p>Shipped the MVP, tested with internal teams and studio partners, fixed validation and ingestion bugs, rewrote the delivery spec, and drove adoption by Content Operations.</p>
+      </li>
+      <li>
+        <h3>Iteration for distribution</h3>
+        <p>Extended the supply chain from owned-endpoint delivery to third-party distribution by conforming to Amazon’s spec, automating MEC/MMC generation, and integrating MediaInfo-based QC.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="case-section" aria-labelledby="decisions-h">
+    <h2 id="decisions-h">Key decisions</h2>
+    <div class="decision-grid">
+      <article>
+        <h3>Build vs buy</h3>
+        <p>Hybrid architecture: Brightcove for commodity media capabilities; in-house orchestration for control and flexibility.</p>
+      </article>
+      <article>
+        <h3>Workflow orchestration</h3>
+        <p>Kept the control plane internal so delivery paths could evolve—from owned endpoints to Amazon—without rewriting the whole stack.</p>
+      </article>
+      <article>
+        <h3>Metadata governance</h3>
+        <p>80+ parameter delivery spec as the contract between studios, ops, and systems—reducing ambiguity in inbound packages.</p>
+      </article>
+      <article>
+        <h3>QC and validation</h3>
+        <p>MediaInfo-backed spec QC and iterative validation fixes so packages failed early instead of at partner handoff.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="case-section" aria-labelledby="outcome-h">
+    <h2 id="outcome-h">Outcome</h2>
+    <p>Content Operations delivered 1,500 titles for the Prime Video Channels launch. As of May 2026, 5,000 hours of content had been delivered with 99% performance against the Amazon SLA.</p>
+  </section>
+
+  <nav class="case-nav" aria-label="More case studies">
+    <a href="workflow-automation.html">Next: Workflow Automation <span aria-hidden="true">→</span></a>
+  </nav>
 
 </main>
 
@@ -56,6 +167,6 @@
   <div class="footer-inner">&copy; 2026 Brian Chun</div>
 </footer>
 
-<script src="../js/nav.js?v=20260623"></script>
+<script src="../js/nav.js?v=20260831r1"></script>
 </body>
 </html>
