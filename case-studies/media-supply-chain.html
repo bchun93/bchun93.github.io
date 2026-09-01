@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/shared.css?v=20260831r13">
-<link rel="stylesheet" href="../css/case-study.css?v=20260831r28">
+<link rel="stylesheet" href="../css/shared.css?v=20260831r29">
+<link rel="stylesheet" href="../css/case-study.css?v=20260831r29">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -52,23 +52,13 @@
   </dl>
 
   <figure class="case-diagram" aria-label="Pipeline overview">
-    <svg viewBox="0 0 720 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="case-flow">
-      <path d="M40 62 H680" stroke="currentColor" stroke-width="1"/>
-      <g fill="currentColor">
-        <circle cx="40" cy="62" r="6"/>
-        <circle cx="200" cy="62" r="6"/>
-        <circle cx="360" cy="62" r="6"/>
-        <circle cx="520" cy="62" r="6"/>
-        <circle cx="680" cy="62" r="6"/>
-      </g>
-      <g fill="currentColor" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="0.04em">
-        <text x="40" y="36" text-anchor="middle">ASSET INTAKE</text>
-        <text x="200" y="36" text-anchor="middle">INGESTION</text>
-        <text x="360" y="36" text-anchor="middle">QC</text>
-        <text x="520" y="36" text-anchor="middle">PACKAGING</text>
-        <text x="680" y="36" text-anchor="middle">DISTRIBUTION</text>
-      </g>
-    </svg>
+    <ol class="pipeline-flow">
+      <li>Asset Intake</li>
+      <li>Ingestion</li>
+      <li>QC</li>
+      <li>Packaging</li>
+      <li>Distribution</li>
+    </ol>
     <figcaption>End-to-end flow: asset intake → ingestion → QC → packaging → distribution.</figcaption>
   </figure>
 
