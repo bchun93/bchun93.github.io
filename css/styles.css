@@ -202,7 +202,7 @@ figcaption em { font-style: italic; }
 
 .text-link {
   font-weight: 500;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1;
   color: var(--accent);
   align-self: flex-start;
@@ -231,16 +231,17 @@ figcaption em { font-style: italic; }
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  height: 48px;
-  padding: 0 22px;
+  justify-content: center;
+  align-self: flex-start;
+  gap: 8px;
+  padding: 12px 18px;
   background: var(--ink);
   color: var(--bg);
   border: 0;
   border-radius: var(--radius);
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1;
 }
 
