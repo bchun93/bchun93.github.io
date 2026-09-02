@@ -7,179 +7,187 @@
 <title>Media Supply Chain — Brian Chun</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/shared.css?v=20260831r29">
-<link rel="stylesheet" href="../css/case-study.css?v=20260901r41">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css?v=20260902h">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="../index.html" class="logo">Brian Chun</a>
-    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<div class="page">
+  <header class="nav block">
+    <a href="../index.html" class="wordmark">Brian Chun</a>
     <nav class="nav-links" id="site-nav" aria-label="Primary">
-      <a href="../index.html#work">Work</a>
-      <a href="../about.html">About me</a>
+      <a href="../index.html#work" class="is-active">Work</a>
+      <a href="../about.html" class="nav-about">About me</a>
       <a href="https://www.linkedin.com/in/brianchun" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:bchun93@gmail.com">Email me</a>
+      <a href="mailto:bchun93@gmail.com" class="nav-email">Email me</a>
     </nav>
-  </div>
-</header>
-
-<main class="main" id="main-content">
-
-  <header class="case-study-hero">
-    <a href="../index.html#work" class="back-link">← Selected work</a>
-    <p class="case-tag">01 — Media Supply Chain</p>
-    <h1>Building a content delivery system from 0 → 1</h1>
   </header>
 
-  <dl class="case-metrics">
-    <div>
-      <dt>1,500</dt>
-      <dd>titles for Prime Video Channels launch</dd>
-    </div>
-    <div>
-      <dt>5,000 hrs</dt>
-      <dd>content delivered as of May 2026</dd>
-    </div>
-    <div>
-      <dt>99%</dt>
-      <dd>against Amazon SLA</dd>
-    </div>
-  </dl>
+  <main id="main-content">
 
-  <figure class="case-diagram" aria-label="Pipeline overview">
-    <ol class="pipeline-flow">
-      <li>Asset Intake</li>
-      <li>Ingestion</li>
-      <li>QC</li>
-      <li>Packaging</li>
-      <li>Distribution</li>
-    </ol>
-    <figcaption>End-to-end flow: asset intake → ingestion → QC → packaging → distribution.</figcaption>
-  </figure>
-
-  <section class="case-section" aria-labelledby="situation-h">
-    <h2 id="situation-h">The situation</h2>
-    <p>In 2023, one of Wonder Project’s business objectives was to launch a streaming service with licensed and original content. As a new studio, we had no systems supporting intake, processing, and delivery.</p>
-  </section>
-
-  <section class="case-section" aria-labelledby="problem-h">
-    <h2 id="problem-h">What I had to figure out</h2>
-    <p>As the Product Manager of Content Ingestion and Delivery, I had to figure out a few things:</p>
-    <ul class="case-list">
-      <li>How to build the most lean system capable of meeting our needs</li>
-      <li>System requirements and what we would build vs buy</li>
-      <li>Metadata schema for describing content</li>
-      <li>Delivery spec that studios conform assets to</li>
-    </ul>
-    <p class="case-list-lead">All under typical startup constraints:</p>
-    <ul class="case-list">
-      <li>Small budget</li>
-      <li>No customers to interview</li>
-      <li>Lean team</li>
-      <li>Accelerated time-to-market</li>
-    </ul>
-  </section>
-
-  <section class="case-section" aria-labelledby="built-h">
-    <h2 id="built-h">What we built</h2>
-    <p>We built a simple content ingestion and delivery workflow that leveraged a vendor’s suite of content transformation and management capabilities while keeping orchestration in-house. Studios dropped media packages in S3 via Aspera, our CMS could validate and ingest packages, and Brightcove serving as the final destination for transcoded renditions and distribution-ready titles.</p>
-    <figure class="architecture-figure">
-      <div class="architecture-frame">
-        <iframe
-          class="architecture-embed"
-          src="../assets/ingestion-delivery-architecture.html"
-          title="Ingestion and delivery system architecture"
-          loading="lazy"></iframe>
-        <button
-          type="button"
-          class="architecture-expand"
-          data-image-dialog="architecture-dialog"
-          aria-haspopup="dialog"
-          aria-label="Enlarge ingestion and delivery system architecture diagram">
-          <span>View full size <span aria-hidden="true">↗</span></span>
-        </button>
+    <header class="case-hero block">
+      <div class="case-head">
+        <span class="case-num">01</span>
+        <span class="kicker">Media Supply Chain</span>
       </div>
-      <figcaption>Ingestion and delivery system architecture.</figcaption>
-    </figure>
-  </section>
+      <div class="grid-2 case-lead">
+        <h1 class="case-title">Building a content delivery system from 0 → 1</h1>
+        <p class="body">As a new studio and streaming service, Wonder Project needed a way to ingest, process, and distribute a niche catalog of licensed and original content. I led a lean team of Solutions Architects and Full-Stack Engineers to create a purpose built content delivery pipeline from 0 to 1, then extended it for third-party distribution through our Amazon partnership.</p>
+      </div>
+      <dl class="metrics">
+        <div class="metric">
+          <dt class="metric-num">1,500 <span>titles</span></dt>
+          <dd class="caption">Movies and episodes for Prime Video Channels launch</dd>
+        </div>
+        <div class="metric">
+          <dt class="metric-num">5,000 <span>hrs</span></dt>
+          <dd class="caption">Content delivered as of May 2026</dd>
+        </div>
+        <div class="metric">
+          <dt class="metric-num">99%</dt>
+          <dd class="caption">Against Amazon SLA</dd>
+        </div>
+      </dl>
+    </header>
 
-  <section class="case-section" aria-labelledby="decisions-h">
-    <h2 id="decisions-h">Decisions I made</h2>
-    <div class="decision-grid">
-      <article>
-        <h3>Build vs buy</h3>
-        <p>To accelerate time-to-market without sacrificing reliability, we used Aspera for transfers and Brightcove for video management. Rather than build costly infrastructure for transcoding, DRM, CDN, and content management, we kept validation and orchestration in-house and outsourced processing and delivery to vendors.</p>
-      </article>
-      <article>
-        <h3>Metadata schema</h3>
-        <p>I defined a ~75-parameter metadata schema as part of the content manifest, creating a common data contract across studios, Content Operations, internal APIs, and third-party distribution. It standardized identifiers, descriptive metadata, avails, technical specifications, and associated artwork, ensuring content could be consistently represented and exchanged across the supply chain.</p>
-      </article>
-      <article>
-        <h3>Delivery spec</h3>
-        <p>I defined the technical delivery specification covering video, audio, artwork, timed text, and metadata, giving external studios a standardized set of requirements for delivering content into our supply chain.</p>
-      </article>
-      <article>
-        <h3>Iterative development</h3>
-        <p>Rather than over-engineer for requirements we didn’t yet understand, I scoped the initial platform around the minimum capabilities needed to operate at launch. We expanded functionality as business and distribution needs became clearer, eventually extending the pipeline for Amazon distribution with spec conformance, automated MEC/MMC generation, and MediaInfo-based QC.</p>
-      </article>
-    </div>
-  </section>
+    <section class="case-section block" aria-labelledby="situation-h">
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="situation-h">The situation</h2>
+        <div class="prose">
+          <p class="body">In 2023, one of Wonder Project’s business objectives was to launch a streaming service with licensed and original content. As a new studio, we had no systems supporting intake, processing, and delivery.</p>
+        </div>
+      </div>
+      <figure class="figure">
+        <ol class="flow" aria-label="Pipeline overview">
+          <li>Asset Intake</li>
+          <li>Ingestion</li>
+          <li>QC</li>
+          <li>Packaging</li>
+          <li>Distribution</li>
+        </ol>
+        <figcaption><em>End-to-end flow: asset intake → ingestion → QC → packaging → distribution.</em></figcaption>
+      </figure>
+    </section>
 
-  <section class="case-section" id="approach" aria-labelledby="approach-h" hidden>
-    <h2 id="approach-h">My approach</h2>
-    <ol class="case-steps">
-      <li>
-        <h3>Discovery</h3>
-        <p>Assessed the core needs of a content delivery system for a lean team launching 1,500 titles—delivery spec, metadata schema, and supply architecture.</p>
-      </li>
-      <li>
-        <h3>Build vs buy</h3>
-        <p>Evaluated vendor tooling vs custom build. Chose a hybrid: Brightcove for transcoding, storage, and content management; orchestration stayed in-house.</p>
-      </li>
-      <li>
-        <h3>Specification &amp; onboarding</h3>
-        <p>Defined a comprehensive 80+ parameter delivery specification and led technical onboarding to close A/V and timed text gaps with studio partners.</p>
-      </li>
-      <li>
-        <h3>MVP launch</h3>
-        <p>Shipped the MVP, tested with internal teams and studio partners, fixed validation and ingestion bugs, rewrote the delivery spec, and drove adoption by Content Operations.</p>
-      </li>
-      <li>
-        <h3>Iteration for distribution</h3>
-        <p>Extended the supply chain from owned-endpoint delivery to third-party distribution by conforming to Amazon’s spec, automating MEC/MMC generation, and integrating MediaInfo-based QC.</p>
-      </li>
-    </ol>
-  </section>
+    <section class="case-section block" aria-labelledby="problem-h">
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="problem-h">What I had to figure out</h2>
+        <div class="prose">
+          <p class="body">As the Product Manager of Content Ingestion and Delivery, I had to figure out a few things:</p>
+          <ul>
+            <li>How to build the most lean system capable of meeting our needs</li>
+            <li>System requirements and what we would build vs buy</li>
+            <li>Metadata schema for describing content</li>
+            <li>Delivery spec that studios conform assets to</li>
+          </ul>
+          <p class="kicker">All under typical startup constraints:</p>
+          <ul>
+            <li>Small budget</li>
+            <li>No customers to interview</li>
+            <li>Lean team</li>
+            <li>Accelerated time-to-market</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  <section class="case-section" aria-labelledby="outcome-h">
-    <h2 id="outcome-h">Outcome</h2>
-    <p>Content Operations delivered 1,500 titles for the Prime Video Channels launch. As of May 2026, 5,000 hours of content had been delivered with 99% performance against the Amazon SLA.</p>
-  </section>
+    <section class="case-section block" aria-labelledby="built-h">
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="built-h">What we built</h2>
+        <div class="prose">
+          <p class="body">We built a simple content ingestion and delivery workflow that leveraged a vendor’s suite of content transformation and management capabilities while keeping orchestration in-house. Studios dropped media packages in S3 via Aspera, our CMS could validate and ingest packages, and Brightcove serving as the final destination for transcoded renditions and distribution-ready titles.</p>
+        </div>
+      </div>
+      <figure class="figure">
+        <div class="embed embed-arch">
+          <iframe
+            class="architecture-embed"
+            src="../assets/ingestion-delivery-architecture.html"
+            title="Ingestion and delivery system architecture"
+            scrolling="no"
+            loading="lazy"></iframe>
+        </div>
+        <figcaption>
+          <em>Ingestion and delivery system architecture.</em>
+          <button type="button" class="fig-expand" data-image-dialog="architecture-dialog" aria-haspopup="dialog">View full size ↗</button>
+        </figcaption>
+      </figure>
+    </section>
 
-  <nav class="case-nav" aria-label="More case studies">
-    <a href="workflow-automation.html">Next: Workflow Automation <span aria-hidden="true">→</span></a>
-  </nav>
+    <section class="case-section block" aria-labelledby="decisions-h">
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="decisions-h">Decisions I made</h2>
+        <div class="prose">
+          <p class="kicker">Build vs buy</p>
+          <p class="body">To accelerate time-to-market without sacrificing reliability, we used Aspera for transfers and Brightcove for video management. Rather than build costly infrastructure for transcoding, DRM, CDN, and content management, we kept validation and orchestration in-house and outsourced processing and delivery to vendors.</p>
+          <p class="kicker">Metadata schema</p>
+          <p class="body">I defined a ~75-parameter metadata schema as part of the content manifest, creating a common data contract across studios, Content Operations, internal APIs, and third-party distribution. It standardized identifiers, descriptive metadata, avails, technical specifications, and associated artwork, ensuring content could be consistently represented and exchanged across the supply chain.</p>
+          <p class="kicker">Delivery spec</p>
+          <p class="body">I defined the technical delivery specification covering video, audio, artwork, timed text, and metadata, giving external studios a standardized set of requirements for delivering content into our supply chain.</p>
+          <p class="kicker">Iterative development</p>
+          <p class="body">Rather than over-engineer for requirements we didn’t yet understand, I scoped the initial platform around the minimum capabilities needed to operate at launch. We expanded functionality as business and distribution needs became clearer, eventually extending the pipeline for Amazon distribution with spec conformance, automated MEC/MMC generation, and MediaInfo-based QC.</p>
+        </div>
+      </div>
+    </section>
 
-</main>
+    <section class="case-section block" id="approach" aria-labelledby="approach-h" hidden>
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="approach-h">My approach</h2>
+        <div class="prose">
+          <p class="kicker">Discovery</p>
+          <p class="body">Assessed the core needs of a content delivery system for a lean team launching 1,500 titles—delivery spec, metadata schema, and supply architecture.</p>
+          <p class="kicker">Build vs buy</p>
+          <p class="body">Evaluated vendor tooling vs custom build. Chose a hybrid: Brightcove for transcoding, storage, and content management; orchestration stayed in-house.</p>
+          <p class="kicker">Specification &amp; onboarding</p>
+          <p class="body">Defined a comprehensive 80+ parameter delivery specification and led technical onboarding to close A/V and timed text gaps with studio partners.</p>
+          <p class="kicker">MVP launch</p>
+          <p class="body">Shipped the MVP, tested with internal teams and studio partners, fixed validation and ingestion bugs, rewrote the delivery spec, and drove adoption by Content Operations.</p>
+          <p class="kicker">Iteration for distribution</p>
+          <p class="body">Extended the supply chain from owned-endpoint delivery to third-party distribution by conforming to Amazon’s spec, automating MEC/MMC generation, and integrating MediaInfo-based QC.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section block" aria-labelledby="outcome-h">
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="outcome-h">Outcome</h2>
+        <div class="prose">
+          <p class="body">Content Operations delivered 1,500 titles for the Prime Video Channels launch. As of May 2026, 5,000 hours of content had been delivered with 99% performance against the Amazon SLA.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="pager block grid-2" aria-label="More case studies">
+      <a class="pager-link" href="../index.html#work">
+        <span class="kicker">← Previous</span>
+        <span class="pager-title">Home</span>
+      </a>
+      <a class="pager-link pager-next" href="workflow-automation.html">
+        <span class="kicker">Next →</span>
+        <span class="pager-title">Automating manual, high-touch steps of the content delivery workflow</span>
+      </a>
+    </nav>
+
+  </main>
+
+  <footer class="footer-bar block">
+    <span>© 2026 Brian Chun</span>
+    <a href="mailto:bchun93@gmail.com">bchun93@gmail.com</a>
+  </footer>
+</div>
 
 <dialog class="image-dialog architecture-dialog" id="architecture-dialog" aria-label="Ingestion and delivery system architecture">
   <button type="button" class="image-dialog-close" data-close-dialog aria-label="Close enlarged diagram">&times;</button>
-  <div class="architecture-frame">
+  <div class="embed embed-arch">
     <iframe
       class="architecture-embed"
       data-src="../assets/ingestion-delivery-architecture.html"
-      title="Ingestion and delivery system architecture"></iframe>
+      title="Ingestion and delivery system architecture"
+      scrolling="no"></iframe>
   </div>
 </dialog>
 
-<footer class="site-footer">
-  <div class="footer-inner">&copy; 2026 Brian Chun</div>
-</footer>
-
-<script src="../js/nav.js?v=20260901r4"></script>
+<script src="../js/nav.js?v=20260902h"></script>
 </body>
 </html>

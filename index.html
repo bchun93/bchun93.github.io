@@ -7,214 +7,216 @@
 <title>Brian Chun — Product Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=20260901r33">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=20260902h">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="#top" class="logo">Brian Chun</a>
-    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<div class="page">
+  <header class="nav block">
+    <a href="#top" class="wordmark">Brian Chun</a>
     <nav class="nav-links" id="site-nav" aria-label="Primary">
-      <a href="#work">Work</a>
-      <a href="about.html">About me</a>
+      <a href="#work" class="is-active">Work</a>
+      <a href="about.html" class="nav-about">About me</a>
       <a href="https://www.linkedin.com/in/brianchun" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:bchun93@gmail.com">Email me</a>
+      <a href="mailto:bchun93@gmail.com" class="nav-email">Email me</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main class="main" id="main-content">
+  <main id="main-content">
 
-  <section class="hero" id="top" aria-labelledby="hero-heading">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <h1 id="hero-heading"><span class="hero-role">Product Manager</span> <span class="hero-title-rest">building systems for streaming media</span></h1>
-        <p class="hero-lede">My work spans the streaming stack, from content metadata and supply chain to the DTC apps customers use.</p>
-        <a href="#work" class="btn btn-primary hero-cta">View selected work <span aria-hidden="true">↓</span></a>
-      </div>
-      <div class="hero-photo-wrap">
-        <img src="assets/brian.jpg" alt="Brian Chun" class="hero-photo" width="280" height="350">
-        <p class="hero-photo-caption">Hi, I’m Brian</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section work" id="work" aria-labelledby="work-heading">
-    <div class="section-inner">
-      <header class="section-head">
-        <h2 id="work-heading">Here are some of the problems I’ve&nbsp;solved</h2>
-        <p class="section-sub">Three product areas: Media Supply Chain, Workflow Automation, DTC Streaming Apps.</p>
-      </header>
-
-      <div class="project-list">
-
-        <article class="project-card" aria-labelledby="project-01-title">
-          <div class="project-meta">
-            <span class="project-num" aria-hidden="true">01</span>
-            <span class="project-cat mono-label">Media Supply Chain</span>
-          </div>
-          <div class="project-body">
-            <h3 id="project-01-title">Building a content delivery system from 0&nbsp;→&nbsp;1</h3>
-            <p>As a new studio and streaming service, Wonder Project needed a way to ingest, process, and distribute a niche catalog of licensed and original content. I led a lean team of Solutions Architects and Full-Stack Engineers to create a purpose built content delivery pipeline from 0 to 1, then extended it for third-party distribution through our Amazon partnership.</p>
-            <dl class="metric-row">
-              <div class="metric">
-                <dt class="metric-value">1,500 titles <span class="metric-note">(movies and episodes)</span></dt>
-                <dd class="metric-label">for Prime Video Channels launch</dd>
-              </div>
-              <div class="metric">
-                <dt class="metric-value">5,000 hrs</dt>
-                <dd class="metric-label">content delivered as of May 2026</dd>
-              </div>
-              <div class="metric">
-                <dt class="metric-value">99%</dt>
-                <dd class="metric-label">against Amazon SLA</dd>
-              </div>
-            </dl>
-            <figure class="architecture-figure">
-              <div class="architecture-frame">
-                <iframe
-                  class="architecture-embed"
-                  src="assets/ingestion-delivery-architecture.html"
-                  title="Ingestion and delivery system architecture"
-                  loading="lazy"></iframe>
-                <button
-                  type="button"
-                  class="architecture-expand"
-                  data-image-dialog="architecture-dialog"
-                  aria-haspopup="dialog"
-                  aria-label="Enlarge ingestion and delivery system architecture diagram">
-                  <span>View full size <span aria-hidden="true">↗</span></span>
-                </button>
-              </div>
-              <figcaption>Ingestion and delivery system architecture.</figcaption>
-            </figure>
-            <a href="case-studies/media-supply-chain.html" class="text-link">Read case study <span aria-hidden="true">→</span></a>
-          </div>
-        </article>
-
-        <article class="project-card" aria-labelledby="project-02-title">
-          <div class="project-meta">
-            <span class="project-num" aria-hidden="true">02</span>
-            <span class="project-cat mono-label">Workflow Automation</span>
-          </div>
-          <div class="project-body">
-            <h3 id="project-02-title">Automating manual, high-touch steps of the content delivery workflow</h3>
-            <p>After launching the channel, the volume of titles we processed each month began to grow. But the existing supply chain could only scale by adding people. I identified the areas where automation could have the greatest impact, built a roadmap around them, and delivered the first automation feature—returning value immediately.</p>
-            <dl class="metric-row">
-              <div class="metric">
-                <dt class="metric-value">50 hrs</dt>
-                <dd class="metric-label">returned per month to Content Ops</dd>
-              </div>
-              <div class="metric">
-                <dt class="metric-value">10 hrs/wk</dt>
-                <dd class="metric-label">success target met on first feature</dd>
-              </div>
-              <div class="metric">
-                <dt class="metric-value">&lt;5%</dt>
-                <dd class="metric-label">delta in rejections (guardrail)</dd>
-              </div>
-            </dl>
-            <figure class="html-embed">
-              <div class="html-embed-frame">
-                <iframe
-                  src="assets/avails-automation.html?v=2"
-                  title="Avails automation"
-                  loading="lazy"></iframe>
-                <button
-                  type="button"
-                  class="architecture-expand"
-                  data-image-dialog="avails-dialog"
-                  aria-haspopup="dialog"
-                  aria-label="Enlarge avails automation">
-                  <span>View full size <span aria-hidden="true">↗</span></span>
-                </button>
-              </div>
-              <figcaption>Avails automation.</figcaption>
-            </figure>
-            <a href="case-studies/workflow-automation.html" class="text-link">Read case study <span aria-hidden="true">→</span></a>
-          </div>
-        </article>
-
-        <article class="project-card" aria-labelledby="project-03-title">
-          <div class="project-meta">
-            <span class="project-num" aria-hidden="true">03</span>
-            <span class="project-cat mono-label">DTC Streaming</span>
-          </div>
-          <div class="project-body">
-            <h3 id="project-03-title">Building a cohesive streaming experience across 7 platform ecosystems</h3>
-            <p>Led development of the SVOD app from concept to a feature-complete internal alpha, with payment and playback working end to end across thousands of titles.</p>
-            <ul class="platform-row" aria-label="Device ecosystems">
-              <li><img src="assets/platforms/roku.svg" alt="Roku" class="platform-logo" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/appletv.svg" alt="Apple TV" class="platform-logo" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/firetv.svg" alt="Fire TV" class="platform-logo" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/googletv.svg" alt="Google TV" class="platform-logo" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/ios.svg" alt="iOS" class="platform-logo" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/android.svg" alt="Android" class="platform-logo" loading="lazy" decoding="async"></li>
-              <li><img src="assets/platforms/web.svg" alt="Web" class="platform-logo" loading="lazy" decoding="async"></li>
-            </ul>
-            <a href="case-studies/dtc-streaming.html" class="text-link">Read case study <span aria-hidden="true">→</span></a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="section experiments" id="experiments" aria-labelledby="experiments-heading">
-    <div class="section-inner">
-      <header class="section-head">
-        <h2 class="section-eyebrow" id="experiments-heading">Personal projects</h2>
-      </header>
-
-      <article class="relay-panel" aria-labelledby="relay-heading">
-        <div class="relay-copy">
-          <h3 id="relay-heading">Relay</h3>
-          <p class="relay-tagline">Exploring what the modern media supply chain could look like.</p>
-          <p>I built Relay to explore how much of the media supply chain could be managed in one place instead of across a collection of disconnected tools.</p>
-          <p class="relay-note">Coming soon: Programmatic video QC via Amazon Rekognition</p>
-          <a href="https://main.dc104a0h6vkd6.amplifyapp.com/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Try Relay <span aria-hidden="true">→</span></a>
-          <p class="relay-facts mono-label">Built in Cursor · Deployed with GitHub, Amplify, Render, and Neon</p>
+    <section class="hero block" id="top" aria-labelledby="hero-heading">
+      <div class="grid-2 hero-grid">
+        <div class="hero-copy">
+          <h1 class="h1" id="hero-heading">Product Manager <span>building systems for streaming media</span></h1>
+          <p class="lede">My work spans the streaming stack, from content metadata and supply chain to the DTC apps customers use.</p>
+          <a href="#work" class="btn">View selected work <span aria-hidden="true">↓</span></a>
         </div>
-        <figure class="relay-frame">
-          <img
-            src="assets/relay-create-title.jpg"
-            alt="Relay create-title flow showing TMDB artwork fetch for The Martian"
-            class="relay-shot"
-            loading="lazy"
-            decoding="async">
-        </figure>
-      </article>
-    </div>
-  </section>
+        <div class="hero-photo">
+          <img src="assets/brian.jpg" alt="Brian Chun" width="320" height="400">
+          <p>Hi, I’m Brian</p>
+        </div>
+      </div>
+    </section>
 
-</main>
+    <section class="work-intro block grid-2" id="work" aria-labelledby="work-heading">
+      <h2 class="h2" id="work-heading">Here are some of the problems I’ve&nbsp;solved</h2>
+      <p class="body-sm">Three product areas: Media Supply Chain, Workflow Automation, DTC Streaming Apps.</p>
+    </section>
+
+    <article class="case block" aria-labelledby="project-01-title">
+      <div class="case-head">
+        <span class="case-num">01</span>
+        <span class="kicker">Media Supply Chain</span>
+      </div>
+      <div class="case-body">
+        <div class="grid-2 case-lead">
+          <h3 class="h3" id="project-01-title">Building a content delivery system from 0&nbsp;→&nbsp;1</h3>
+          <p class="body">As a new studio and streaming service, Wonder Project needed a way to ingest, process, and distribute a niche catalog of licensed and original content. I led a lean team of Solutions Architects and Full-Stack Engineers to create a purpose built content delivery pipeline from 0 to 1, then extended it for third-party distribution through our Amazon partnership.</p>
+        </div>
+        <dl class="metrics">
+          <div class="metric">
+            <dt class="metric-num">1,500 <span>titles</span></dt>
+            <dd class="caption">Movies and episodes for Prime Video Channels launch</dd>
+          </div>
+          <div class="metric">
+            <dt class="metric-num">5,000 <span>hrs</span></dt>
+            <dd class="caption">Content delivered as of May 2026</dd>
+          </div>
+          <div class="metric">
+            <dt class="metric-num">99%</dt>
+            <dd class="caption">Against Amazon SLA</dd>
+          </div>
+        </dl>
+        <figure class="figure">
+          <div class="embed embed-arch">
+            <iframe
+              class="architecture-embed"
+              src="assets/ingestion-delivery-architecture.html"
+              title="Ingestion and delivery system architecture"
+              scrolling="no"
+              loading="lazy"></iframe>
+          </div>
+          <figcaption>
+            <em>Ingestion and delivery system architecture.</em>
+            <button type="button" class="fig-expand" data-image-dialog="architecture-dialog" aria-haspopup="dialog">View full size ↗</button>
+          </figcaption>
+        </figure>
+        <a href="case-studies/media-supply-chain.html" class="text-link">Read case study →</a>
+      </div>
+    </article>
+
+    <article class="case block" aria-labelledby="project-02-title">
+      <div class="case-head">
+        <span class="case-num">02</span>
+        <span class="kicker">Workflow Automation</span>
+      </div>
+      <div class="case-body">
+        <div class="grid-2 case-lead">
+          <h3 class="h3" id="project-02-title">Automating manual, high-touch steps of the content delivery workflow</h3>
+          <p class="body">After launching the channel, the volume of titles we processed each month began to grow. But the existing supply chain could only scale by adding people. I identified the areas where automation could have the greatest impact, built a roadmap around them, and delivered the first automation feature—returning value immediately.</p>
+        </div>
+        <dl class="metrics">
+          <div class="metric">
+            <dt class="metric-num">50 <span>hrs</span></dt>
+            <dd class="caption">returned per month to Content Ops</dd>
+          </div>
+          <div class="metric">
+            <dt class="metric-num">10 <span>hrs/wk</span></dt>
+            <dd class="caption">success target met on first feature</dd>
+          </div>
+          <div class="metric">
+            <dt class="metric-num">&lt;5%</dt>
+            <dd class="caption">delta in rejections (guardrail)</dd>
+          </div>
+        </dl>
+        <figure class="figure">
+          <div class="embed embed-fill">
+            <iframe
+              src="assets/avails-automation.html?v=2"
+              title="Avails automation"
+              loading="lazy"></iframe>
+          </div>
+          <figcaption>
+            <em>Avails automation.</em>
+            <button type="button" class="fig-expand" data-image-dialog="avails-dialog" aria-haspopup="dialog">View full size ↗</button>
+          </figcaption>
+        </figure>
+        <a href="case-studies/workflow-automation.html" class="text-link">Read case study →</a>
+      </div>
+    </article>
+
+    <article class="case block" aria-labelledby="project-03-title">
+      <div class="case-head">
+        <span class="case-num">03</span>
+        <span class="kicker">DTC Streaming</span>
+      </div>
+      <div class="case-body">
+        <div class="grid-2 case-lead">
+          <h3 class="h3" id="project-03-title">Building a cohesive streaming experience across 7 platform ecosystems</h3>
+          <p class="body">Led development of the SVOD app from concept to a feature-complete internal alpha, with payment and playback working end to end across thousands of titles.</p>
+        </div>
+        <ul class="platforms" aria-label="Device ecosystems">
+          <li class="platform">
+            <img src="assets/platforms/roku.svg" alt="" loading="lazy" decoding="async">
+            <span>Roku</span>
+          </li>
+          <li class="platform">
+            <img src="assets/platforms/appletv.svg" alt="" loading="lazy" decoding="async">
+            <span>Apple TV</span>
+          </li>
+          <li class="platform">
+            <img src="assets/platforms/firetv.svg" alt="" loading="lazy" decoding="async">
+            <span>Fire TV</span>
+          </li>
+          <li class="platform">
+            <img src="assets/platforms/googletv.svg" alt="" loading="lazy" decoding="async">
+            <span>Google TV</span>
+          </li>
+          <li class="platform">
+            <img src="assets/platforms/ios.svg" alt="" loading="lazy" decoding="async">
+            <span>iOS</span>
+          </li>
+          <li class="platform">
+            <img src="assets/platforms/android.svg" alt="" loading="lazy" decoding="async">
+            <span>Android</span>
+          </li>
+          <li class="platform">
+            <img src="assets/platforms/web.svg" alt="" loading="lazy" decoding="async">
+            <span>Web</span>
+          </li>
+        </ul>
+        <a href="case-studies/dtc-streaming.html" class="text-link">Read case study →</a>
+      </div>
+    </article>
+
+    <section class="personal block" id="experiments" aria-labelledby="experiments-heading">
+      <p class="kicker" id="experiments-heading">Personal projects</p>
+      <article class="grid-2 relay" aria-labelledby="relay-heading">
+        <div class="relay-copy">
+          <h3 class="h3" id="relay-heading">Relay</h3>
+          <p class="pull">Exploring what the modern media supply chain could look like.</p>
+          <p class="body">I built Relay to explore how much of the media supply chain could be managed in one place instead of across a collection of disconnected tools.</p>
+          <p class="coming-soon">Coming soon: Programmatic video QC via Amazon Rekognition</p>
+          <a href="https://main.dc104a0h6vkd6.amplifyapp.com/" class="btn" target="_blank" rel="noopener noreferrer">Try Relay →</a>
+          <p class="meta">Built in Cursor · Deployed with GitHub, Amplify, Render, and Neon</p>
+        </div>
+        <img
+          class="relay-shot"
+          src="assets/relay-create-title.jpg"
+          alt="Relay create-title flow showing TMDB artwork fetch for The Martian"
+          loading="lazy"
+          decoding="async">
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="footer-bar block">
+    <span>© 2026 Brian Chun</span>
+    <a href="mailto:bchun93@gmail.com">bchun93@gmail.com</a>
+  </footer>
+</div>
 
 <dialog class="image-dialog architecture-dialog" id="architecture-dialog" aria-label="Ingestion and delivery system architecture">
   <button type="button" class="image-dialog-close" data-close-dialog aria-label="Close enlarged diagram">&times;</button>
-  <div class="architecture-frame">
+  <div class="embed embed-arch">
     <iframe
       class="architecture-embed"
       data-src="assets/ingestion-delivery-architecture.html"
-      title="Ingestion and delivery system architecture"></iframe>
+      title="Ingestion and delivery system architecture"
+      scrolling="no"></iframe>
   </div>
 </dialog>
 
 <dialog class="image-dialog html-embed-dialog" id="avails-dialog" aria-label="Avails automation">
   <button type="button" class="image-dialog-close" data-close-dialog aria-label="Close enlarged avails automation">&times;</button>
-  <div class="html-embed-frame">
-    <iframe
-      data-src="assets/avails-automation.html?v=2"
-      title="Avails automation"></iframe>
+  <div class="embed embed-fill">
+    <iframe data-src="assets/avails-automation.html?v=2" title="Avails automation"></iframe>
   </div>
 </dialog>
 
-<footer class="site-footer">
-  <div class="footer-inner">&copy; 2026 Brian Chun</div>
-</footer>
-
-<script src="js/site.js?v=20260901r8"></script>
+<script src="js/site.js?v=20260902h"></script>
 </body>
 </html>

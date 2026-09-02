@@ -6,60 +6,81 @@
 <title>Custom Privacy & Compliance Build — Brian Chun</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/shared.css?v=20260831r29">
-<link rel="stylesheet" href="../css/case-study.css?v=20260831r30">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css?v=20260902b">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="../index.html" class="logo">Brian Chun</a>
-    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<div class="page">
+  <header class="nav block">
+    <a href="../index.html" class="wordmark">Brian Chun</a>
     <nav class="nav-links" id="site-nav" aria-label="Primary">
-      <a href="../index.html#work">Work</a>
-      <a href="../about.html">About me</a>
+      <a href="../index.html#work" class="is-active">Work</a>
+      <a href="../about.html" class="nav-about">About me</a>
       <a href="https://www.linkedin.com/in/brianchun" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:bchun93@gmail.com">Email me</a>
+      <a href="mailto:bchun93@gmail.com" class="nav-email">Email me</a>
     </nav>
-  </div>
-</header>
-
-<main class="main" id="main-content">
-
-  <header class="case-study-hero">
-    <a href="../index.html#work" class="back-link">← Selected work</a>
-    <p class="case-tag">Privacy &amp; compliance</p>
-    <h1>Custom Privacy &amp; Compliance Build</h1>
   </header>
 
-  <div class="pmi-grid" role="list">
-    <section class="pmi-block" role="listitem" aria-labelledby="pmi-problem">
-      <h2 class="pmi-label" id="pmi-problem">Problem</h2>
-      <p>Required a scalable solution for CCPA, GDPR, and VPPA compliance without relying entirely on expensive enterprise software.</p>
+  <main id="main-content">
+
+    <header class="case-hero block">
+      <div class="case-head">
+        <span class="kicker">Privacy &amp; compliance</span>
+      </div>
+      <div class="grid-2 case-lead">
+        <h1 class="case-title">Custom Privacy &amp; Compliance Build</h1>
+        <p class="body">Required a scalable solution for CCPA, GDPR, and VPPA compliance without relying entirely on expensive enterprise software.</p>
+      </div>
+    </header>
+
+    <section class="case-section block" aria-labelledby="pmi-problem">
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="pmi-problem">Problem</h2>
+        <div class="prose">
+          <p class="body">Required a scalable solution for CCPA, GDPR, and VPPA compliance without relying entirely on expensive enterprise software.</p>
+        </div>
+      </div>
     </section>
-    <section class="pmi-block" role="listitem" aria-labelledby="pmi-methodology">
-      <h2 class="pmi-label" id="pmi-methodology">Methodology</h2>
-      <p>Architected a custom build that extended a lightweight vendor tool into a comprehensive consent management platform.</p>
+
+    <section class="case-section block" aria-labelledby="pmi-methodology">
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="pmi-methodology">Methodology</h2>
+        <div class="prose">
+          <p class="body">Architected a custom build that extended a lightweight vendor tool into a comprehensive consent management platform.</p>
+        </div>
+      </div>
     </section>
-    <section class="pmi-block" role="listitem" aria-labelledby="pmi-impact">
-      <h2 class="pmi-label" id="pmi-impact">Impact</h2>
-      <p>Delivered full privacy preference controls and DSAR workflows, effectively driving legal product strategy.</p>
+
+    <section class="case-section block" aria-labelledby="pmi-impact">
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="pmi-impact">Impact</h2>
+        <div class="prose">
+          <p class="body">Delivered full privacy preference controls and DSAR workflows, effectively driving legal product strategy.</p>
+        </div>
+      </div>
     </section>
-  </div>
 
-  <nav class="case-study-footer" aria-label="Case study navigation">
-    <p>Previous case study</p>
-    <a href="media-supply-chain.html" class="btn btn-secondary">← 0-to-1 Media Supply Chain Architecture</a>
-  </nav>
+    <nav class="pager block grid-2" aria-label="More case studies">
+      <a class="pager-link" href="media-supply-chain.html">
+        <span class="kicker">← Previous</span>
+        <span class="pager-title">Building a content delivery system from 0 → 1</span>
+      </a>
+      <a class="pager-link pager-next" href="../index.html#work">
+        <span class="kicker">Next →</span>
+        <span class="pager-title">Home</span>
+      </a>
+    </nav>
 
-</main>
+  </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">&copy; 2026 Brian Chun</div>
-</footer>
+  <footer class="footer-bar block">
+    <span>© 2026 Brian Chun</span>
+    <a href="mailto:bchun93@gmail.com">bchun93@gmail.com</a>
+  </footer>
+</div>
 
-<script src="../js/nav.js?v=20260623"></script>
+<script src="../js/nav.js?v=20260902a"></script>
 </body>
 </html>

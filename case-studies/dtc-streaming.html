@@ -7,97 +7,129 @@
 <title>DTC Streaming — Brian Chun</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/shared.css?v=20260831r29">
-<link rel="stylesheet" href="../css/case-study.css?v=20260901r38">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css?v=20260902b">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="../index.html" class="logo">Brian Chun</a>
-    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<div class="page">
+  <header class="nav block">
+    <a href="../index.html" class="wordmark">Brian Chun</a>
     <nav class="nav-links" id="site-nav" aria-label="Primary">
-      <a href="../index.html#work">Work</a>
-      <a href="../about.html">About me</a>
+      <a href="../index.html#work" class="is-active">Work</a>
+      <a href="../about.html" class="nav-about">About me</a>
       <a href="https://www.linkedin.com/in/brianchun" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:bchun93@gmail.com">Email me</a>
+      <a href="mailto:bchun93@gmail.com" class="nav-email">Email me</a>
     </nav>
-  </div>
-</header>
-
-<main class="main" id="main-content">
-
-  <header class="case-study-hero">
-    <a href="../index.html#work" class="back-link">← Selected work</a>
-    <p class="case-tag">03 — DTC Streaming</p>
-    <h1>Building a cohesive streaming experience across 7 platform ecosystems</h1>
-    <p class="case-lede">Led development of the SVOD app from concept to a feature-complete internal alpha, with payment and playback working end to end across thousands of titles.</p>
   </header>
 
-  <ul class="platform-grid" aria-label="Device ecosystems">
-    <li><img src="../assets/platforms/roku.svg" alt="Roku" loading="lazy" decoding="async"></li>
-    <li><img src="../assets/platforms/appletv.svg" alt="Apple TV" loading="lazy" decoding="async"></li>
-    <li><img src="../assets/platforms/firetv.svg" alt="Fire TV" loading="lazy" decoding="async"></li>
-    <li><img src="../assets/platforms/googletv.svg" alt="Google TV" loading="lazy" decoding="async"></li>
-    <li><img src="../assets/platforms/ios.svg" alt="iOS" loading="lazy" decoding="async"></li>
-    <li><img src="../assets/platforms/android.svg" alt="Android" loading="lazy" decoding="async"></li>
-    <li><img src="../assets/platforms/web.svg" alt="Web" loading="lazy" decoding="async"></li>
-  </ul>
+  <main id="main-content">
 
-  <section class="case-section" aria-labelledby="problem-h">
-    <h2 id="problem-h">The problem</h2>
-    <p>We were building one streaming product for seven different platforms, each with its own interaction patterns, technical constraints, and certification requirements. The challenge wasn’t simply getting the same features onto every device. It was making the product feel like one experience while accounting for what each platform could—and couldn’t—do.</p>
-    <p>I focused on the product decisions that had to hold across platforms, while working with engineering to adapt the implementation where platform differences required it.</p>
-  </section>
+    <header class="case-hero block">
+      <div class="case-head">
+        <span class="case-num">03</span>
+        <span class="kicker">DTC Streaming</span>
+      </div>
+      <div class="grid-2 case-lead">
+        <h1 class="case-title">Building a cohesive streaming experience across 7 platform ecosystems</h1>
+        <p class="body">Led development of the SVOD app from concept to a feature-complete internal alpha, with payment and playback working end to end across thousands of titles.</p>
+      </div>
+      <ul class="platforms" aria-label="Device ecosystems">
+        <li class="platform">
+          <img src="../assets/platforms/roku.svg" alt="" loading="lazy" decoding="async">
+          <span>Roku</span>
+        </li>
+        <li class="platform">
+          <img src="../assets/platforms/appletv.svg" alt="" loading="lazy" decoding="async">
+          <span>Apple TV</span>
+        </li>
+        <li class="platform">
+          <img src="../assets/platforms/firetv.svg" alt="" loading="lazy" decoding="async">
+          <span>Fire TV</span>
+        </li>
+        <li class="platform">
+          <img src="../assets/platforms/googletv.svg" alt="" loading="lazy" decoding="async">
+          <span>Google TV</span>
+        </li>
+        <li class="platform">
+          <img src="../assets/platforms/ios.svg" alt="" loading="lazy" decoding="async">
+          <span>iOS</span>
+        </li>
+        <li class="platform">
+          <img src="../assets/platforms/android.svg" alt="" loading="lazy" decoding="async">
+          <span>Android</span>
+        </li>
+        <li class="platform">
+          <img src="../assets/platforms/web.svg" alt="" loading="lazy" decoding="async">
+          <span>Web</span>
+        </li>
+      </ul>
+    </header>
 
-  <section class="case-section" aria-labelledby="product-h">
-    <h2 id="product-h">Features I owned</h2>
-    <div class="decision-grid decision-grid--narrative">
-      <article>
-        <p class="decision-label">Profiles</p>
-        <h3>Making one account work across every device</h3>
-        <p>A streaming service needs to feel personal, whether someone is watching on a TV at home or picking up their phone. That meant profiles, preferences, and personalization had to carry across platforms without creating different experiences for different devices.</p>
-        <p>We built profile creation, editing, switching, and per-profile personalization into the core account experience, with behavior adapted to each device class.</p>
-      </article>
-      <article>
-        <p class="decision-label">Downloads</p>
-        <h3>Making downloads behave like streaming</h3>
-        <p>Offline viewing introduced a different set of problems. A downloaded title shouldn’t feel like a separate product—it still needs to preserve watch progress, respect licenses, manage limited device storage, and pick up where streaming left off.</p>
-        <p>The download experience therefore had to account for storage limits, license expiration, download queues, offline playback, and synchronization of viewing progress between downloaded and streamed content.</p>
-      </article>
-      <article>
-        <p class="decision-label">Sign up</p>
-        <h3>Turning sign-up into a working purchase flow</h3>
-        <p>Getting someone from “I want to watch” to “I’m subscribed” required more than a registration form. The experience had to connect plan selection, account creation, payment, identity management, and analytics into one reliable flow.</p>
-        <p>We built the sign-up and checkout experience around Evergent for identity and access management, with Google Analytics supporting funnel analysis and iteration.</p>
-      </article>
-      <article>
-        <p class="decision-label">Legal &amp; data privacy</p>
-        <h3>Meeting legal and privacy requirements without breaking the experience</h3>
-        <p>Privacy and regulatory requirements affected the product directly—not just the legal copy behind it. Consent, preferences, and data handling had to work consistently across the website and consumer applications while meeting FTC, CCPA, and GDPR requirements.</p>
-        <p>We incorporated the required consent and preference experiences into the product across platforms rather than treating compliance as a separate layer.</p>
-      </article>
-    </div>
-  </section>
-  <section class="case-section" aria-labelledby="outcome-h">
-    <h2 id="outcome-h">Outcome</h2>
-    <p>We reached a feature-complete internal alpha across seven ecosystems: Roku, Apple TV, Fire TV, Google TV, iOS, Android, and Web.</p>
-    <p>The build was fully testable end to end, certification ready, and supported payment and playback across thousands of titles.</p>
-  </section>
+    <section class="case-section block" aria-labelledby="problem-h">
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="problem-h">The problem</h2>
+        <div class="prose">
+          <p class="body">We were building one streaming product for seven different platforms, each with its own interaction patterns, technical constraints, and certification requirements. The challenge wasn’t simply getting the same features onto every device. It was making the product feel like one experience while accounting for what each platform could—and couldn’t—do.</p>
+          <p class="body">I focused on the product decisions that had to hold across platforms, while working with engineering to adapt the implementation where platform differences required it.</p>
+        </div>
+      </div>
+    </section>
 
-  <nav class="case-nav" aria-label="More case studies">
-    <a href="workflow-automation.html"><span aria-hidden="true">←</span> Workflow Automation</a>
-    <a href="../index.html#experiments">Personal projects <span aria-hidden="true">→</span></a>
-  </nav>
+    <section class="case-section block" aria-labelledby="product-h">
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="product-h">Features I owned</h2>
+        <div class="prose">
+          <p class="kicker">Profiles</p>
+          <p class="body">Making one account work across every device</p>
+          <p class="body">A streaming service needs to feel personal, whether someone is watching on a TV at home or picking up their phone. That meant profiles, preferences, and personalization had to carry across platforms without creating different experiences for different devices.</p>
+          <p class="body">We built profile creation, editing, switching, and per-profile personalization into the core account experience, with behavior adapted to each device class.</p>
+          <p class="kicker">Downloads</p>
+          <p class="body">Making downloads behave like streaming</p>
+          <p class="body">Offline viewing introduced a different set of problems. A downloaded title shouldn’t feel like a separate product—it still needs to preserve watch progress, respect licenses, manage limited device storage, and pick up where streaming left off.</p>
+          <p class="body">The download experience therefore had to account for storage limits, license expiration, download queues, offline playback, and synchronization of viewing progress between downloaded and streamed content.</p>
+          <p class="kicker">Sign up</p>
+          <p class="body">Turning sign-up into a working purchase flow</p>
+          <p class="body">Getting someone from “I want to watch” to “I’m subscribed” required more than a registration form. The experience had to connect plan selection, account creation, payment, identity management, and analytics into one reliable flow.</p>
+          <p class="body">We built the sign-up and checkout experience around Evergent for identity and access management, with Google Analytics supporting funnel analysis and iteration.</p>
+          <p class="kicker">Legal &amp; data privacy</p>
+          <p class="body">Meeting legal and privacy requirements without breaking the experience</p>
+          <p class="body">Privacy and regulatory requirements affected the product directly—not just the legal copy behind it. Consent, preferences, and data handling had to work consistently across the website and consumer applications while meeting FTC, CCPA, and GDPR requirements.</p>
+          <p class="body">We incorporated the required consent and preference experiences into the product across platforms rather than treating compliance as a separate layer.</p>
+        </div>
+      </div>
+    </section>
 
-</main>
+    <section class="case-section block" aria-labelledby="outcome-h">
+      <div class="grid-2 case-section-grid">
+        <h2 class="h3 case-sticky" id="outcome-h">Outcome</h2>
+        <div class="prose">
+          <p class="body">We reached a feature-complete internal alpha across seven ecosystems: Roku, Apple TV, Fire TV, Google TV, iOS, Android, and Web.</p>
+          <p class="body">The build was fully testable end to end, certification ready, and supported payment and playback across thousands of titles.</p>
+        </div>
+      </div>
+    </section>
 
-<footer class="site-footer">
-  <div class="footer-inner">&copy; 2026 Brian Chun</div>
-</footer>
+    <nav class="pager block grid-2" aria-label="More case studies">
+      <a class="pager-link" href="workflow-automation.html">
+        <span class="kicker">← Previous</span>
+        <span class="pager-title">Automating manual, high-touch steps of the content delivery workflow</span>
+      </a>
+      <a class="pager-link pager-next" href="../index.html">
+        <span class="kicker">Next →</span>
+        <span class="pager-title">Home</span>
+      </a>
+    </nav>
 
-<script src="../js/nav.js?v=20260831r1"></script>
+  </main>
+
+  <footer class="footer-bar block">
+    <span>© 2026 Brian Chun</span>
+    <a href="mailto:bchun93@gmail.com">bchun93@gmail.com</a>
+  </footer>
+</div>
+
+<script src="../js/nav.js?v=20260902a"></script>
 </body>
 </html>
