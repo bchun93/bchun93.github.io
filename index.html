@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=20260901r30">
+<link rel="stylesheet" href="css/site.css?v=20260901r31">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -117,6 +117,23 @@
                 <dd class="metric-label">delta in rejections (guardrail)</dd>
               </div>
             </dl>
+            <figure class="html-embed">
+              <div class="html-embed-frame">
+                <iframe
+                  src="assets/avails-automation.html?v=2"
+                  title="Avails automation"
+                  loading="lazy"></iframe>
+                <button
+                  type="button"
+                  class="architecture-expand"
+                  data-image-dialog="avails-dialog"
+                  aria-haspopup="dialog"
+                  aria-label="Enlarge avails automation">
+                  <span>View full size <span aria-hidden="true">↗</span></span>
+                </button>
+              </div>
+              <figcaption>Avails automation.</figcaption>
+            </figure>
             <a href="case-studies/workflow-automation.html" class="text-link">Read case study <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -182,6 +199,15 @@
       class="architecture-embed"
       data-src="assets/ingestion-delivery-architecture.html"
       title="Ingestion and delivery system architecture"></iframe>
+  </div>
+</dialog>
+
+<dialog class="image-dialog html-embed-dialog" id="avails-dialog" aria-label="Avails automation">
+  <button type="button" class="image-dialog-close" data-close-dialog aria-label="Close enlarged avails automation">&times;</button>
+  <div class="html-embed-frame">
+    <iframe
+      data-src="assets/avails-automation.html?v=2"
+      title="Avails automation"></iframe>
   </div>
 </dialog>
 
