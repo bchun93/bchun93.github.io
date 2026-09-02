@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/shared.css?v=20260831r29">
-<link rel="stylesheet" href="../css/case-study.css?v=20260831r30">
+<link rel="stylesheet" href="../css/case-study.css?v=20260901r38">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -33,7 +33,7 @@
     <a href="../index.html#work" class="back-link">← Selected work</a>
     <p class="case-tag">03 — DTC Streaming</p>
     <h1>Building a cohesive streaming experience across 7 platform ecosystems</h1>
-    <p class="case-lede">Led development of the SVOD app to a feature-complete internal alpha—fully testable end to end, certification ready, with payment and playback across thousands of titles.</p>
+    <p class="case-lede">Led development of the SVOD app from concept to a feature-complete internal alpha, with payment and playback working end to end across thousands of titles.</p>
   </header>
 
   <ul class="platform-grid" aria-label="Device ecosystems">
@@ -48,34 +48,43 @@
 
   <section class="case-section" aria-labelledby="problem-h">
     <h2 id="problem-h">The problem</h2>
-    <p>A coherent streaming product has to hold together across TV, mobile, and web—even when each platform has different constraints, certification paths, and interaction models. The work wasn’t a feature checklist; it was keeping one product coherent while shipping where each ecosystem demands.</p>
+    <p>We were building one streaming product for seven different platforms, each with its own interaction patterns, technical constraints, and certification requirements. The challenge wasn’t simply getting the same features onto every device. It was making the product feel like one experience while accounting for what each platform could—and couldn’t—do.</p>
+    <p>I focused on the product decisions that had to hold across platforms, while working with engineering to adapt the implementation where platform differences required it.</p>
   </section>
 
   <section class="case-section" aria-labelledby="product-h">
-    <h2 id="product-h">Product problems I owned</h2>
-    <div class="decision-grid">
+    <h2 id="product-h">Features I owned</h2>
+    <div class="decision-grid decision-grid--narrative">
       <article>
-        <h3>Profiles</h3>
-        <p>Edit profiles, add profiles, profile switching, and per-profile personalization—consistent across device classes.</p>
+        <p class="decision-label">Profiles</p>
+        <h3>Making one account work across every device</h3>
+        <p>A streaming service needs to feel personal, whether someone is watching on a TV at home or picking up their phone. That meant profiles, preferences, and personalization had to carry across platforms without creating different experiences for different devices.</p>
+        <p>We built profile creation, editing, switching, and per-profile personalization into the core account experience, with behavior adapted to each device class.</p>
       </article>
       <article>
-        <h3>Downloads</h3>
-        <p>Offline download and playback, synced watch progress between downloads and streamed content, storage management, license expiration, and queueing.</p>
+        <p class="decision-label">Downloads</p>
+        <h3>Making downloads behave like streaming</h3>
+        <p>Offline viewing introduced a different set of problems. A downloaded title shouldn’t feel like a separate product—it still needs to preserve watch progress, respect licenses, manage limited device storage, and pick up where streaming left off.</p>
+        <p>The download experience therefore had to account for storage limits, license expiration, download queues, offline playback, and synchronization of viewing progress between downloaded and streamed content.</p>
       </article>
       <article>
-        <h3>Sign up</h3>
-        <p>Plan selection, account creation, checkout, funnel analysis via GA, and Evergent identity &amp; access management integration.</p>
+        <p class="decision-label">Sign up</p>
+        <h3>Turning sign-up into a working purchase flow</h3>
+        <p>Getting someone from “I want to watch” to “I’m subscribed” required more than a registration form. The experience had to connect plan selection, account creation, payment, identity management, and analytics into one reliable flow.</p>
+        <p>We built the sign-up and checkout experience around Evergent for identity and access management, with Google Analytics supporting funnel analysis and iteration.</p>
       </article>
       <article>
-        <h3>Legal &amp; data privacy</h3>
-        <p>Compliance with FTC, CCPA, and GDPR requirements across the website and consumer apps—including consent and preference surfaces.</p>
+        <p class="decision-label">Legal &amp; data privacy</p>
+        <h3>Meeting legal and privacy requirements without breaking the experience</h3>
+        <p>Privacy and regulatory requirements affected the product directly—not just the legal copy behind it. Consent, preferences, and data handling had to work consistently across the website and consumer applications while meeting FTC, CCPA, and GDPR requirements.</p>
+        <p>We incorporated the required consent and preference experiences into the product across platforms rather than treating compliance as a separate layer.</p>
       </article>
     </div>
   </section>
-
   <section class="case-section" aria-labelledby="outcome-h">
     <h2 id="outcome-h">Outcome</h2>
-    <p>Reached a feature-complete internal alpha across seven device ecosystems: Roku, Apple TV, Fire TV, Google TV, iOS, Android, and Web. The build was fully testable end to end, certification ready, and capable of payment and playback across thousands of titles.</p>
+    <p>We reached a feature-complete internal alpha across seven ecosystems: Roku, Apple TV, Fire TV, Google TV, iOS, Android, and Web.</p>
+    <p>The build was fully testable end to end, certification ready, and supported payment and playback across thousands of titles.</p>
   </section>
 
   <nav class="case-nav" aria-label="More case studies">

@@ -33,7 +33,6 @@
     <a href="../index.html#work" class="back-link">← Selected work</a>
     <p class="case-tag">01 — Media Supply Chain</p>
     <h1>Building a content delivery system from 0 → 1</h1>
-    <p class="case-lede">A manifest-driven ingestion, QC, and delivery pipeline for a lean team launching a niche catalog—then extended for Amazon distribution.</p>
   </header>
 
   <dl class="case-metrics">
@@ -113,19 +112,19 @@
     <div class="decision-grid">
       <article>
         <h3>Build vs buy</h3>
-        <p>Hybrid architecture: Brightcove for commodity media capabilities; in-house orchestration for control and flexibility.</p>
+        <p>To accelerate time-to-market without sacrificing reliability, we used Aspera for transfers and Brightcove for video management. Rather than build costly infrastructure for transcoding, DRM, CDN, and content management, we kept validation and orchestration in-house and outsourced processing and delivery to vendors.</p>
       </article>
       <article>
-        <h3>Workflow orchestration</h3>
-        <p>Kept the control plane internal so delivery paths could evolve—from owned endpoints to Amazon—without rewriting the whole stack.</p>
+        <h3>Metadata schema</h3>
+        <p>I defined a ~75-parameter metadata schema as part of the content manifest, creating a common data contract across studios, Content Operations, internal APIs, and third-party distribution. It standardized identifiers, descriptive metadata, avails, technical specifications, and associated artwork, ensuring content could be consistently represented and exchanged across the supply chain.</p>
       </article>
       <article>
-        <h3>Metadata governance</h3>
-        <p>80+ parameter delivery spec as the contract between studios, ops, and systems—reducing ambiguity in inbound packages.</p>
+        <h3>Delivery spec</h3>
+        <p>I defined the technical delivery specification covering video, audio, artwork, timed text, and metadata, giving external studios a standardized set of requirements for delivering content into our supply chain.</p>
       </article>
       <article>
-        <h3>QC and validation</h3>
-        <p>MediaInfo-backed spec QC and iterative validation fixes so packages failed early instead of at partner handoff.</p>
+        <h3>Iterative development</h3>
+        <p>Rather than over-engineer for requirements we didn’t yet understand, I scoped the initial platform around the minimum capabilities needed to operate at launch. We expanded functionality as business and distribution needs became clearer, eventually extending the pipeline for Amazon distribution with spec conformance, automated MEC/MMC generation, and MediaInfo-based QC.</p>
       </article>
     </div>
   </section>
