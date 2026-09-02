@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/shared.css?v=20260831r29">
-<link rel="stylesheet" href="../css/case-study.css?v=20260831r29">
+<link rel="stylesheet" href="../css/case-study.css?v=20260901r34">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -88,6 +88,24 @@
   <section class="case-section" aria-labelledby="built-h">
     <h2 id="built-h">What we built</h2>
     <p>We built a simple content ingestion and delivery workflow that leveraged a vendor’s suite of content transformation and management capabilities while keeping orchestration in-house. Studios dropped media packages in S3 via Aspera, our CMS could validate and ingest packages, and Brightcove serving as the final destination for transcoded renditions and distribution-ready titles.</p>
+    <figure class="architecture-figure">
+      <div class="architecture-frame">
+        <iframe
+          class="architecture-embed"
+          src="../assets/ingestion-delivery-architecture.html"
+          title="Ingestion and delivery system architecture"
+          loading="lazy"></iframe>
+        <button
+          type="button"
+          class="architecture-expand"
+          data-image-dialog="architecture-dialog"
+          aria-haspopup="dialog"
+          aria-label="Enlarge ingestion and delivery system architecture diagram">
+          <span>View full size <span aria-hidden="true">↗</span></span>
+        </button>
+      </div>
+      <figcaption>Ingestion and delivery system architecture.</figcaption>
+    </figure>
   </section>
 
   <section class="case-section" aria-labelledby="decisions-h">
@@ -149,10 +167,20 @@
 
 </main>
 
+<dialog class="image-dialog architecture-dialog" id="architecture-dialog" aria-label="Ingestion and delivery system architecture">
+  <button type="button" class="image-dialog-close" data-close-dialog aria-label="Close enlarged diagram">&times;</button>
+  <div class="architecture-frame">
+    <iframe
+      class="architecture-embed"
+      data-src="../assets/ingestion-delivery-architecture.html"
+      title="Ingestion and delivery system architecture"></iframe>
+  </div>
+</dialog>
+
 <footer class="site-footer">
   <div class="footer-inner">&copy; 2026 Brian Chun</div>
 </footer>
 
-<script src="../js/nav.js?v=20260831r1"></script>
+<script src="../js/nav.js?v=20260901r3"></script>
 </body>
 </html>

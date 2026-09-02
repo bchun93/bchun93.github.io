@@ -4,15 +4,14 @@
 }
 
 .back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  display: block;
+  width: fit-content;
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--ink-faint);
-  margin-bottom: 28px;
+  margin-bottom: 16px;
   transition: color 0.2s;
 }
 
@@ -22,7 +21,7 @@
 }
 
 .case-tag {
-  display: inline-block;
+  display: block;
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 500;
@@ -198,6 +197,110 @@
 }
 
 .case-list li + li { margin-top: 10px; }
+
+.architecture-figure {
+  margin: 28px 0 0;
+}
+
+.architecture-frame {
+  --arch-w: 1600;
+  --arch-h: 1272;
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 1600 / 1272;
+  overflow: hidden;
+  border: 1px solid var(--wire);
+  border-radius: 10px;
+  background: #05080f;
+}
+
+.architecture-embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--arch-w) * 1px);
+  height: calc(var(--arch-h) * 1px);
+  border: 0;
+  transform-origin: top left;
+  transform: scale(calc(100cqw / (var(--arch-w) * 1px)));
+  pointer-events: none;
+  background: #05080f;
+}
+
+.architecture-expand {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.architecture-expand > span {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: rgba(7, 16, 29, 0.88);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.architecture-figure figcaption {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.image-dialog {
+  width: min(96vw, 1600px);
+  max-width: none;
+  max-height: 94vh;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid var(--wire);
+  border-radius: 10px;
+  background: #05080f;
+  box-shadow: 0 24px 72px rgba(20, 24, 32, 0.35);
+}
+
+.image-dialog::backdrop {
+  background: rgba(20, 24, 32, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.architecture-dialog .architecture-frame {
+  border: 0;
+  border-radius: 0;
+}
+
+.architecture-dialog .architecture-embed {
+  pointer-events: auto;
+}
+
+.image-dialog-close {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(7, 16, 29, 0.9);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
 
 .case-quote {
   margin: 0 0 16px;

@@ -23,4 +23,19 @@
       navToggle.focus();
     }
   });
+
+  document.querySelectorAll('[data-image-dialog]').forEach((trigger) => {
+    const dialog = document.getElementById(trigger.dataset.imageDialog);
+    if (!dialog) return;
+
+    trigger.addEventListener('click', () => {
+      const frame = dialog.querySelector('iframe[data-src]');
+      if (frame && !frame.getAttribute('src')) frame.src = frame.dataset.src;
+      dialog.showModal();
+    });
+    dialog.querySelector('[data-close-dialog]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  });
 })();

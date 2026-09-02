@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=20260831r25">
+<link rel="stylesheet" href="css/site.css?v=20260901r30">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -45,7 +45,6 @@
   <section class="section work" id="work" aria-labelledby="work-heading">
     <div class="section-inner">
       <header class="section-head">
-        <p class="section-eyebrow">Selected work</p>
         <h2 id="work-heading">Here are some of the problems I’ve&nbsp;solved</h2>
         <p class="section-sub">Three product areas: Media Supply Chain, Workflow Automation, DTC Streaming Apps.</p>
       </header>
@@ -59,7 +58,7 @@
           </div>
           <div class="project-body">
             <h3 id="project-01-title">Building a content delivery system from 0 → 1</h3>
-            <p>As a new studio &amp; streamer, we needed a way to ingest, process, and distribute a niche catalog. I led a lean team of Solutions Architects and Full-Stack Engineers to create a purpose built content delivery pipeline from 0 to 1, then extended it for third-party distribution.</p>
+            <p>As a new studio and streaming service, Wonder Project needed a way to ingest, process, and distribute a niche catalog of licensed and original content. I led a lean team of Solutions Architects and Full-Stack Engineers to create a purpose built content delivery pipeline from 0 to 1, then extended it for third-party distribution through our Amazon partnership.</p>
             <dl class="metric-row">
               <div class="metric">
                 <dt class="metric-value">1,500 titles <span class="metric-note">(movies and episodes)</span></dt>
@@ -74,6 +73,24 @@
                 <dd class="metric-label">against Amazon SLA</dd>
               </div>
             </dl>
+            <figure class="architecture-figure">
+              <div class="architecture-frame">
+                <iframe
+                  class="architecture-embed"
+                  src="assets/ingestion-delivery-architecture.html"
+                  title="Ingestion and delivery system architecture"
+                  loading="lazy"></iframe>
+                <button
+                  type="button"
+                  class="architecture-expand"
+                  data-image-dialog="architecture-dialog"
+                  aria-haspopup="dialog"
+                  aria-label="Enlarge ingestion and delivery system architecture diagram">
+                  <span>View full size <span aria-hidden="true">↗</span></span>
+                </button>
+              </div>
+              <figcaption>Ingestion and delivery system architecture.</figcaption>
+            </figure>
             <a href="case-studies/media-supply-chain.html" class="text-link">Read case study <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -132,9 +149,7 @@
   <section class="section experiments" id="experiments" aria-labelledby="experiments-heading">
     <div class="section-inner">
       <header class="section-head">
-        <p class="section-eyebrow">Personal projects</p>
-        <h2 id="experiments-heading">Rapid prototyping with AI</h2>
-        <p class="section-sub">Relay is a personal project and an example of how I use AI to create PoCs, test feasibility, and drive stakeholder alignment in half the time it used to take.</p>
+        <h2 class="section-eyebrow" id="experiments-heading">Personal projects</h2>
       </header>
 
       <article class="relay-panel" aria-labelledby="relay-heading">
@@ -160,10 +175,20 @@
 
 </main>
 
+<dialog class="image-dialog architecture-dialog" id="architecture-dialog" aria-label="Ingestion and delivery system architecture">
+  <button type="button" class="image-dialog-close" data-close-dialog aria-label="Close enlarged diagram">&times;</button>
+  <div class="architecture-frame">
+    <iframe
+      class="architecture-embed"
+      data-src="assets/ingestion-delivery-architecture.html"
+      title="Ingestion and delivery system architecture"></iframe>
+  </div>
+</dialog>
+
 <footer class="site-footer">
   <div class="footer-inner">&copy; 2026 Brian Chun</div>
 </footer>
 
-<script src="js/site.js?v=20260831r5"></script>
+<script src="js/site.js?v=20260901r7"></script>
 </body>
 </html>
